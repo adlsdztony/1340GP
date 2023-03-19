@@ -1,5 +1,4 @@
-#include <termio.h>
-#include <stdio.h>
+#include "keyboard.h"
  
 int scanKeyboard()
 {
@@ -21,12 +20,4 @@ int scanKeyboard()
  
 	return in;
  
-}
- 
-//测试函数
-int main(){
- 
-	while(1){
-		printf("%d\n",scanKeyboard());
-	}
 }
