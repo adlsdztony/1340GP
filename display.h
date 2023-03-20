@@ -10,9 +10,6 @@ using namespace std;
 
 #include "object.h"
 
-
-
-
 class Screen
 {
 public:

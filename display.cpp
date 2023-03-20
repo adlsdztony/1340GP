@@ -87,22 +87,3 @@ void Screen::draw(Object obj)
     }
     this->draw(obj.x, obj.y, obj.s);
 }
-
-
-int main()
-{
-    Screen screen(80, 10);
-    screen.clear();
-    vector<string> s = {
-        "<format back=white >hellosss</format> <format front=red >world</format>",
-        "world"
-        };
-
-    Object obj(2, 2, s);
-    
-    
-    screen.draw(obj);
-    screen.refresh();
-    screen.refresh();
-    return 0;
-}

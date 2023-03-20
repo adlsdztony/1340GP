@@ -1,2 +1,4 @@
 *.out
 *.gch
+*.o
+game
