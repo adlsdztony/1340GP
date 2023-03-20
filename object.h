@@ -25,5 +25,6 @@ public:
 class Player: public Object
 {
 public:
-    Player(int x, int y, string s);
+    Player(int x, int y, vector<string> s);
+    Player(int x, int y, vector<string> s, Format format);
 };

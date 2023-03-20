@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+#include <map>
 using namespace std;
 
 #define RESET "\033[0m"
@@ -29,6 +30,10 @@ using namespace std;
 #define BACK_PURPLE "\033[45m"
 #define BACK_CYAN "\033[46m"
 #define BACK_WHITE "\033[47m"
+
+const map<string, string> mod_map = {{"bold", BOLD}, {"underline", UNDERLINE}, {"blink", BLINK}, {"reverse", REVERSE}, {"concealed", CONCEALED}};
+const map<string, string> front_map = {{"black", FRONT_BLACK}, {"red", FRONT_RED}, {"green", FRONT_GREEN}, {"yellow", FRONT_YELLOW}, {"blue", FRONT_BLUE}, {"purple", FRONT_PURPLE}, {"cyan", FRONT_CYAN}, {"white", FRONT_WHITE}};
+const map<string, string> back_map = {{"black", BACK_BLACK}, {"red", BACK_RED}, {"green", BACK_GREEN}, {"yellow", BACK_YELLOW}, {"blue", BACK_BLUE}, {"purple", BACK_PURPLE}, {"cyan", BACK_CYAN}, {"white", BACK_WHITE}};
 
 
 class Format

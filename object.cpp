@@ -68,109 +68,35 @@ void Object::script2format()
             string txt = format.substr(txt_start, txt_end - txt_start);
             this->s[i].insert(start, txt);
 
-            // convert mod to format
-            if (mod == "bold")
+            
+            if (mod_map.find(mod) != mod_map.end())
             {
-                mod = BOLD;
-            }
-            else if (mod == "underline")
-            {
-                mod = UNDERLINE;
-            }
-            else if (mod == "blink")
-            {
-                mod = BLINK;
-            }
-            else if (mod == "reverse")
-            {
-                mod = REVERSE;
-            }
-            else if (mod == "concealed")
-            {
-                mod = CONCEALED;
+                mod = mod_map.at(mod);
             }
             else
             {
                 mod = "";
             }
-            // convert front to format
-            if (front == "black")
+
+            if (front_map.find(front) != front_map.end())
             {
-                front = FRONT_BLACK;
-            }
-            else if (front == "red")
-            {
-                front = FRONT_RED;
-            }
-            else if (front == "green")
-            {
-                front = FRONT_GREEN;
-            }
-            else if (front == "yellow")
-            {
-                front = FRONT_YELLOW;
-            }
-            else if (front == "blue")
-            {
-                front = FRONT_BLUE;
-            }
-            else if (front == "purple")
-            {
-                front = FRONT_PURPLE;
-            }
-            else if (front == "cyan")
-            {
-                front = FRONT_CYAN;
-            }
-            else if (front == "white")
-            {
-                front = FRONT_WHITE;
+                front = front_map.at(front);
             }
             else
             {
                 front = "";
             }
-            // convert back to format
-            if (back == "black")
+
+            if (back_map.find(back) != back_map.end())
             {
-                back = BACK_BLACK;
-            }
-            else if (back == "red")
-            {
-                back = BACK_RED;
-            }
-            else if (back == "green")
-            {
-                back = BACK_GREEN;
-            }
-            else if (back == "yellow")
-            {
-                back = BACK_YELLOW;
-            }
-            else if (back == "blue")
-            {
-                back = BACK_BLUE;
-            }
-            else if (back == "purple")
-            {
-                back = BACK_PURPLE;
-            }
-            else if (back == "cyan")
-            {
-                back = BACK_CYAN;
-            }
-            else if (back == "white")
-            {
-                back = BACK_WHITE;
+                back = back_map.at(back);
             }
             else
             {
                 back = "";
             }
-            
-            // conbine format
-            format = mod + front + back;
 
+            format = mod + front + back;
 
             // add format to formats
             this->formats.push_back(Format(start, i, txt.length(), format));
