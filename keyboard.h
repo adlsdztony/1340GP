@@ -26,5 +26,6 @@ public:
     void loop();
     void listen();
     int read();
+    int wait_for(int key[]);
 };
 

@@ -1,5 +1,7 @@
 #include "display.h"
 #include "keyboard.h"
+#include "object.h"
+#include "window.h"
 #include <unistd.h>
 
 // main loop for game
@@ -13,13 +15,12 @@ int main()
     keyboard.listen();
 
     vector<string> s = {
-        "<format front=red >Hello</format>", 
-        "World!"
-        };
+        "<format back=blue >Hello</format>",
+        "World!"};
 
-    Object obj(2, 2, s);   
+    Object obj(2, 2, s);
 
-    
+    Window win(2, 2, 20, 5, "<format mod=bold >Title</format>", s);
 
     // main loop
     while (true)
@@ -27,10 +28,25 @@ int main()
         // clear display
         screen.clear();
 
-        screen.draw(obj);
+        screen.draw(win);
 
         // update display
         screen.refresh();
-        sleep(1);
+        int keys[] = {KEY_UP, KEY_DOWN, KEY_ENTER};
+        int k = keyboard.wait_for(keys);
+
+        if (k == 'w' | k == 'W' | k == KEY_UP)
+        {
+            win.formats[1].y--;
+        }
+        if (k == 's' | k == 'S' | k == KEY_DOWN)
+        {
+            win.formats[1].y++;
+        }
+        if (k == KEY_ENTER || k == 10 || k == 13)
+        {
+            break;
+        }
+        
     }
 }
