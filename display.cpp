@@ -80,7 +80,10 @@ void Screen::draw(Object obj)
     obj.script2format();
     for (int i = 0; i < obj.formats.size(); i++)
     {
-        this->formats.push_back(obj.formats[i]);
+        Format temp_format = obj.formats[i];
+        temp_format.x += obj.x;
+        temp_format.y += obj.y;
+        this->formats.push_back(temp_format);
     }
     this->draw(obj.x, obj.y, obj.s);
 }
@@ -95,7 +98,7 @@ int main()
         "world"
         };
 
-    Object obj(0, 0, s);
+    Object obj(2, 2, s);
     
     
     screen.draw(obj);
