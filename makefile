@@ -1,7 +1,7 @@
 cc = g++
 prom = game
 deps = *.h
-obj = main.o format.o display.o keyboard.o object.o window.o
+obj = main.o format.o display.o keyboard.o object.o window.o notice.o
 flag = -pthread
 
 $(prom): $(obj)
