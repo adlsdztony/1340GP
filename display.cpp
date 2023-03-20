@@ -22,6 +22,8 @@ void Screen::clear()
             this->buffer[i][j] = ' ';
         }
     }
+
+    this->formats.clear();
 }
 
 void Screen::refresh()

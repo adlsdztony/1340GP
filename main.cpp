@@ -6,19 +6,31 @@
 int main()
 {
     // create display
-    Screen display(80, 10);
+    Screen screen(80, 10);
     // create keyboard
     Keyboard keyboard;
     // listen for keyboard input
     keyboard.listen();
+
+    vector<string> s = {
+        "<format front=red >Hello</format>", 
+        "World!"
+        };
+
+    Object obj(2, 2, s);   
+
+    
+
     // main loop
     while (true)
     {
         // clear display
-        display.clear();
+        screen.clear();
+
+        screen.draw(obj);
 
         // update display
-        display.refresh();
+        screen.refresh();
         sleep(1);
     }
 }
