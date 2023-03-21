@@ -20,9 +20,9 @@ int Notice::select(Keyboard *kb, Screen *screen)
         screen->clear();
         screen->draw(*this);
         screen->refresh();
-        int keys[] = {KEY_UP, KEY_DOWN, KEY_ENTER, 10, 13, 119, 97, 115, 100, 87, 65, 83, 68};
+        vector<int> keys = {KEY_UP, KEY_DOWN, KEY_ENTER, 'w', 'W', 's', 'S', KEY_ESC};
         int k = kb->wait_for(keys);
-        if (k == KEY_UP || k == 'w' || k == 'W' || k == 'a' || k == 'A')
+        if (k == KEY_UP || k == 'w' || k == 'W')
         {
             i--;
             if (i < 0)
@@ -30,7 +30,7 @@ int Notice::select(Keyboard *kb, Screen *screen)
                 i = this->selections.size() - 1;
             }
         }
-        if (k == KEY_DOWN || k == 's' || k == 'S' || k == 'd' || k == 'D')
+        if (k == KEY_DOWN || k == 's' || k == 'S')
         {
             i++;
             if (i > this->selections.size() - 1)
@@ -38,9 +38,13 @@ int Notice::select(Keyboard *kb, Screen *screen)
                 i = 0;
             }
         }
-        if (k == KEY_ENTER || k == 13)
+        if (k == KEY_ENTER)
         {
             return i;
+        }
+        if (k == KEY_ESC)
+        {
+            return -1;
         }
     }
 }

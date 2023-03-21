@@ -1,7 +1,5 @@
 #include "window.h"
 
-#include <iostream>
-
 
 Window::Window(int x, int y, int width, int length, string title, vector<string> content)
 {
@@ -21,7 +19,6 @@ Window::Window(int x, int y, int width, int length, string title, vector<string>
     // add title
     vector<Format> fs = check_format(title, 1);
     int title_start = (width - title.length()) / 2;
-    cout << title.length() << endl;
     for (int i = 0; i < fs.size(); i++)
     {
         fs[i].x += title_start;

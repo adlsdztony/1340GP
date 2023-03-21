@@ -52,14 +52,14 @@ int Keyboard::read()
 	}
 }
 
-int Keyboard::wait_for(int key[])
+int Keyboard::wait_for(vector<int> key)
 {
 	while (true)
 	{
 		int k = read();
 		if (k != 0)
 		{
-			for (int i = 0; i < sizeof(*key); i++)
+			for (int i = 0; i < key.size(); i++)
 			{
 				if (k == key[i])
 				{

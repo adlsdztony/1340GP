@@ -7,7 +7,7 @@ flag = -pthread
 $(prom): $(obj)
 	$(cc) -o $(prom) $(flag) $^
  
-%.o: %.c %.h
+%.o: %.cpp %.h
 	$(cc) -c $< -o $@
  
 clean:

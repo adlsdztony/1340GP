@@ -8,6 +8,7 @@
 // main loop for game
 int main()
 {
+    printf("\033[?25l");
     // create display
     Screen screen(80, 10);
     // create keyboard

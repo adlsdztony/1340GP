@@ -3,6 +3,9 @@
 #include <termio.h>
 #include <stdio.h>
 #include <thread>
+#include <vector>
+
+using namespace std;
 
 #define KEY_UP 65
 #define KEY_DOWN 66
@@ -26,6 +29,6 @@ public:
     void loop();
     void listen();
     int read();
-    int wait_for(int key[]);
+    int wait_for(vector<int> key);
 };
 
