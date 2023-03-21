@@ -18,7 +18,8 @@ int main()
 
     vector<string> s = {
         "Hello",
-        "World!"};
+        "World!"
+        };
 
     Object obj(2, 2, s);
 
@@ -27,4 +28,6 @@ int main()
     // main loop
     int i = win.select(&keyboard, &screen);
     cout << s[i] << endl;
+    keyboard.stop();
+    printf("\033[?25h");
 }

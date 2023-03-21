@@ -12,7 +12,7 @@ public:
     int x;
     int y;
     vector<string> s;
-    int priority;
+    int priority = 0;
     vector<Format> formats;
 
 public:

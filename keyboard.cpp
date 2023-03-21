@@ -70,3 +70,10 @@ int Keyboard::wait_for(vector<int> key)
 	}
 }
 
+void Keyboard::stop()
+{
+	t.~thread();
+	// enable echo
+	stored_settings.c_lflag |= ECHO;
+	tcsetattr(0,TCSANOW,&stored_settings);
+}

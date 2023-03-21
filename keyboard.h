@@ -30,5 +30,6 @@ public:
     void listen();
     int read();
     int wait_for(vector<int> key);
+    void stop();
 };
 
