@@ -1,4 +1,4 @@
-#include "display.h"
+#include "screen.h"
 #include "keyboard.h"
 #include "object.h"
 #include "window.h"
@@ -21,9 +21,13 @@ int main()
         "World!"
         };
 
-    Object obj(2, 2, s);
-
+    Object obj(1, 1, s);
+    // screen.draw(&obj);
+    // screen.refresh();
+    // cin.get();
     Notice win(2, 2, 20, 5, "Title", s);
+    // screen.draw(&win);
+    // screen.refresh();
 
     // main loop
     int i = win.select(&keyboard, &screen);

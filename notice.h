@@ -1,7 +1,7 @@
 #pragma once
 
 #include "window.h"
-#include "display.h"
+#include "screen.h"
 #include "keyboard.h"
 #include <assert.h>
 

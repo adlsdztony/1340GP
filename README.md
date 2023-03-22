@@ -125,4 +125,23 @@ the output will be like this:
 ```
 if user select the first line, the output will be "hello".
 
+## <font color=Blue>class</font> Screen
+```c++
+int width;
+int height;
+
+// create screen
+Screen screen(width, height);
+```
+```c++
+// clear the screen
+screen.clear();
+
+// add object to the screen
+screen.draw(&obj); // notice that obj is a pointer
+
+// refresh(display) the screen
+screen.refresh();
+```
+
 ## Create format with \<format\>

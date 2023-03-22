@@ -1,4 +1,4 @@
-#include "display.h"
+#include "screen.h"
 
 
 Screen::Screen(int width, int height)
@@ -8,7 +8,7 @@ Screen::Screen(int width, int height)
     this->buffer.resize(height);
     for (int i = 0; i < height; i++)
     {
-        this->buffer[i].resize(width*2);
+        this->buffer[i].resize(width, ' ');
     }
     // init format_map with -1
     this->format_map.resize(height);
