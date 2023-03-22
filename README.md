@@ -5,10 +5,13 @@
 // create keyboard
 Keyboard kb;
 
+// listen for keyboard input with blocking
+int key = kb.scanKeyboard();
+
 // listen for keyboard input without blocking
 kb.listen();
 
-// get the last key pressed
+// get the last key pressed, if no key is pressed, return 0
 int key = kb.read();
 
 // block until some keys are pressed
@@ -70,7 +73,7 @@ vector<string> content;
 // create window
 Window window(x, y, width, height, title, content);
 ```
-the output will be like this:
+The output will be like this:
 ```
 +----------------+
 |     title      |
@@ -80,13 +83,13 @@ the output will be like this:
 |                |
 +----------------+
 ```
-you can set space between the title and the content by setting the space variable.
+You can set space between the title and the content by setting the space variable.
 ```c++
 int space = 2;
 // create window
 Window window(x, y, width, height, title, content, space);
 ```
-the output will be like this:
+The output will be like this:
 ```
 +----------------+
 |     title      |
@@ -105,7 +108,7 @@ vector<string> selection = {
 // create notice
 Notice notice(x, y, width, height, title, selection);
 ```
-you can create a window with a selection.
+You can create a window with a selection.
 ```c++
 // pass the current keyboard and screen to the notice
 int i = notice.select(&keyboard, &screen);
@@ -113,7 +116,7 @@ int i = notice.select(&keyboard, &screen);
 string output = selection[i];
 cout << output << endl;
 ```
-the output will be like this:
+The output will be like this:
 ```
 +----------------+
 |     title      |
@@ -123,7 +126,7 @@ the output will be like this:
 |                |
 +----------------+
 ```
-if user select the first line, the output will be "hello".
+If user select the first line, the output will be "hello".
 
 ## <font color=Blue>class</font> Screen
 ```c++
@@ -145,3 +148,12 @@ screen.refresh();
 ```
 
 ## Create format with \<format\>
+You can use \<format\> to format the string.
+```c++
+/// Hello world! with red Hello
+<format front=red >Hello</format> world!
+```
+```
+To format the string, you need to start with <format mod=MOD front=FRONT_COLOR back=BACK_COLOR > and end with </format>. The mod, front_color and back_color are defined in [format.h](format.h).
+```
+Notice: there have to be a space between the format and the string.
