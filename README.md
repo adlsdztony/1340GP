@@ -18,8 +18,9 @@ int key = kb.read();
 vector<int> keys = {KEY_ENTER, KEY_ESC};
 int key = kb.wait_for(keys);
 ```
+Some keys are defined in [keyboard.h](keyboard.h).
 
-## <font color=Blue>class</font> Format
+## class Format
 format can be FRONT_RED etc. or BACK_RED etc. which are defined in [format.h](format.h).
 ```c++
 int x;
@@ -31,7 +32,7 @@ string format;
 Format format(x, y, length, format);
 ```
 Notice: the x and y are relative to the object, not the screen.
-## <font color=Blue>class</font> Object
+## class Object
 If you want to create an object, you need to create a vector of string, and pass it to the constructor.
 
 You can use \<format\> to format the string, see [here](#create-format-with-format).
@@ -45,7 +46,7 @@ vector<string> vector_of_string = {
 // create object
 Object obj(x, y, vector_of_string);
 ```
-Or you can pass a format to the constructor.
+Or you can pass a [Format](#class-format) to the constructor.
 ```c++
 // create vector of string
 vector<string> vector_of_string = {
@@ -61,7 +62,7 @@ Object obj(x, y, vector_of_string, format);
 ```
 Both of them will create an object with the same result.
 
-## <font color=Blue>class</font> Window: public Object
+## class Window: public Object
 ```c++
 int x;
 int y;
@@ -99,7 +100,7 @@ The output will be like this:
 |content[1]      |
 +----------------+
 ```
-## <font color=Blue>class</font> Notice: public Window
+## class Notice: public Window
 ```c++
 vector<string> selection = {
     "Hello"
@@ -113,6 +114,7 @@ You can create a window with a selection.
 // pass the current keyboard and screen to the notice
 int i = notice.select(&keyboard, &screen);
 
+// the return will be the index of the selection
 string output = selection[i];
 cout << output << endl;
 ```
@@ -128,7 +130,7 @@ The output will be like this:
 ```
 If user select the first line, the output will be "hello".
 
-## <font color=Blue>class</font> Screen
+## class Screen
 ```c++
 int width;
 int height;
@@ -148,12 +150,19 @@ screen.refresh();
 ```
 
 ## Create format with \<format\>
-You can use \<format\> to format the string.
+To format the string, you need to start with 
+```
+<format mod=MOD front=FRONT_COLOR back=BACK_COLOR >
+       ^       ^                 ^               ^
+These spaces must be included
+``` 
+and end with
+```
+</format>
+```
+The mod, front_color and back_color are defined in [format.h](format.h).
 ```c++
 /// Hello world! with red Hello
 <format front=red >Hello</format> world!
-```
-```
-To format the string, you need to start with <format mod=MOD front=FRONT_COLOR back=BACK_COLOR > and end with </format>. The mod, front_color and back_color are defined in [format.h](format.h).
 ```
 Notice: there have to be a space between the format and the string.
