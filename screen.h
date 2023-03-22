@@ -24,7 +24,7 @@ public:
     void clear();
     void refresh();
     void draw(int x, int y, char c);
-    void draw(int x, int y, string &s);
-    void draw(int x, int y, vector<string> &s);
+    void draw(int x, int y, const string &s);
+    void draw(int x, int y, const vector<string> &s);
     void draw(Object* obj);
 };

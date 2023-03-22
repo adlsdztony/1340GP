@@ -18,20 +18,20 @@ int main()
 
     vector<string> s = {
         "Hello",
-        "World!"
+        "<format front=red >World!</format>",
         };
 
     Object obj(1, 1, s);
-    // screen.draw(&obj);
-    // screen.refresh();
-    // cin.get();
+    screen.draw(&obj);
+    screen.refresh();
+    cin.get();
     Notice win(2, 2, 20, 5, "Title", s);
-    // screen.draw(&win);
-    // screen.refresh();
+    screen.draw(&win);
+    screen.refresh();
 
     // main loop
-    int i = win.select(&keyboard, &screen);
-    cout << s[i] << endl;
+    // int i = win.select(&keyboard, &screen);
+    // cout << s[i] << endl;
     keyboard.stop();
     printf("\033[?25h");
 }

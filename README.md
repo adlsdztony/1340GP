@@ -154,7 +154,7 @@ To format the string, you need to start with
 ```
 <format mod=MOD front=FRONT_COLOR back=BACK_COLOR >
        ^       ^                 ^               ^
-These spaces must be included
+^These spaces must be included
 ``` 
 and end with
 ```
