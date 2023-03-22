@@ -10,7 +10,7 @@ int main()
 {
     printf("\033[?25l");
     // create display
-    Screen screen(80, 10);
+    Screen screen(40, 10);
     // create keyboard
     Keyboard keyboard;
     // listen for keyboard input

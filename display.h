@@ -17,13 +17,14 @@ public:
     int height;
     vector<string> buffer;
     vector<Format> formats;
+    vector<vector<int>> format_map;
 
 public:
     Screen(int width, int height);
     void clear();
     void refresh();
     void draw(int x, int y, char c);
-    void draw(int x, int y, string s);
-    void draw(int x, int y, vector<string> s);
-    void draw(Object obj);
+    void draw(int x, int y, string &s);
+    void draw(int x, int y, vector<string> &s);
+    void draw(Object* obj);
 };

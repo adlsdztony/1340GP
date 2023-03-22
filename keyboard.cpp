@@ -14,12 +14,45 @@ void Keyboard::scanKeyboard()
     new_settings.c_cc[VTIME] = 0;
     tcgetattr(0,&stored_settings);
     new_settings.c_cc[VMIN] = 1;
-    new_settings.c_lflag &= ~ECHO;
-    stored_settings.c_lflag |= ECHO;
+	new_settings.c_lflag &= ~ECHO;
     tcsetattr(0,TCSANOW,&new_settings);
     in = getchar();
+	if (in == 27)
+    {
+        // Read the next two characters
+        new_settings.c_cc[VMIN] = 0;
+        tcsetattr(0,TCSANOW,&new_settings);
+        char second_char = getchar();
+        tcsetattr(0,TCSANOW,&stored_settings);
+
+        // Check for '[' (ASCII 91) and 'A' (ASCII 65) for UP arrow key
+        if (second_char == 91)
+        {
+			new_settings.c_cc[VMIN] = 0;
+            tcsetattr(0,TCSANOW,&new_settings);
+            char third_char = getchar();
+            tcsetattr(0,TCSANOW,&stored_settings);
+			if (third_char == 65)
+			{
+            	in = KEY_UP;
+			}
+			if (third_char == 66)
+			{
+				in = KEY_DOWN;
+			}
+			if (third_char == 67)
+			{
+				in = KEY_RIGHT;
+			}
+			if (third_char == 68)
+			{
+				in = KEY_LEFT;
+			}
+        }
+    }
     tcsetattr(0,TCSANOW,&stored_settings);
     this->in = in;
+
 }
 
 void Keyboard::loop()
@@ -56,6 +89,7 @@ int Keyboard::wait_for(vector<int> key)
 {
 	while (true)
 	{
+		scanKeyboard();
 		int k = read();
 		if (k != 0)
 		{

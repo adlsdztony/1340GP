@@ -1,12 +1,13 @@
 #include "window.h"
 
 
-Window::Window(int x, int y, int width, int length, string title, vector<string> content)
+Window::Window(int x, int y, int width, int length, string title, vector<string> content, int space)
 {
     this->x = x;
     this->y = y;
     this->title = title;
     this->content = content;
+    this->space = space;
     
     // create a window use - and | to draw a box
     s.push_back(string(width, '-'));
@@ -29,14 +30,13 @@ Window::Window(int x, int y, int width, int length, string title, vector<string>
     // add content
     for (int i = 0; i < content.size(); i++)
     {
-        vector<Format> fs = check_format(content[i], i + 3, 1);
+        vector<Format> fs = check_format(content[i], i + 2 + space, 1);
         for (int j = 0; j < fs.size(); j++)
         {
             formats.push_back(fs[j]);
         }
-        s[i + 3].replace(1, content[i].length(), content[i]);
+        s[i + 2 + space].replace(1, content[i].length(), content[i]);
     }
 
 
 }
-
