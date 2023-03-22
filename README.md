@@ -31,7 +31,7 @@ Notice: the x and y are relative to the object, not the screen.
 ## <font color=Blue>class</font> Object
 If you want to create an object, you need to create a vector of string, and pass it to the constructor.
 
-You can use \<format\> to format the string, see [here](#Create-format-with-\<format\>).
+You can use \<format\> to format the string, see [here](#create-format-with-format).
 ```c++
 // create vector of string with format
 vector<string> vector_of_string = {
@@ -96,4 +96,33 @@ the output will be like this:
 |content[1]      |
 +----------------+
 ```
+## <font color=Blue>class</font> Notice: public Window
+```c++
+vector<string> selection = {
+    "Hello"
+    "World"
+};
+// create notice
+Notice notice(x, y, width, height, title, selection);
+```
+you can create a window with a selection.
+```c++
+// pass the current keyboard and screen to the notice
+int i = notice.select(&keyboard, &screen);
+
+string output = selection[i];
+cout << output << endl;
+```
+the output will be like this:
+```
++----------------+
+|     title      |
+|                |
+|hello           |
+|world           |
+|                |
++----------------+
+```
+if user select the first line, the output will be "hello".
+
 ## Create format with \<format\>
