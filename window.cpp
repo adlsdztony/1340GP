@@ -9,13 +9,14 @@ Window::Window(int x, int y, int width, int length, string title, vector<string>
     this->content = content;
     this->space = space;
     
-    // create a window use - and | to draw a box
-    s.push_back(string(width, '-'));
+    // create a window use +-+ and | to draw a box
+    s.push_back(string(1, '+') + string(width - 2, '-') + string(1, '+'));
+    
     for (int i = 0; i < length; i++)
     {
         s.push_back(string(1, '|') + string(width - 2, ' ') + string(1, '|'));
     }
-    s.push_back(string(width, '-'));
+    s.push_back(string(1, '+') + string(width - 2, '-') + string(1, '+'));
     
     // add title
     vector<Format> fs = check_format(title, 1);
