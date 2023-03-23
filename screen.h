@@ -18,6 +18,7 @@ public:
     vector<string> buffer;
     vector<Format> formats;
     vector<vector<int>> format_map;
+    vector<string> current;
 
 public:
     Screen(int width, int height);
@@ -27,4 +28,7 @@ public:
     void draw(int x, int y, const string &s);
     void draw(int x, int y, const vector<string> &s);
     void draw(Object* obj);
+    void update();
+    void insert_format(vector<string> &temp);
+    void clean();
 };

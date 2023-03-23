@@ -10,7 +10,7 @@ Screen::Screen(int width, int height)
     {
         this->buffer[i].resize(width, ' ');
     }
-    // init format_map with -1
+    this->current = this->buffer;
     this->format_map.resize(height);
     for (int i = 0; i < height; i++)
     {
@@ -44,11 +44,12 @@ void Screen::clear()
     }
 }
 
-void Screen::refresh()
-{
+void Screen::clean(){
     cout << "\x1B[2J\x1B[H";
-    // deep copy buffer to temp
-    vector<string> temp = this->buffer;
+}
+
+void Screen::insert_format(vector<string> &temp){
+    temp = this->buffer;
 
     // draw formats according to format_map consider overlap from right to left
     for (int i = 0; i < this->height; i++)
@@ -71,13 +72,24 @@ void Screen::refresh()
             }
         }
     }
+}
 
+void Screen::refresh()
+{
+    // cout << "\x1B[2J\x1B[H";
+    vector<string> temp;
+    this->insert_format(temp);
+
+    // this->current = temp;
+
+    // update line by line
     for (int i = 0; i < this->height; i++)
     {
+        printf("\033[%d;1H", i + 1);
         printf("%s", temp[i].c_str());
-        cout << endl;
     }
-
+    cout << endl;
+    
     printf("\033[?25l");
 }
 
@@ -124,4 +136,21 @@ void Screen::draw(Object* obj)
         }
     }
     this->draw(obj->x, obj->y, obj->s);
+}
+
+
+// only update the changed line of the screen
+// TODO
+void Screen::update()
+{
+    for (int i = 0; i < this->height; i++)
+    {
+        if (this->buffer[i] != this->current[i])
+        {
+            printf("\033[%d;0H", i);
+            printf("%s", this->buffer[i].c_str());
+        }
+    }
+    this->current = this->buffer;
+    
 }
