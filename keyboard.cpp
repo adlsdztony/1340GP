@@ -89,7 +89,8 @@ int Keyboard::wait_for(vector<int> key)
 {
 	while (true)
 	{
-		scanKeyboard();
+		// TODO
+		// scanKeyboard();
 		int k = read();
 		if (k != 0)
 		{
