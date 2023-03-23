@@ -5,6 +5,7 @@ Object::Object(int x, int y, vector<string> s)
     this->x = x;
     this->y = y;
     this->s = s;
+    this->script2format();
     this->priority = 0;
 }
 
@@ -13,6 +14,7 @@ Object::Object(int x, int y, vector<string> s, Format format)
     this->x = x;
     this->y = y;
     this->s = s;
+    this->script2format();
     this->priority = 0;
     this->formats.push_back(format);
 }
@@ -110,7 +112,7 @@ void Object::script2format()
     // find <format mod={} front={} back={} > and </format> in s and remove them and add to formats
     for (int i = 0; i < this->s.size(); i++)
     {
-        vector<Format> fs = check_format(this->s[i], i);
+        vector<Format> fs = check_format(this->s[i], i, 0);
         for (int j = 0; j < fs.size(); j++)
         {
             this->formats.push_back(fs[j]);

@@ -7,7 +7,7 @@
 #include <algorithm>
 using namespace std;
 
-
+#include "map.h"
 #include "object.h"
 
 class Screen
@@ -21,6 +21,7 @@ public:
     vector<string> current;
 
 public:
+    Screen(){}; // default constructor
     Screen(int width, int height);
     void clear();
     void refresh();
@@ -28,6 +29,8 @@ public:
     void draw(int x, int y, const string &s);
     void draw(int x, int y, const vector<string> &s);
     void draw(Object* obj);
+    void draw(vector<Object>* objs);
+    void draw_map(Map* map);
     void update();
     void insert_format(vector<string> &temp);
     void clean();

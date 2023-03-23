@@ -112,7 +112,7 @@ void Screen::draw(int x, int y, const vector<string> &s)
 
 void Screen::draw(Object* obj)
 {
-    obj->script2format();
+    // obj->script2format();
     // set format_map to -1 for the area that will be covered by obj
     for (int i = 0; i < obj->s.size(); i++)
     {
@@ -138,6 +138,20 @@ void Screen::draw(Object* obj)
     this->draw(obj->x, obj->y, obj->s);
 }
 
+void Screen::draw(vector<Object>* objs)
+{
+    for (int i = 0; i < objs->size(); i++)
+    {
+        this->draw(&objs[i]);
+    }
+}
+
+void Screen::draw_map(Map* map)
+{
+    this->buffer = map->s;
+    
+}
+
 
 // only update the changed line of the screen
 // TODO
@@ -154,3 +168,4 @@ void Screen::update()
     this->current = this->buffer;
     
 }
+

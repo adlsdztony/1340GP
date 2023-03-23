@@ -1,0 +1,53 @@
+#include "player.h"
+
+
+Player::Player(int x, int y, vector<string> s) {
+    this->x = x;
+    this->y = y;
+    this->s = s;
+    this->script2format();
+    this->length = s[0].length();
+    this->width = s.size();
+}
+
+int Player::move(int dx, int dy, Map &map){
+
+    if (this->y + dy < 0 ) {
+        return 1;
+    }
+    if (this->x + dx < 0 ) {
+        return 2;
+    }
+    if (this->y + dy + this->width > map.height) {
+        return 3;
+    }
+    if (this->x + dx + this->length > map.width) {
+        return 4;
+    }
+
+    // chack area to move to are valid
+    for (int i = 0; i < this->width; i++) {
+        for (int j = 0; j < this->length; j++) {
+            if (map.valid_map[this->y + dy + i][this->x + dx + j] == '0') {
+                return -1;
+            }
+        }
+    }
+    
+    this->x += dx;
+    this->y += dy;
+    return 0;
+}
+
+void Player::jump(int x, int y, Map &map) {
+    // chack area to move to are valid
+    for (int i = 0; i < this->width; i++) {
+        for (int j = 0; j < this->length; j++) {
+            if (map.valid_map[y + i][x + j] == '0') {
+                return;
+            }
+        }
+    }
+    this->x = x;
+    this->y = y;
+}

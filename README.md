@@ -1,5 +1,5 @@
 # For developers
-## <font color=Blue>class</font> Keyboard
+## class Keyboard
 
 ```c++
 // create keyboard

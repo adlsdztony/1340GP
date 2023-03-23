@@ -13,6 +13,7 @@ public:
     int space = 1;
 
 public:
+    Notice(){}; // default constructor
     Notice(int x, int y, int w, int h, string title, vector<string> selections, int space = 1);
 
     int select(Keyboard *kb, Screen *screen);

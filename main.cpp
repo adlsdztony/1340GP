@@ -3,36 +3,36 @@
 #include "object.h"
 #include "window.h"
 #include "notice.h"
+#include "game.h"
 #include <unistd.h>
 
 // main loop for game
 int main()
 {
     printf("\033[?25l");
-    // create display
-    Screen screen(40, 10);
-    // create keyboard
-    Keyboard keyboard;
-    // listen for keyboard input
-    keyboard.listen();
 
-    vector<string> s = {
-        "Hello",
-        "World!",
+    vector<string> map = {
+        "``````````````````````",
+        "``````````````````````",
+        "###````#####`#########",
+        "####```````````````###",
         };
+    
+    vector<string> player = {
+        "@",
+        "@",
+    };
 
-    Object obj(1, 1, s);
-    // screen.draw(&obj);
-    // screen.refresh();
-    // cin.get();
-    Notice win(2, 2, 20, 5, "Title", s);
-    // screen.draw(&win);
-    // screen.refresh();
+    Game game(map);
 
-    // main loop
-    screen.clean();
-    int i = win.select(&keyboard, &screen);
-    cout << s[i] << endl;
-    keyboard.stop();
+    game.player = Player(0, 0, player);
+
+    // print game.valid_map
+
+    game.main_loop();
+    // game.main_loop();
+
+
+
     printf("\033[?25h");
 }

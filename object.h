@@ -12,7 +12,7 @@ public:
     int x;
     int y;
     vector<string> s;
-    int priority = 0;
+    int priority = 1;
     vector<Format> formats;
 
 public:
@@ -23,10 +23,3 @@ public:
 }; 
 
 vector<Format> check_format(string &s, int i, int j = 0);
-
-class Player: public Object
-{
-public:
-    Player(int x, int y, vector<string> s);
-    Player(int x, int y, vector<string> s, Format format);
-};
