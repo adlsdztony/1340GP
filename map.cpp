@@ -30,3 +30,15 @@ Map::Map(vector<string> map){
     }
     this->s = map;
 }
+
+void Map::add_interact(int x, int y, char c) {
+    this->valid_map[y][x] = c;
+}
+
+void Map::add_interact_object(Object &object, char name) {
+    for (int i = 0; i < object.s.size(); i++) {
+        for (int j = 0; j < object.s[0].size(); j++) {
+            this->valid_map[object.y + i][object.x + j] = name;
+        }
+    }
+}

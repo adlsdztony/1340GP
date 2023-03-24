@@ -15,7 +15,8 @@ public:
     Map map;
     Player player;
     Notice notice;
-    vector<Object> objects;
+    vector<Object*> objects;
+    int E = 0;
 
 public:
     Game(vector<string> map);

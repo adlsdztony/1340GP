@@ -8,8 +8,8 @@
 class Player: public Object
 {
 public:
-    int length;
     int width;
+    int height;
 
 public:
     Player(){}; // default constructor

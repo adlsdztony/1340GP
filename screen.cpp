@@ -61,14 +61,18 @@ void Screen::insert_format(vector<string> &temp){
             if (format_index != -1)
             {
                 // get how long the format is
-                while (this->format_map[i][j] == format_index && j >= 0)
+                while (j > 0)
                 {
+                    if (this->format_map[i][j - 1] != format_index)
+                    {
+                        break;
+                    }
                     j--;
                 }
                 // insert RESET to temp_j + 1 in temp[i]
-                temp[i].insert(temp_j + 1, RESET);
+                temp[i].insert(temp_j + 1 , RESET);
                 // insert format to j + 1 in temp[i]
-                temp[i].insert(j+1, this->formats[format_index].format);
+                temp[i].insert(j, this->formats[format_index].format);
             }
         }
     }
@@ -91,6 +95,11 @@ void Screen::refresh()
     cout << endl;
     
     printf("\033[?25l");
+}
+
+void Screen::draw(int x, int y, char c)
+{
+    this->buffer[y][x] = c;
 }
 
 
@@ -138,11 +147,13 @@ void Screen::draw(Object* obj)
     this->draw(obj->x, obj->y, obj->s);
 }
 
-void Screen::draw(vector<Object>* objs)
+void Screen::draw(vector<Object*> objs)
 {
-    for (int i = 0; i < objs->size(); i++)
+    
+    for (int i = 0; i < objs.size(); i++)
     {
-        this->draw(&objs[i]);
+
+        this->draw(objs[i]);
     }
 }
 
