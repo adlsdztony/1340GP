@@ -9,6 +9,19 @@ Game::Game(vector<string> map) {
     this->screen = Screen(this->map.width, this->map.height);
 }
 
+Game::Game(Map map) {
+    this->kb = Keyboard();
+    this->kb.listen();
+    this->map = map;
+    this->screen = Screen(this->map.width, this->map.height);
+}
+
+
+void Game::add_notice_E() {
+    this->screen.draw(0, 0, 'E');
+}
+
+
 void Game::draw() {
     
     this->screen.clear();
@@ -18,7 +31,7 @@ void Game::draw() {
     this->screen.draw(this->objects);
     this->screen.draw(&this->player);
     if (this->E) {
-        this->screen.draw(0, 0, 'E');
+        add_notice_E();
     }
     
 }

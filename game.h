@@ -20,6 +20,7 @@ public:
 
 public:
     Game(vector<string> map);
+    Game(Map map);
     void start();
     void end();
     void main_loop();
@@ -27,4 +28,5 @@ public:
     void update();
     void input();
     void notice_select();
+    void add_notice_E();
 };

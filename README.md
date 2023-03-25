@@ -149,6 +149,56 @@ screen.draw(&obj); // notice that obj is a pointer
 screen.refresh();
 ```
 
+## class Map
+```c++
+// map cab be created with a vector of string (map) and a vector of string (valid_map)
+vector<string> map = {
+    "                      ",
+    "                      ",
+    "                      ",
+    "                      ",
+    "###    ##### #########",
+    "####               ###",
+    };
+
+vector<string> valid_map = {
+    "1111111111111111111111",
+    "1111111111111111111111",
+    "1111111111111111111111",
+    "1111111111111111111111",
+    "0001111000001000000000",
+    "0000111111111111111000",
+    };
+
+Map map(map, valid_map);
+```
+
+```c++
+// map can be created with a vector of string
+vector<string> map = {
+    "``````````````````````",
+    "``````````````````````",
+    "``````````````````````",
+    "``````````````````````",
+    "###````#####`#########",
+    "####```````````````###",
+    };
+// simbol "`" represents a valid position, and store into valid_map then be replaced by " "
+
+// create map
+Map map(map);
+```
+This will create a map with the same result as the first one.
+### To add interactive object to the map
+```c++
+// create object
+Object obj(x, y, vector_of_string);
+char name = 'a';
+map.add_interact_object(&obj, name);
+```
+The name will be used to identify the object and add function to the object.
+
+
 ## Create format with \<format\>
 To format the string, you need to start with 
 ```
