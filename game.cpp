@@ -18,7 +18,8 @@ Game::Game(Map map) {
 
 
 void Game::add_notice_E() {
-    this->screen.draw(0, 0, 'E');
+    Object E = Object(0, 0, vector<string>(1, "E"));
+    this->screen.draw(&E);
 }
 
 
@@ -27,7 +28,7 @@ void Game::draw() {
     this->screen.clear();
 
 
-    this->screen.draw(0, 0, this->map.s);
+    this->screen.draw(&this->map);
     this->screen.draw(this->objects);
     this->screen.draw(&this->player);
     if (this->E) {

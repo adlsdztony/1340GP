@@ -12,8 +12,6 @@ public:
     vector<string> valid_map;
     int width;
     int height;
-    int x = 0;
-    int y = 0;
     int priority = 0;
     // vector<string> s;
 

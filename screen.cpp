@@ -123,6 +123,7 @@ void Screen::draw(Object* obj)
 {
     // obj->script2format();
     // set format_map to -1 for the area that will be covered by obj
+    
     for (int i = 0; i < obj->s.size(); i++)
     {
         for (int j = 0; j < obj->s[i].length(); j++)
