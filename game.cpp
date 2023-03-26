@@ -55,6 +55,9 @@ void Game::main_loop() {
         vector<int> keys = {KEY_UP, KEY_DOWN, KEY_LEFT, KEY_RIGHT, KEY_ENTER, KEY_ESC, 'w', 'W', 's', 'S', 'a', 'A', 'd', 'D'};
         int k = this->kb.wait_for(keys);
         int result;
+        if (k == KEY_ESC) {
+            break;
+        }
         if (k == KEY_UP || k == 'w' || k == 'W') {
             result = this->player.move(0, -1, this->map);
         }
@@ -72,6 +75,5 @@ void Game::main_loop() {
         } else {
             this->E = 0;
         }
-        // cout << result << endl;
     }
 }
