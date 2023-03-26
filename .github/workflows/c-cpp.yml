@@ -22,3 +22,9 @@ jobs:
 #       run: make check
 #     - name: make distcheck
 #       run: make distcheck
+    - name: Upload Artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: game
+        path: game
+        if-no-files-found: error
