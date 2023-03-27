@@ -77,4 +77,9 @@ void Game::main_loop() {
             this->E = 0;
         }
     }
+    this->kb.stop();
+    cin.get();
+    this->kb.stored_settings.c_lflag |= ECHO;
+	tcsetattr(0,TCSANOW,&this->kb.stored_settings);
+    printf("\033[?25h");
 }

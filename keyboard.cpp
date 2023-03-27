@@ -1,63 +1,65 @@
 #include "keyboard.h"
+#include <iostream>
+
+using namespace std;
 
 
 Keyboard::Keyboard()
 {
 	in = 0;
+	this->is_listening = false;
 }
 
 void Keyboard::scanKeyboard()
 {
+	int temp_in;
     tcgetattr(0,&stored_settings);
     new_settings = stored_settings;
     new_settings.c_lflag &= (~ICANON);
-    new_settings.c_cc[VTIME] = 0;
-    tcgetattr(0,&stored_settings);
+	// new_settings.c_lflag |= ISIG;
+    new_settings.c_cc[VTIME] = 1;
     new_settings.c_cc[VMIN] = 1;
 	new_settings.c_lflag &= ~ECHO;
     tcsetattr(0,TCSANOW,&new_settings);
-    in = getchar();
-	if (in == 27)
+    temp_in = getchar();
+	
+	if (temp_in == 27)
     {
         // Read the next two characters
-        new_settings.c_cc[VMIN] = 1;
+        new_settings.c_cc[VMIN] = 0;
         tcsetattr(0,TCSANOW,&new_settings);
         char second_char = getchar();
-        tcsetattr(0,TCSANOW,&stored_settings);
 
         // Check for '[' (ASCII 91) and 'A' (ASCII 65) for UP arrow key
         if (second_char == 91)
         {
-			new_settings.c_cc[VMIN] = 0;
-            tcsetattr(0,TCSANOW,&new_settings);
             char third_char = getchar();
-            tcsetattr(0,TCSANOW,&stored_settings);
 			if (third_char == 65)
 			{
-            	in = KEY_UP;
+            	temp_in = KEY_UP;
 			}
 			if (third_char == 66)
 			{
-				in = KEY_DOWN;
+				temp_in = KEY_DOWN;
 			}
 			if (third_char == 67)
 			{
-				in = KEY_RIGHT;
+				temp_in = KEY_RIGHT;
 			}
 			if (third_char == 68)
 			{
-				in = KEY_LEFT;
+				temp_in = KEY_LEFT;
 			}
         }
     }
-    tcsetattr(0,TCSANOW,&stored_settings);
-    this->in = in;
+    // tcsetattr(0,TCSANOW,&stored_settings);
+    this->in = temp_in;
 
 }
 
 void Keyboard::loop()
 {
-	while (true)
+	while (this->is_listening)
 	{
 		scanKeyboard();
 	}
@@ -65,6 +67,7 @@ void Keyboard::loop()
 
 void Keyboard::listen()
 {
+	this->is_listening = true;
 	// start thread
 	t = std::thread(&Keyboard::loop, this);
 	// detach thread
@@ -107,8 +110,22 @@ int Keyboard::wait_for(vector<int> key)
 
 void Keyboard::stop()
 {
-	t.~thread();
+	this->is_listening = false;
 	// enable echo
 	stored_settings.c_lflag |= ECHO;
 	tcsetattr(0,TCSANOW,&stored_settings);
 }
+
+// int main(){
+// 	Keyboard kb;
+// 	kb.listen();
+// 	while (true)
+// 	{
+// 		int i = kb.read();
+// 		if (i != 0)
+// 		{
+// 			cout << i << endl;
+// 		}
+// 	}
+
+// }
