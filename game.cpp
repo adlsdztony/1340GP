@@ -9,7 +9,7 @@ Game::Game(vector<string> map) {
     this->screen = Screen(this->map.width, this->map.height);
 }
 
-Game::Game(Map map) {
+Game::Game(Map &map) {
     this->kb = Keyboard();
     this->kb.listen();
     this->map = map;

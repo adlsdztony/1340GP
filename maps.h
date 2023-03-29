@@ -18,7 +18,7 @@ vector<string> chuntian_path = {
     "#                                                                  #",
     "#                                                                  #",
     "#                                                                  #",
-    "#                                           O<format front=red back=white mode=bold >CCCCCC</format>O               #",
+    "#                                           O<format front=red >CCCCCC</format>O               #",
     "#                                           O  XZ  O               #",
     "#                                           OOOOOOOO               #",
     "#                                                                  #",
@@ -48,4 +48,4 @@ vector<string> chuntian_path_vaild = {
     "####################################################################",
 };
 
-Map chuntian_path_map(chuntian_path, chuntian_path_valid);
+Map chuntian_path_map(chuntian_path, chuntian_path_vaild);

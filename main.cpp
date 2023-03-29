@@ -5,6 +5,7 @@
 #include "notice.h"
 #include "game.h"
 #include <unistd.h>
+#include "maps.h"
 
 // main loop for game
 int main()
@@ -33,7 +34,9 @@ int main()
 
     Object n(4, 2, npc);
 
-    Game game(map);
+    Game game(chuntian_path);
+
+
     
 
     game.objects.push_back(&n);
@@ -42,13 +45,28 @@ int main()
 
     game.map.add_interact_object(n, 'n');
 
-    game.player = Player(0, 0, player);
+    game.player = Player(1, 1, player);
 
     // cout << game.player.height << endl;
     // cout << game.player.s[0].length() << endl;
 
-    game.main_loop();
     // game.main_loop();
+    game.main_loop();
+
+    // Screen screen(69, 20);
+
+    
+    // screen.draw(&chuntian_path_map);
+
+    // screen.clean();
+
+    // screen.refresh();
+
+    // cout << chuntian_path_map.formats[0].x << endl;
+    // cout << chuntian_path_map.formats[0].y << endl;
+    // cout << chuntian_path_map.formats[0].length << endl;
+    // cout << chuntian_path_map.formats[0].format << endl;
+
 
 
 
