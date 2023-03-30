@@ -34,7 +34,11 @@ int main()
 
     Object n(4, 2, npc);
 
-    Game game(chuntian_path);
+    // init_maps();
+
+    Map chuntian_path_map;
+    init_chuntian_path(chuntian_path_map);
+    Game game(chuntian_path_map);
 
 
     
@@ -50,8 +54,8 @@ int main()
     // cout << game.player.height << endl;
     // cout << game.player.s[0].length() << endl;
 
-    // game.main_loop();
     game.main_loop();
+    // game.main_loop();
 
     // Screen screen(69, 20);
 

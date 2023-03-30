@@ -10,30 +10,40 @@ Map::Map(int width, int height) {
     this->s = vector<string>(width, string(height, ' '));
 }
 
-Map::Map(vector<string> map, vector<string> valid_map) {
+Map::Map(vector<string> &map, vector<string> &valid_map) {
     this->x = 0;
     this->y = 0;
     this->s = map;
-    script2format();
+    this->script2format();
     this->width = this->s[0].size();
     this->height = this->s.size();
     this->valid_map = valid_map;
 }
 
-Map::Map(vector<string> map){
+void Map::init(vector<string> &map, vector<string> &valid_map) {
     this->x = 0;
     this->y = 0;
     this->s = map;
-    script2format();
+    this->script2format();
+    this->width = this->s[0].size();
+    this->height = this->s.size();
+    this->valid_map = valid_map;
+}
+
+Map::Map(vector<string> &map){
+    this->x = 0;
+    this->y = 0;
+    this->s = map;
+    this->script2format();
     this->width = this->s[0].size();
     this->height = this->s.size();
     this->valid_map = vector<string>(height, string(width, '0'));
     // init valid_map
     for (int i = 0; i < height; i++) {
         for (int j = 0; j < width; j++) {
-            if (this->s[i][j] == '`') {
+            if (this->s[i][j] == ' ') {
                 this->valid_map[i][j] = '1';
-                this->s[i][j] = ' ';
+                // this->s[i][j] = ' ';
             }
         }
     }
