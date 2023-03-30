@@ -19,6 +19,8 @@ public:
     Object(){}; // default constructor
     Object(int x, int y, vector<string> s);
     Object(int x, int y, vector<string> s, Format format);
+    Object(int x, int y, string s, Format format);
+    Object(int x, int y, string s);
     void script2format();
 }; 
 

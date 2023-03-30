@@ -89,11 +89,24 @@ int main(){
             "<format front=green >@@</format>",
             // "@",
         };
+    
+    vector<string> pkm(9, "<format front=cyan >@@@@@@@@@@@@@@@@@@@@@@@@</format>");
 
-    Pokemon p1(npc, "Pikachu", 'E', 100, 80, 55, 40, {s1, s2, s3, s4});
-    Pokemon p2(npc, "Bulbasaur", 'G', 100, 80, 49, 49, {s1, s2, s3, s4});
+    Pokemon p1(pkm, "Pikachu", 'E', 100, 80, 55, 40, {s1, s2, s3, s4});
+    Pokemon p2(pkm, "Bulbasaur", 'G', 100, 80, 49, 49, {s1, s2, s3, s4});
 
-    Fight f(&p1, &p2);
+    p1.HP = 50;
+    p2.HP = 30;
+    p1.MP = 30;
+    p2.MP = 30;
+
+    Keyboard k;
+
+    k.listen();
+
+    Fight f(&p1, &p2, &k);
     cout << "Fight start" << endl;
     f.start();
+    k.stop();
+    cin.get();
 }

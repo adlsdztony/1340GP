@@ -3,6 +3,7 @@
 #include "pokemon.h"
 #include "screen.h"
 #include "keyboard.h"
+#include "format.h"
 
 
 class Fight
@@ -12,7 +13,7 @@ public:
     Pokemon *p2;
     Screen screen;
     int turn = 0;
-    Keyboard kb;
+    Keyboard *kb;
     vector<string> fight_map ={
 "*------------------------------Round    --------------------------*",
 "*                                                                 *",
@@ -36,12 +37,12 @@ public:
 };
 
 public:
-    Fight(Pokemon *p1, Pokemon *p2);
+    Fight(Pokemon *p1, Pokemon *p2, Keyboard *kb);
     void start();
     void main_loop();
     void draw();
     void update();
-    void input();
+    int input();
     void notice_select();
 };
 
