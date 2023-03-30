@@ -9,10 +9,9 @@ public:
     string name;
     int damage;
     int mp_cost;
-    char type;
 
 public:
-    Skill(string name, int damage, int mp_cost, char type);
+    Skill(string name, int damage, int mp_cost);
 };
 
 class Pokemon: public Object
@@ -22,6 +21,8 @@ public:
     char type;
     int HP;
     int MP;
+    int max_HP;
+    int max_MP;
     int attack;
     int defense;
     vector<Skill> skills;

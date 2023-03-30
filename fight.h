@@ -12,6 +12,28 @@ public:
     Pokemon *p2;
     Screen screen;
     int turn = 0;
+    Keyboard kb;
+    vector<string> fight_map ={
+"*------------------------------Round    --------------------------*",
+"*                                                                 *",
+"* HP [            ]                              [            ]HP *",                
+"* MP [           ]                                [           ]MP *",
+"*                                                                 *",
+"*                                                                 *",
+"*                                                                 *", 
+"*                                                                 *",
+"*                                                                 *", 
+"*                                                                 *",
+"*                                                                 *",
+"*                                                                 *",
+"*                                                                 *",
+"*                                                                 *",
+"* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *", 
+"*            *            *            *            * Catch(C)    *", 
+"* Damage:    * Damage:    * Damage:    * Damage:    * Withdraw(W) *",
+"* MPcost:    * MPcost:    * MPcost:    * MPcost:    * Bag(B)      *", 
+"*******************************************************************"
+};
 
 public:
     Fight(Pokemon *p1, Pokemon *p2);
@@ -23,24 +45,3 @@ public:
     void notice_select();
 };
 
-vector<string> fight_map ={
-"*------------------------------Round    ---------------------------",
-"*                                                                  ",
-"* HP [            ]100/100                100/100[            ]HP *",                
-"* MP [           ]80/80                      80/80[           ]MP *",
-"* Pokenmon Name  Type                        Type   Pokenmon Name *",
-"*                                                                  ",
-"*                                                                  ",
-"*                                                                  ", 
-"*                                                                  ", 
-"*                                                                  ",
-"*                                                                  ",
-"*                                                                  ",
-"*                                                                  ",
-"*                                                                  ",
-"* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *", 
-"*            *            *            *            * Catch(C)    *", 
-"* Damage:    * Damage:    * Damage:    * Damage:    * Withdraw(W) *",
-"* MPcost:    * MPcost:    * MPcost:    * MPcost:    * Bag(B)      *", 
-"*******************************************************************"
-};
