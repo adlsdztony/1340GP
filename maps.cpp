@@ -52,7 +52,7 @@ void init_chuntian_path(Map &map) {
 
 }
 
-void init_chuntian_twon(Map &map){
+void init_chuntian_town(Map &map){
     vector<string> chuntian_twon = {
         "####################################################################",
         "#                                                                  #",
@@ -105,9 +105,9 @@ void init_chuntian_twon(Map &map){
 void init_Fairy_society_center(Map &map){
     vector<string> Fairy_society_center = {
         "####################################################################",
-        "#                    \\                    /                        #",
-        "#                     \\  Recovery center /                         #",
-        "#                      \\_______  _______/                          #",
+        "#                    \\                    /                       #",
+        "#                     \\  Recovery center /                        #",
+        "#                      \\_______  _______/                         #",
         "#                                             OOOOOOOOOO           #",
         "#                                            C          O          #",
         "#                                            C  DOCTOR  O          #",
