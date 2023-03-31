@@ -7,11 +7,11 @@ class Skill
 {
 public:
     string name;
-    double damage;
+    int damage;
     int mp_cost;
 
 public:
-    Skill(string name, double damage, int mp_cost);
+    Skill(string name, int damage, int mp_cost);
 };
 
 class Pokemon: public Object
