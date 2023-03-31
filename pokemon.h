@@ -1,13 +1,13 @@
 #pragma once
 
-#include "object.h"
+#include "object.h"https://github.com/adlsdztony/1340GP/blob/main/pokemon.h
 
 
 class Skill
 {
 public:
     string name;
-    int damage;
+    double damage;
     int mp_cost;
 
 public:
