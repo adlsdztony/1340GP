@@ -1,6 +1,6 @@
 #pragma once
 
-#include "object.h"https://github.com/adlsdztony/1340GP/blob/main/pokemon.h
+#include "object.h"
 
 
 class Skill
