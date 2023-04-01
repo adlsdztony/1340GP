@@ -108,5 +108,5 @@ int main(){
     cout << "Fight start" << endl;
     f.start();
     k.stop();
-    cin.get();
+    // cin.get();
 }

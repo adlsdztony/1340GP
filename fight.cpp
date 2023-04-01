@@ -42,7 +42,12 @@ void Fight::draw()
     // draw p1's skills
     for (int i = 0; i < this->p1->skills.size(); i++)
     {
-        Object skill = Object(2 + i*13, 15, this->p1->skills[i].name, Format(0, 0, this->p1->skills[i].name.length(), FRONT_CYAN BOLD));
+        string skill_format = FRONT_CYAN BOLD;
+        if (i == this->selected)
+        {
+            skill_format = FRONT_CYAN BOLD REVERSE;
+        }
+        Object skill = Object(2 + i*13, 15, this->p1->skills[i].name, Format(0, 0, this->p1->skills[i].name.length(), skill_format));
         this->screen.draw(&skill);
         Object damage = Object(10 + i*13, 16, to_string(this->p1->skills[i].damage), Format(0, 0, to_string(this->p1->skills[i].damage).length(), FRONT_YELLOW BOLD));
         this->screen.draw(&damage);
@@ -90,6 +95,7 @@ void Fight::draw()
     this->screen.draw(67 - 19 - to_string(this->p2->HP).length() - to_string(this->p2->max_HP).length(), 2, to_string(this->p2->HP) + "/" + to_string(this->p2->max_HP));
     this->screen.draw(67 - 18 - to_string(this->p2->MP).length() - to_string(this->p2->max_MP).length(), 3, to_string(this->p2->MP) + "/" + to_string(this->p2->max_MP));
 
+
     // show screen
     this->screen.refresh();
 }
@@ -101,7 +107,7 @@ void Fight::update()
 
 int Fight::input()
 {
-    return this->kb->wait_for({KEY_LEFT, KEY_RIGHT, KEY_ENTER, 'c', 'w', 'b'});
+    return this->kb->wait_for({KEY_LEFT, KEY_RIGHT, KEY_ENTER, 'c', 'w', 'b', 'a', 'd'});
 }
 
 void Fight::main_loop()
@@ -113,7 +119,25 @@ void Fight::main_loop()
         input = this->input();
         if (input == 'c'){
             break;
-        };
+        }
+        else if (input == KEY_LEFT || input == 'a'){
+            selected = (selected + 3) % 4;
+        }
+        else if (input == KEY_RIGHT || input == 'd'){
+            selected = (selected + 1) % 4;
+        }
+        else if (input == 'w'){
+
+        }
+        else if (input == 'b'){
+
+        }
+        else if (input == 'c'){
+
+        }
+        else if (input == KEY_ENTER){
+            
+        }
         this->update();
     }
 }

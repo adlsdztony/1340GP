@@ -14,6 +14,7 @@ public:
     Screen screen;
     int turn = 0;
     Keyboard *kb;
+    int selected = 0;
     vector<string> fight_map ={
 "*------------------------------Round    --------------------------*",
 "*                                                                 *",
