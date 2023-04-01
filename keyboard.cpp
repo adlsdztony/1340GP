@@ -17,7 +17,7 @@ void Keyboard::scanKeyboard()
     new_settings = stored_settings;
     new_settings.c_lflag &= (~ICANON);
 	// new_settings.c_lflag |= ISIG;
-    new_settings.c_cc[VTIME] = 1;
+    new_settings.c_cc[VTIME] = 0;
     new_settings.c_cc[VMIN] = 1;
 	new_settings.c_lflag &= ~ECHO;
     tcsetattr(0,TCSANOW,&new_settings);
@@ -26,13 +26,15 @@ void Keyboard::scanKeyboard()
 	if (temp_in == 27)
     {
         // Read the next two characters
-        new_settings.c_cc[VMIN] = 0;
+        new_settings.c_cc[VMIN] = 1;
         tcsetattr(0,TCSANOW,&new_settings);
         char second_char = getchar();
 
         // Check for '[' (ASCII 91) and 'A' (ASCII 65) for UP arrow key
         if (second_char == 91)
         {
+			new_settings.c_cc[VMIN] = 0;
+        	tcsetattr(0,TCSANOW,&new_settings);
             char third_char = getchar();
 			if (third_char == 65)
 			{
