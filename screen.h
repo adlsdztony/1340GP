@@ -35,6 +35,8 @@ public:
     void draw(Object* obj);
     void draw(vector<Object*> objs);
     void draw_map(Map* map);
+    void draw_letter(int x, int y, char c);
+    void draw_letters(int x, int y, string &lts);
     void update();
     void insert_format(vector<string> &temp);
     void clean();

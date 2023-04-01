@@ -392,6 +392,20 @@ void Screen::draw_map(Map* map)
     
 }
 
+void Screen::draw_letter(int x, int y, char c)
+{
+    this->draw(x, y, letters[c]);
+}
+
+void Screen::draw_letters(int x, int y, string &s)
+{
+    int letter_width = 0;
+    for (int i = 0; i < s.length(); i++)
+    {
+        this->draw_letter(x + letter_width, y, s[i]);
+        letter_width += letters[s[i]][0].length() + 1;
+    }
+}
 
 // only update the changed line of the screen
 // TODO
