@@ -161,7 +161,7 @@ vector<string> letter_t = {
     "   ██║   ",
     "   ╚═╝   "};
 
-    vector<string> letter_u = {
+vector<string> letter_u = {
     "██╗  ██╗",
     "██║  ██║",
     "██║  ██║",
@@ -219,17 +219,14 @@ map<char, vector<string>> letters = {
     {'u', letter_u}, {'v', letter_v}, {'w', letter_w}, {'x', letter_x},
     {'y', letter_y}, {'z', letter_z}};
 
-// int main() {
-//   string input;
-//   cin >> input;
-//   for (int i = 0; i < 6; i++) {
-//     for (char c : input) {
-//       cout << letters[c][i] << " ";
-//     }
-//     cout << endl;
-//   }
-//   return 0;
-// }
+
+void get_terminal_size(int& width, int& height) {
+    struct winsize w;
+    ioctl(fileno(stdout), TIOCGWINSZ, &w);
+    width = (int)(w.ws_col);
+    height = (int)(w.ws_row);
+}
+
 
 
 Screen::Screen(int width, int height)

@@ -5,6 +5,10 @@
 #include <string>
 #include <vector>
 #include <algorithm>
+#include <cstdio>
+#include <sys/ioctl.h>
+
+// #include <map>
 using namespace std;
 
 #include "map.h"
