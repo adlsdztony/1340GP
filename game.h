@@ -25,7 +25,7 @@ public:
     void end();
     void main_loop();
     void draw();
-    void update();
+    void update(int e);
     void input();
     void notice_select();
     void add_notice_E();
