@@ -10,18 +10,6 @@ Fight::Fight(Pokemon *p1, Pokemon *p2, Keyboard *kb)
     this->p2 = p2;
     this->screen = Screen(fight_map[0].size(), fight_map.size());
     this->kb = kb;
-
-    // add format to screen
-    // //TITLE
-    // this->screen.formats.push_back(Format(31, 0, 5, BOLD));
-
-    // //HP
-    // this->screen.formats.push_back(Format(6, 2, 12, FRONT_RED));
-    // this->screen.formats.push_back(Format(50, 2, 12, FRONT_RED));
-
-    // //MP
-    // this->screen.formats.push_back(Format(6, 3, 11, FRONT_BLUE));
-    // this->screen.formats.push_back(Format(51, 3, 11, FRONT_BLUE));
 }
 
 void Fight::start()

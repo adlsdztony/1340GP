@@ -154,7 +154,7 @@ vector<string> letter_s = {
     "╚══════╝"};
 
 vector<string> letter_t = {
-    "███████╗ ",
+    "████████╗",
     "╚══██╔══╝",
     "   ██║   ",
     "   ██║   ",

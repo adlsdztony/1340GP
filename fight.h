@@ -5,17 +5,7 @@
 #include "keyboard.h"
 #include "format.h"
 
-
-class Fight
-{
-public:
-    Pokemon *p1;
-    Pokemon *p2;
-    Screen screen;
-    int turn = 0;
-    Keyboard *kb;
-    int selected = 0;
-    vector<string> fight_map ={
+const vector<string> fight_map = {
 "*------------------------------Round    --------------------------*",
 "*                                                                 *",
 "* HP [            ]                              [            ]HP *",                
@@ -36,6 +26,19 @@ public:
 "* MPcost:    * MPcost:    * MPcost:    * MPcost:    * Bag(B)      *", 
 "*******************************************************************"
 };
+
+
+
+class Fight
+{
+public:
+    Pokemon *p1;
+    Pokemon *p2;
+    Screen screen;
+    int turn = 0;
+    Keyboard *kb;
+    int selected = 0;
+;
 
 public:
     Fight(Pokemon *p1, Pokemon *p2, Keyboard *kb);
