@@ -39,7 +39,7 @@ void Game::draw() {
 }
 
 void Game::update(int e) {
-    // @todo: deal with the event
+    // @todo deal with the event
 }
 
 

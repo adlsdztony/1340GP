@@ -14,7 +14,7 @@ public:
     int height;
     int priority = 0;
     // vector<string> s;
-    // @todo: add interact
+    // @todo add interact
 
 public:
     Map(){}; // default constructor

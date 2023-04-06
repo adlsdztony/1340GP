@@ -17,4 +17,4 @@ void init_market(Map &map);
 void init_qiushui_town(Map &map);
 void init_riverside(Map &map);
 
-// @todo: store maps in hash table
+// @todo store maps in hash table

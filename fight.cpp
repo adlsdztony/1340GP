@@ -90,7 +90,7 @@ void Fight::draw()
 
 void Fight::update()
 {
-    // @todo: Fight::update
+    // @todo Fight::update
 }
 
 int Fight::input()
@@ -100,18 +100,18 @@ int Fight::input()
 
 bool Fight::withdraw()
 {
-    // @todo: withdraw
+    // @todo withdraw
     return false;
 }
 
 void Fight::bag()
 {
-    // @todo: bag
+    // @todo bag
 }
 
 void Fight::catch_pokemon()
 {
-    // @todo: catch pokemon
+    // @todo catch pokemon
 }
 
 void Fight::main_loop()
