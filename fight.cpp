@@ -90,12 +90,28 @@ void Fight::draw()
 
 void Fight::update()
 {
-    
+    // @todo: Fight::update
 }
 
 int Fight::input()
 {
     return this->kb->wait_for({KEY_LEFT, KEY_RIGHT, KEY_ENTER, 'c', 'w', 'b', 'a', 'd'});
+}
+
+bool Fight::withdraw()
+{
+    // @todo: withdraw
+    return false;
+}
+
+void Fight::bag()
+{
+    // @todo: bag
+}
+
+void Fight::catch_pokemon()
+{
+    // @todo: catch pokemon
 }
 
 void Fight::main_loop()

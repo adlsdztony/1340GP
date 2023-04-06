@@ -407,8 +407,8 @@ void Screen::draw_letters(int x, int y, string &s)
     }
 }
 
-// only update the changed line of the screen
-// TODO
+
+// @todo: only update the changed part of the line
 void Screen::update()
 {
     for (int i = 0; i < this->height; i++)

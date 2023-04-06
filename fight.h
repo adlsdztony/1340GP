@@ -48,5 +48,8 @@ public:
     void update();
     int input();
     void notice_select();
+    bool withdraw();
+    void catch_pokemon();
+    void bag();
 };
 

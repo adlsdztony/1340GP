@@ -39,14 +39,8 @@ void Game::draw() {
 }
 
 void Game::update(int e) {
-    
+    // @todo: deal with the event
 }
-
-void Game::input() {
-    
-
-}
-
 
 
 void Game::main_loop() {
