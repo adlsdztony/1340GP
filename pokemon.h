@@ -3,30 +3,33 @@
 #include "object.h"
 
 
-class Skill
-{
-public:
-    string name;
-    int damage;
-    int mp_cost;
 
-public:
-    Skill(string name, int damage, int mp_cost);
+
+class Skills{
+    public:
+        string name;
+        
+        double mp_cost,Damage,Healing,Inattack,Indefence,Deattack,Dedefense,self_damage;
+
+    public:
+        Skills(){}; // default constructor
+        Skills(string name, double mp_cost,double Damage,double Healing,double Inattack,double Indefence,double Deattack,double Dedefense,double self_damage);
+    
+    
+
 };
 
 class Pokemon: public Object
 {
 public:
     string name;
-    char type;
+    string type;
     int HP;
     int MP;
-    int max_HP;
-    int max_MP;
     int attack;
     int defense;
-    vector<Skill> skills;
+    vector<Skills> skill;
 public:
     Pokemon(){}; // default constructor
-    Pokemon(vector<string> &s, string name, char type, int HP, int MP, int attack, int defense, vector<Skill> skills);
+    Pokemon(vector<string> &s, string name, char type, int HP, int MP, int attack, int defense, vector<Skills> skills);
 };
