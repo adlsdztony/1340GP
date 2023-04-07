@@ -10,7 +10,7 @@ Map::Map(int width, int height) {
     this->s = vector<string>(width, string(height, ' '));
 }
 
-Map::Map(vector<string> &map, vector<string> &valid_map) {
+Map::Map(const vector<string> &map, const vector<string> &valid_map) {
     this->x = 0;
     this->y = 0;
     this->s = map;

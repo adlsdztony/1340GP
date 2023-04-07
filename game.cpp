@@ -9,7 +9,7 @@ Game::Game(vector<string> map) {
     this->screen = Screen(this->map.width, this->map.height);
 }
 
-Game::Game(Map &map) {
+Game::Game(const Map &map) {
     this->kb = Keyboard();
     this->kb.listen();
     this->map = map;
@@ -39,7 +39,7 @@ void Game::draw() {
 }
 
 void Game::update(int e) {
-    // @todo deal with the event
+    // TODO deal with the event
 }
 
 

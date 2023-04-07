@@ -94,7 +94,7 @@ int Keyboard::wait_for(vector<int> key)
 {
 	while (true)
 	{
-		// @todo make this more efficient
+		// TODO make this more efficient
 		// scanKeyboard();
 		int k = read();
 		if (k != 0)
