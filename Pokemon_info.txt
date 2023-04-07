@@ -1,8 +1,22 @@
-name type HP MP max_HP max_MP attack defense skills
-water1 water 40 15 40 15 20 20 1,2,3,4
-water2 water 70 30 70 30 35 30 1,2,3,4
-water3 water 100 45 100 45 35 50 45 1,2,3,4
-water4 water 150 60 150 60 35 70 50 1,2,3,4
+Charmeleon fire 60 20 15 10 FireBall Volcanal Beat Sleep
+Pidgeot fire 50 25 15 10 FireArrow FireBlast Beat SmashKick
+Ninetales fire 100 40 30 20 FireBall Combustion Beat Volcanal
+Rapidash fire 200 60 50 30 Headbang Explosive Beat FireBlast
+Arcanine fire 300 100 80 50 SolidShell Combustion Beat Explosive
+Wartortle water 60 20 15 10 WaterGun GiantWave Beat Sleep
+Poliwrath water 50 25 15 10 WaterGun Headbang Beat GiantWave
+Blastoise water 100 40 30 20 WaterGun RainSplash Beat WaterFall
+Vaporeon water 200 60 50 30 WaterArrow RainSplash Beat HydrTackle
+Gyarados water 300 100 80 50 WaterFall HydrTackle Beat RainSplash
+Weepinbell grass 60 20 15 10 Synthesis RazorLeaf Beat Absorb
+Gloom grass 50 25 15 10 Synthesis Powder Beat SmashKick
+Grovyle grass 100 40 30 20 PsyshotRazorLeaf Beat Powder
+Venusaur grass 200 60 50 30 Earthquake Absorb Beat RazorLeaf
+Sceptile grass 300 100 80 50 Earthquake Powder Beat ArmorPress
+Sentret normal 60 20 15 10 Headbang Beat Sleep ArmorPress
+Furret normal 120 45 30 15 Headbang Beat SmashKick ArmorPress
 -1
+
+
 
 
