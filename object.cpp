@@ -19,6 +19,25 @@ Object::Object(int x, int y, vector<string> s, Format format)
     this->formats.push_back(format);
 }
 
+Object::Object(int x, int y, string s, Format format)
+{
+    this->x = x;
+    this->y = y;
+    this->s.push_back(s);
+    this->script2format();
+    this->priority = 0;
+    this->formats.push_back(format);
+}
+
+Object::Object(int x, int y, string s)
+{
+    this->x = x;
+    this->y = y;
+    this->s.push_back(s);
+    this->script2format();
+    this->priority = 0;
+}
+
 // take a string get format and remove it from string
 vector<Format> check_format(string &s, int i, int j){
     int start = 0;

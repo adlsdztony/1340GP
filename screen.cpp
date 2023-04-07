@@ -1,6 +1,234 @@
 #include "screen.h"
 
 
+vector<string> letter_a = {
+    "█████╗  ",
+    "██╔══██╗",
+    "███████║",
+    "██╔══██║",
+    "██║  ██║",
+    "╚═╝  ╚═╝"};
+
+vector<string> letter_b = {
+    "██████╗ ",
+    "██╔══██╗",
+    "██████╔╝",
+    "██╔══██╗",
+    "██████╔╝",
+    "╚═════╝ "};
+
+vector<string> letter_c = {
+    "███████╗",
+    "██╔════╝",
+    "██║     ",
+    "██║     ",
+    "╚██████╗",
+    " ╚═════╝"};
+
+vector<string> letter_d = {
+    "██████╗ ",
+    "██╔══██╗",
+    "██║  ██║",
+    "██║  ██║",
+    "██████╔╝",
+    "╚═════╝ "};
+
+vector<string> letter_e = {
+    "███████╗",
+    "██╔════╝",
+    "█████╗  ",
+    "██╔══╝  ",
+    "███████╗",
+    "╚══════╝"};
+
+vector<string> letter_f = {
+    "███████╗",
+    "██╔════╝",
+    "█████╗  ",
+    "██╔══╝  ",
+    "██║     ",
+    "╚═╝     "};
+
+vector<string> letter_g = {
+    "███████╗ ",
+    "██╔════╝ ",
+    "██║  ███╗",
+    "██║   ██║",
+    "╚██████╔╝",
+    " ╚═════╝ "};
+
+vector<string> letter_h = {
+    "██╗  ██╗",
+    "██║  ██║",
+    "███████║",
+    "██╔══██║",
+    "██║  ██║",
+    "╚═╝  ╚═╝"};
+
+vector<string> letter_i = {
+    " ██╗ ",
+    " ██║ ",
+    " ██║ ",
+    " ██║ ",
+    " ██║ ",
+    " ╚═╝ "};
+
+vector<string> letter_j = {
+    "     ██╗",
+    "     ██║",
+    "     ██║",
+    "██   ██║",
+    "╚█████╔╝",
+    " ╚════╝ "};
+
+vector<string> letter_k = {
+    "██╗  ██╗",
+    "██║ ██╔╝",
+    "█████╔╝ ",
+    "██╔═██╗ ",
+    "██║  ██╗",
+    "╚═╝  ╚═╝"};
+
+vector<string> letter_l = {
+    "██╗     "
+    "██║     "
+    "██║     "
+    "██║     "
+    "███████╗"
+    "╚══════╝"};
+
+vector<string> letter_m = {
+    "███╗   ███╗",
+    "████╗ ████║",
+    "██╔████╔██║",
+    "██║╚██╔╝██║",
+    "██║ ╚═╝ ██║",
+    "╚═╝     ╚═╝"};
+
+vector<string> letter_n = {
+    "███╗   ██╗",
+    "████╗  ██║",
+    "██╔██╗ ██║",
+    "██║╚██╗██║",
+    "██║ ╚████║",
+    "╚═╝  ╚═══╝"};
+
+vector<string> letter_o = {
+    "█████╗  ",
+    "██╔══██╗",
+    "██║  ██║",
+    "██║  ██║",
+    "╚█████╔╝",
+    " ╚════╝ "};
+vector<string> letter_p = {
+    "██████╗ ",
+    "██╔══██╗",
+    "██████╔╝",
+    "██╔═══╝ ",
+    "██║     ",
+    "╚═╝     "};
+
+vector<string> letter_q = {
+    "██████╗  ",
+    "██╔══██╗ ",
+    "██║  ██║ ",
+    "██║▄▄ ██║",
+    "╚██████╔╝",
+    " ╚══▀▀═╝ "};
+
+vector<string> letter_r = {
+    "██████╗ ",
+    "██╔══██╗",
+    "██████╔╝",
+    "██╔══██╗",
+    "██║  ██║",
+    "╚═╝  ╚═╝"};
+
+
+vector<string> letter_s = {
+    "███████╗",
+    "██╔════╝",
+    "███████╗",
+    "╚════██║",
+    "███████║",
+    "╚══════╝"};
+
+vector<string> letter_t = {
+    "████████╗",
+    "╚══██╔══╝",
+    "   ██║   ",
+    "   ██║   ",
+    "   ██║   ",
+    "   ╚═╝   "};
+
+vector<string> letter_u = {
+    "██╗  ██╗",
+    "██║  ██║",
+    "██║  ██║",
+    "██║  ██║",
+    "╚█████╔╝",
+    " ╚════╝ "};
+
+vector<string> letter_v = {
+    "██╗   ██╗",
+    "██║   ██║",
+    "██║   ██║",
+    "╚██╗ ██╔╝",
+    " ╚████╔╝ ",
+    "  ╚═══╝  "};
+
+vector<string> letter_w = {
+    "██╗    ██╗",
+    "██║    ██║",
+    "██║ █╗ ██║",
+    "██║███╗██║",
+    "╚███╔███╔╝",
+    " ╚══╝╚══╝ "};
+
+vector<string> letter_x = {
+    "██╗  ██╗",
+    "╚██╗██╔╝",
+    " ╚███╔╝ ",
+    " ██╔██╗ ",
+    "██╔╝ ██╗",
+    "╚═╝  ╚═╝"};
+
+vector<string> letter_y = {
+    "██╗   ██╗",
+    "╚██╗ ██╔╝",
+    " ╚████╔╝ ",
+    "  ╚██╔╝  ",
+    "   ██║   ",
+    "   ╚═╝   "};
+
+vector<string> letter_z = {
+    "███████╗",
+    "╚══███╔╝",
+    "  ███╔╝ ",
+    " ███╔╝  ",
+    "███████╗",
+    "╚══════╝"};
+
+
+map<char, vector<string>> letters = {
+    {'a', letter_a}, {'b', letter_b}, {'c', letter_c}, {'d', letter_d},
+    {'e', letter_e}, {'f', letter_f}, {'g', letter_g}, {'h', letter_h},
+    {'i', letter_i}, {'j', letter_j}, {'k', letter_k}, {'l', letter_l},
+    {'m', letter_m}, {'n', letter_n}, {'o', letter_o}, {'p', letter_p},
+    {'q', letter_q}, {'r', letter_r}, {'s', letter_s}, {'t', letter_t},
+    {'u', letter_u}, {'v', letter_v}, {'w', letter_w}, {'x', letter_x},
+    {'y', letter_y}, {'z', letter_z}};
+
+
+void get_terminal_size(int& width, int& height) {
+    struct winsize w;
+    ioctl(fileno(stdout), TIOCGWINSZ, &w);
+    width = (int)(w.ws_col);
+    height = (int)(w.ws_row);
+}
+
+
+
 Screen::Screen(int width, int height)
 {
     this->width = width;
@@ -164,9 +392,23 @@ void Screen::draw_map(Map* map)
     
 }
 
+void Screen::draw_letter(int x, int y, char c)
+{
+    this->draw(x, y, letters[c]);
+}
 
-// only update the changed line of the screen
-// TODO
+void Screen::draw_letters(int x, int y, string &s)
+{
+    int letter_width = 0;
+    for (int i = 0; i < s.length(); i++)
+    {
+        this->draw_letter(x + letter_width, y, s[i]);
+        letter_width += letters[s[i]][0].length() + 1;
+    }
+}
+
+
+// @todo only update the changed part of the line
 void Screen::update()
 {
     for (int i = 0; i < this->height; i++)

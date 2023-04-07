@@ -4,6 +4,7 @@
 #include <map>
 using namespace std;
 
+// define color and format
 #define RESET "\033[0m"
 #define BOLD "\033[1m"
 #define DIM "\033[2m"

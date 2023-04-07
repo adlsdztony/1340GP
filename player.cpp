@@ -28,13 +28,14 @@ int Player::move(int dx, int dy, Map &map){
     // chack area to move to are valid
     for (int i = 0; i < this->height; i++) {
         for (int j = 0; j < this->width; j++) {
-            if (map.valid_map[this->y + dy + i][this->x + dx + j] == '0') {
+            char c = map.valid_map[this->y + dy + i][this->x + dx + j];
+            if (c == '0') {
                 return -1;
             }
-            if (map.valid_map[this->y + dy + i][this->x + dx + j] != '1') {
-                // this->x += dx;
-                // this->y += dy;
-                return map.valid_map[this->y + dy + i][this->x + dx + j];
+            if (c != '1') {
+                this->x += dx;
+                this->y += dy;
+                return c;
             }
         }
     }

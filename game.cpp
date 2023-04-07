@@ -34,30 +34,31 @@ void Game::draw() {
     if (this->E) {
         add_notice_E();
     }
-    
-}
-
-void Game::update() {
     this->screen.refresh();
-}
-
-void Game::input() {
     
-
 }
 
+void Game::update(int e) {
+    // @todo deal with the event
+}
 
 
 void Game::main_loop() {
     this->screen.clean();
     while (true) {
         this->draw();
-        this->update();
-        vector<int> keys = {KEY_UP, KEY_DOWN, KEY_LEFT, KEY_RIGHT, KEY_ENTER, KEY_ESC, 'w', 'W', 's', 'S', 'a', 'A', 'd', 'D'};
+        
+        vector<int> keys = {KEY_UP, KEY_DOWN, KEY_LEFT, KEY_RIGHT, KEY_ENTER, KEY_ESC, 'w', 'W', 's', 'S', 'a', 'A', 'd', 'D', 'e', 'E'};
         int k = this->kb.wait_for(keys);
         int result;
         if (k == KEY_ESC) {
             break;
+        }
+        if ((k == 'e' || k == 'E') && this->E) {
+            if (this->E) {
+                this->update(this->E);
+                this->E = 0;
+            }
         }
         if (k == KEY_UP || k == 'w' || k == 'W') {
             result = this->player.move(0, -1, this->map);
@@ -76,6 +77,7 @@ void Game::main_loop() {
         } else {
             this->E = 0;
         }
+        
     }
     this->kb.stop();
     cin.get();
