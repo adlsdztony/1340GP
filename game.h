@@ -20,7 +20,7 @@ public:
 
 public:
     Game(vector<string> map);
-    Game(Map &map);
+    Game(const Map &map);
     void start();
     void end();
     void main_loop();

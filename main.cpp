@@ -37,9 +37,8 @@ int main()
 
     // init_maps();
 
-    Map chuntian_town_map;
-    init_chuntian_town(chuntian_town_map);
-    Game game(chuntian_town_map);
+
+    Game game(maps_map.at("chuntian_town"));
 
 
     
