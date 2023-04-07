@@ -15,11 +15,13 @@ public:
     int priority = 0;
     // vector<string> s;
     // TODO add interact map
+    map<char, string> interact_map;
+
 
 public:
     Map(){}; // default constructor
     Map(int width, int height);
-    Map(const vector<string> &map, const vector<string> &valid_map);
+    Map(const vector<string> &ma, const vector<string> &valid_map, const map<char, string> &interact_map);
     Map(vector<string> &map);
     void init(vector<string> &map, vector<string> &valid_map);
     void add_interact(int x, int y, char c);

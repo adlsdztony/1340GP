@@ -10,14 +10,15 @@ Map::Map(int width, int height) {
     this->s = vector<string>(width, string(height, ' '));
 }
 
-Map::Map(const vector<string> &map, const vector<string> &valid_map) {
+Map::Map(const vector<string> &ma, const vector<string> &valid_map, const map<char, string> &interact_map) {
     this->x = 0;
     this->y = 0;
-    this->s = map;
+    this->s = ma;
     this->script2format();
     this->width = this->s[0].size();
     this->height = this->s.size();
     this->valid_map = valid_map;
+    this->interact_map = interact_map;
 }
 
 void Map::init(vector<string> &map, vector<string> &valid_map) {
