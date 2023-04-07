@@ -122,7 +122,7 @@ const vector<string> chuntian_town_vaild = {
 
 const map<char, string> chuntian_town_interact = {
     {'M', "market"},
-    {'F', "fairy_society_center"},
+    {'F', "Fairy_society_center 33 18"},
     {'H', "home"},
 };
 

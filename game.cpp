@@ -2,6 +2,7 @@
 
 
 
+
 Game::Game(vector<string> map) {
     this->kb = Keyboard();
     this->kb.listen();
@@ -38,10 +39,37 @@ void Game::draw() {
     
 }
 
+
+std::vector<std::string> split(const std::string& str, char delim) {
+    std::size_t previous = 0;
+    std::size_t current = str.find(delim);
+    std::vector<std::string> elems;
+    while (current != std::string::npos) {
+        if (current > previous) {
+            elems.push_back(str.substr(previous, current - previous));
+        }
+        previous = current + 1;
+        current = str.find(delim, previous);
+    }
+    if (previous != str.size()) {
+        elems.push_back(str.substr(previous));
+    }
+    return elems;
+}
+
 void Game::update(int e) {
     // TODO deal with the event
     if (this->map.interact_map.find(e) != this->map.interact_map.end()) {
-        this->map = maps_map.at(this->map.interact_map.at(e));
+        string code = this->map.interact_map.at(e);
+        // split code
+        vector<string> codes = split(code, ' ');
+        if (maps_map.find(codes[0]) != maps_map.end()) {
+            this->map = Map(maps_map.at(codes[0]));
+            if (codes.size() >= 3) {
+                this->player.x = stoi(codes[1]);
+                this->player.y = stoi(codes[2]);
+            }
+        }
     }
 }
 
