@@ -40,6 +40,9 @@ void Game::draw() {
 
 void Game::update(int e) {
     // TODO deal with the event
+    if (this->map.interact_map.find(e) != this->map.interact_map.end()) {
+        this->map = maps_map.at(this->map.interact_map.at(e));
+    }
 }
 
 

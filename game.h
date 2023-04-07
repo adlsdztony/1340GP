@@ -3,6 +3,7 @@
 #include "screen.h"
 #include "keyboard.h"
 #include "map.h"
+#include "maps.h"
 #include "notice.h"
 #include "player.h"
 
