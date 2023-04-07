@@ -3,11 +3,12 @@
 #include <iostream>
 #include <map>
 #include <vector>
+#include "pokemon.h"
 using namespace std;
 ifstream fin;
 
 
-class skills{
+class Skills{
     public:
         string name;
         
@@ -17,4 +18,5 @@ class skills{
     
 
 };
-void get_pokemon_skill(map <string,skills> &pokemon_skill);
+void get_pokemon_skill(map <string,Skills> &pokemon_skill);
+void get_pokemon_info(map <string,Pokemon> &pokemon_info);
