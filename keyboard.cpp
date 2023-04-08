@@ -99,6 +99,7 @@ int Keyboard::wait_for(vector<int> key)
 		int k = read();
 		if (k != 0)
 		{
+			// return k if k in key
 			for (int i = 0; i < key.size(); i++)
 			{
 				if (k == key[i])

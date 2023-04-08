@@ -5,18 +5,15 @@
 
 
 
-class Skills{
+class Skill{
     public:
         string name;
         
-        double mp_cost,Damage,Healing,Inattack,Indefence,Deattack,Dedefense,self_damage;
+        double mp_cost, damage, healing, inattack, indefence, deattack, dedefense, self_damage;
 
     public:
-        Skills(){}; // default constructor
-        Skills(string name, double mp_cost,double Damage,double Healing,double Inattack,double Indefence,double Deattack,double Dedefense,double self_damage);
-    
-    
-
+        Skill(){}; // default constructor
+        Skill(string name, double mp_cost,double damage,double healing,double inattack,double indefence,double deattack,double dedefense,double self_damage);
 };
 
 class Pokemon: public Object
@@ -26,10 +23,12 @@ public:
     string type;
     int HP;
     int MP;
+    int max_HP;
+    int max_MP;
     int attack;
     int defense;
-    vector<Skills> skill;
+    vector<Skill> skills;
 public:
     Pokemon(){}; // default constructor
-    Pokemon(vector<string> &s, string name, char type, int HP, int MP, int attack, int defense, vector<Skills> skills);
+    Pokemon(vector<string> &s, string name, char type, int HP, int MP, int attack, int defense, vector<Skill> skills);
 };
