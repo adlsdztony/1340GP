@@ -13,8 +13,18 @@ Map::Map(int width, int height) {
 Map::Map(const vector<string> &ma, const vector<string> &valid_map, const map<char, string> &interact_map) {
     this->x = 0;
     this->y = 0;
-    this->s = ma;
-    this->script2format();
+    vector<string> temp_m = ma;
+    vector<Format> temp_format{};
+    for (int i = 0; i < this->s.size(); i++)
+    {
+        vector<Format> fs = check_format(temp_m[i], i, 0);
+        for (int j = 0; j < fs.size(); j++)
+        {
+            temp_format.push_back(fs[j]);
+        }
+    }
+    this->s = temp_m;
+    this->formats = temp_format;
     this->width = this->s[0].size();
     this->height = this->s.size();
     this->valid_map = valid_map;
