@@ -71,7 +71,7 @@ const map<char, string> chuntian_path_interact = {
 
 };
 
-const Map chuntian_path_map(chuntian_path, chuntian_path_vaild, chuntian_path_interact);
+// const Map chuntian_path_map(chuntian_path, chuntian_path_vaild, chuntian_path_interact);
 
 
 const vector<string> chuntian_town = {
@@ -126,7 +126,7 @@ const map<char, string> chuntian_town_interact = {
     {'H', "home"},
 };
 
-const Map chuntian_town_map(chuntian_town, chuntian_town_vaild, chuntian_town_interact);
+// const Map chuntian_town_map(chuntian_town, chuntian_town_vaild, chuntian_town_interact);
 
 const vector<string> Fairy_society_center = {
     "####################################################################",
@@ -179,7 +179,7 @@ const map<char, string> Fairy_society_center_interact = {
     {'R', "recovery_center"},
 };
 
-const Map Fairy_society_center_map(Fairy_society_center, Fairy_society_center_vaild, Fairy_society_center_interact);
+// const Map Fairy_society_center_map(Fairy_society_center, Fairy_society_center_vaild, Fairy_society_center_interact);
 
 
 
@@ -233,7 +233,7 @@ const map<char, string> grassland_interact = {
 
 };
 
-const Map grassland_map(grassland, grassland_vaild, grassland_interact);
+// const Map grassland_map(grassland, grassland_vaild, grassland_interact);
 
 const vector<string> hill = {
     "########################|                  |########################",
@@ -285,7 +285,7 @@ const map<char, string> hill_interact = {
 
 };
 
-const Map hill_map(hill, hill_vaild, hill_interact);
+// const Map hill_map(hill, hill_vaild, hill_interact);
 
 
 
@@ -339,7 +339,7 @@ const map<char, string> home_interact = {
 
 };
 
-const Map home_map(home, home_vaild, home_interact);
+// const Map home_map(home, home_vaild, home_interact);
 
 const vector<string> market = {
     "####################################################################",
@@ -391,7 +391,7 @@ const map<char, string> market_interact = {
 
 };
 
-const Map market_map(market, market_vaild, market_interact);
+// const Map market_map(market, market_vaild, market_interact);
 
 
 
@@ -445,7 +445,7 @@ const map<char, string> qiushui_town_interact = {
 
 };
 
-const Map qiushui_town_map(qiushui_town, qiushui_town_vaild, qiushui_town_interact);
+// const Map qiushui_town_map(qiushui_town, qiushui_town_vaild, qiushui_town_interact);
 
 const vector<string> riverside = {
     "####################################################################",
@@ -497,16 +497,17 @@ const map<char, string> riverside_interact = {
 
 };
 
-const Map riverside_map(riverside, riverside_vaild, riverside_interact);
+// const Map riverside_map(riverside, riverside_vaild, riverside_interact);
 
-const map<string, Map> maps_map = {
-    {"chuntian_path", chuntian_path_map},
-    {"chuntian_town", chuntian_town_map},
-    {"Fairy_society_center", Fairy_society_center_map},
-    {"grassland", grassland_map},
-    {"hill", hill_map},
-    {"home", home_map},
-    {"market", market_map},
-    {"qiushui_town", qiushui_town_map},
-    {"riverside", riverside_map},
-};
+void init_maps(map<string, Map> &maps);
+// const map<string, Map> maps_map = {
+//     {"chuntian_path", chuntian_path_map},
+//     {"chuntian_town", chuntian_town_map},
+//     {"Fairy_society_center", Fairy_society_center_map},
+//     {"grassland", grassland_map},
+//     {"hill", hill_map},
+//     {"home", home_map},
+//     {"market", market_map},
+//     {"qiushui_town", qiushui_town_map},
+//     {"riverside", riverside_map},
+// };

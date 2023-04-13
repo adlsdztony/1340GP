@@ -11,6 +11,7 @@
 // main loop for game
 int main()
 {
+    cout << "test" << endl;
     printf("\033[?25l");
 
     // vector<string> map = {
@@ -37,9 +38,11 @@ int main()
 
     // init_maps();
 
+    map<string, Map> maps_map;
+    init_maps(maps_map);
 
     Game game(maps_map.at("chuntian_town"));
-
+    
 
     
 
@@ -54,8 +57,8 @@ int main()
     // cout << game.player.height << endl;
     // cout << game.player.s[0].length() << endl;
 
-    game.main_loop();
     // game.main_loop();
+    game.main_loop();
 
     // Screen screen(69, 20);
 

@@ -3,18 +3,20 @@
 
 
 
-Game::Game(vector<string> map) {
+Game::Game(vector<string> game_map) {
+    init_maps(this->maps_map);
     this->kb = Keyboard();
     this->kb.listen();
-    this->map = Map(map);
-    this->screen = Screen(this->map.width, this->map.height);
+    this->game_map = Map(game_map);
+    this->screen = Screen(this->game_map.width, this->game_map.height);
 }
 
-Game::Game(const Map &map) {
+Game::Game(const Map &game_map) {
+    init_maps(this->maps_map);
     this->kb = Keyboard();
     this->kb.listen();
-    this->map = map;
-    this->screen = Screen(this->map.width, this->map.height);
+    this->game_map = game_map;
+    this->screen = Screen(this->game_map.width, this->game_map.height);
 }
 
 
@@ -29,7 +31,7 @@ void Game::draw() {
     this->screen.clear();
 
 
-    this->screen.draw(&this->map);
+    this->screen.draw(&this->game_map);
     this->screen.draw(this->objects);
     this->screen.draw(&this->player);
     if (this->E) {
@@ -59,12 +61,12 @@ std::vector<std::string> split(const std::string& str, char delim) {
 
 void Game::update(int e) {
     // TODO deal with the event
-    if (this->map.interact_map.find(e) != this->map.interact_map.end()) {
-        string code = this->map.interact_map.at(e);
+    if (this->game_map.interact_map.find(e) != this->game_map.interact_map.end()) {
+        string code = this->game_map.interact_map.at(e);
         // split code
         vector<string> codes = split(code, ' ');
-        if (maps_map.find(codes[0]) != maps_map.end()) {
-            this->map = Map(maps_map.at(codes[0]));
+        if (this->maps_map.find(codes[0]) != maps_map.end()) {
+            this->game_map = Map(maps_map.at(codes[0]));
             if (codes.size() >= 3) {
                 this->player.x = stoi(codes[1]);
                 this->player.y = stoi(codes[2]);
@@ -92,16 +94,16 @@ void Game::main_loop() {
             }
         }
         if (k == KEY_UP || k == 'w' || k == 'W') {
-            result = this->player.move(0, -1, this->map);
+            result = this->player.move(0, -1, this->game_map);
         }
         if (k == KEY_DOWN || k == 's' || k == 'S') {
-            result = this->player.move(0, 1, this->map);
+            result = this->player.move(0, 1, this->game_map);
         }
         if (k == KEY_LEFT || k == 'a' || k == 'A') {
-            result = this->player.move(-1, 0, this->map);
+            result = this->player.move(-1, 0, this->game_map);
         }
         if (k == KEY_RIGHT || k == 'd' || k == 'D') {
-            result = this->player.move(1, 0, this->map);
+            result = this->player.move(1, 0, this->game_map);
         }
         if (result > 0) {
             this->E = result;
