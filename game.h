@@ -6,6 +6,7 @@
 #include "maps.h"
 #include "notice.h"
 #include "player.h"
+#include "chats.h"
 
 
 class Game
@@ -31,4 +32,5 @@ public:
     void input();
     void notice_select();
     void add_notice_E();
+    int chat(string title, vector<string> content);
 };

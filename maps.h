@@ -336,7 +336,7 @@ const vector<string> home_vaild = {
 };
 
 const map<char, string> home_interact = {
-
+    {'M', "chat mom"}
 };
 
 // const Map home_map(home, home_vaild, home_interact);
