@@ -1,8 +1,6 @@
 #include "game.h"
 
 
-
-
 Game::Game(vector<string> game_map) {
     init_maps(this->maps_map);
     this->kb = Keyboard();
@@ -21,7 +19,9 @@ Game::Game(const Map &game_map) {
 
 
 void Game::add_notice_E() {
-    Object E = Object(0, 0, vector<string>(1, "E"));
+    // Object E = Object(0, 0, vector<string>(1, "E"));
+    Window E(47, 1, 19, 1, "Press <format front=blue >E</format>", "", 0);
+
     this->screen.draw(&E);
 }
 
@@ -83,7 +83,6 @@ int Game::chat(string title, vector<string> content){
 }
 
 void Game::update(int e) {
-    // TODO deal with the event
     if (this->game_map.interact_map.find(e) != this->game_map.interact_map.end()) {
         string code = this->game_map.interact_map.at(e);
         // split code
