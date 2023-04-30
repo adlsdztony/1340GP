@@ -7,7 +7,7 @@
 using namespace std;
 
 
-void get_pokemon_skill(map <string,Skills> &pokemon_skill){ 
+void get_pokemon_skill(map <string, Skill> &pokemon_skills){ 
     ifstream fin;
     string test,skill_name;
     fin.open("Pokemon_skill.txt");
@@ -23,10 +23,10 @@ void get_pokemon_skill(map <string,Skills> &pokemon_skill){
         while(getline(fin,test)){
             
             //test the last line is -1 and break
-            if (test =="-1"){
+            if (test == "-1"){
                 break;
             }else{
-                Skills skill;
+                Skill skill;
                 //get info
                 
                 pos = test.find(" ");
@@ -41,32 +41,32 @@ void get_pokemon_skill(map <string,Skills> &pokemon_skill){
 
                 pos= test.find(" ",pos1+1);
                 Damage = stod(test.substr(pos1+1,pos-pos1-1));
-                skill.Damage = Damage;
+                skill.damage = Damage;
                 pos1 = pos;
 
                 pos= test.find(" ",pos1+1);
                 Healing = stod(test.substr(pos1+1,pos-pos1-1));
-                skill.Healing = Healing;
+                skill.healing = Healing;
                 pos1 = pos;
 
                 pos= test.find(" ",pos1+1);
                 Inattack = stod(test.substr(pos1+1,pos-pos1-1));
-                skill.Inattack = Inattack;
+                skill.inattack = Inattack;
                 pos1 = pos;
 
                 pos= test.find(" ",pos1+1);
                 Indefence = stod(test.substr(pos1+1,pos-pos1-1));
-                skill.Indefence = Indefence;
+                skill.indefence = Indefence;
                 pos1 = pos;
 
                 pos= test.find(" ",pos1+1);
                 Deattack = stod(test.substr(pos1+1,pos-pos1-1));
-                skill.Deattack = Deattack;
+                skill.deattack = Deattack;
                 pos1 = pos;
 
                 pos= test.find(" ",pos1+1);
                 Dedefense = stod(test.substr(pos1+1,pos-pos1-1));
-                skill.Dedefense = Dedefense;
+                skill.dedefense = Dedefense;
                 pos1 = pos;
 
                 pos= test.find(" ",pos1+1);
@@ -75,7 +75,7 @@ void get_pokemon_skill(map <string,Skills> &pokemon_skill){
                 pos1 = pos;
              
                 //insert the skill into map
-                pokemon_skill.insert(pair <string,Skills> (skill_name,skill));         
+                pokemon_skills.insert(pair <string,Skill> (skill_name,skill));         
                    
             }       
         }
@@ -85,8 +85,8 @@ void get_pokemon_skill(map <string,Skills> &pokemon_skill){
 }
 
 void get_pokemon_element(map <string,Pokemon> &pokemon_element){
-    map<string, Skills> pokemon_skill;
-    get_pokemon_skill(pokemon_skill);
+    map<string, Skill> pokemon_skills;
+    get_pokemon_skill(pokemon_skills);
 
     ifstream fin;
     string test,pokemon_name,type;
@@ -94,7 +94,7 @@ void get_pokemon_element(map <string,Pokemon> &pokemon_element){
     int pos,pos1;
     double HP,MP,attack,defense;
     
-    vector<Skills> skill;
+    vector<Skill> skills;
     //open the file
     fin.open("Pokemon_info.txt");
     //test the file open success or not
@@ -108,6 +108,8 @@ void get_pokemon_element(map <string,Pokemon> &pokemon_element){
                 break;
             }else{
                 Pokemon pokemon;
+                cout << "test" << endl;
+
                 //get info
                 pos = test.find(" ");
                 pokemon_name = test.substr(0,pos);
@@ -145,10 +147,10 @@ void get_pokemon_element(map <string,Pokemon> &pokemon_element){
                         pos = test.length();
                     }                    
                     
-                    skill.push_back(pokemon_skill.at(test.substr(pos1+1,pos-pos1-1)));
+                    skills.push_back(pokemon_skills.at(test.substr(pos1+1,pos-pos1-1)));
                     pos1 = pos;
                 }
-                pokemon.skill = skill;
+                pokemon.skills = skills;
                 
                 
                 //insert the pokemon into the map
@@ -161,25 +163,24 @@ void get_pokemon_element(map <string,Pokemon> &pokemon_element){
 }
 }
     
-// int main(){
-//     map <string,Pokemon> pokemon_element;
-//     map <string,Skills> pokemon_skill;
-//     get_pokemon_element(pokemon_element);
-//     get_pokemon_skill(pokemon_skill);
-//     pokemon_skill["water_gun"];
-//     for (map<string,Skills>::iterator itr = pokemon_skill.begin();itr != pokemon_skill.end();itr++){
-//         cout << (*itr).first << endl;
-//         cout << (*itr).second.name << endl;
+int main(){
+    map <string,Pokemon> pokemon_element;
+    map <string,Skill> pokemon_skills;
+    get_pokemon_element(pokemon_element);
+    // get_pokemon_skill(pokemon_skills);
+    // for (map<string,Skill>::iterator itr = pokemon_skills.begin();itr != pokemon_skills.end();itr++){
+    //     cout << (*itr).first << endl;
+    //     cout << (*itr).second.name << endl;
     
-//     }
+    // }
 
-//     for (map<string,Pokemon>::iterator itr = pokemon_element.begin();itr != pokemon_element.end();itr++){
-//         cout << (*itr).first << endl;
-//         cout << (*itr).second.name << endl;
+    for (map<string,Pokemon>::iterator itr = pokemon_element.begin();itr != pokemon_element.end();itr++){
+        cout << (*itr).first << endl;
+        cout << (*itr).second.name << endl;
     
-//     }
+    }
     
-//     return 0;
-// }
+    return 0;
+}
 
 

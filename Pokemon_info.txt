@@ -10,7 +10,7 @@ Vaporeon water 200 60 50 30 WaterArrow RainSplash Beat HydrTackle
 Gyarados water 300 100 80 50 WaterFall HydrTackle Beat RainSplash
 Weepinbell grass 60 20 15 10 Synthesis RazorLeaf Beat Absorb
 Gloom grass 50 25 15 10 Synthesis Powder Beat SmashKick
-Grovyle grass 100 40 30 20 PsyshotRazorLeaf Beat Powder
+Grovyle grass 100 40 30 20 Psyshot RazorLeaf Beat Powder
 Venusaur grass 200 60 50 30 Earthquake Absorb Beat RazorLeaf
 Sceptile grass 300 100 80 50 Earthquake Powder Beat ArmorPress
 Sentret normal 60 20 15 10 Headbang Beat Sleep ArmorPress

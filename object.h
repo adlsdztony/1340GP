@@ -13,7 +13,7 @@ public:
     int y;
     vector<string> s;
     int priority = 1;
-    vector<Format> formats;
+    vector<Format> formats{};
 
 public:
     Object(){}; // default constructor

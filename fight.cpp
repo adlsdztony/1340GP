@@ -37,9 +37,9 @@ void Fight::draw()
         }
         Object skill = Object(2 + i*13, 15, this->p1->skills[i].name, Format(0, 0, this->p1->skills[i].name.length(), skill_format));
         this->screen.draw(&skill);
-        Object damage = Object(10 + i*13, 16, to_string(this->p1->skills[i].damage), Format(0, 0, to_string(this->p1->skills[i].damage).length(), FRONT_YELLOW BOLD));
+        Object damage = Object(10 + i*13, 16, to_string((int)this->p1->skills[i].damage), Format(0, 0, to_string((int)this->p1->skills[i].damage).length(), FRONT_YELLOW BOLD));
         this->screen.draw(&damage);
-        Object mp_cost = Object(10 + i*13, 17, to_string(this->p1->skills[i].mp_cost), Format(0, 0, to_string(this->p1->skills[i].mp_cost).length(), FRONT_BLUE BOLD));
+        Object mp_cost = Object(10 + i*13, 17, to_string((int)this->p1->skills[i].mp_cost), Format(0, 0, to_string((int)this->p1->skills[i].mp_cost).length(), FRONT_BLUE BOLD));
         this->screen.draw(&mp_cost);
     }
 
@@ -78,10 +78,10 @@ void Fight::draw()
 
 
     // draw HP and MP value
-    this->screen.draw(19, 2, to_string(this->p1->HP) + "/" + to_string(this->p1->max_HP));
-    this->screen.draw(18, 3, to_string(this->p1->MP) + "/" + to_string(this->p1->max_MP));
-    this->screen.draw(67 - 19 - to_string(this->p2->HP).length() - to_string(this->p2->max_HP).length(), 2, to_string(this->p2->HP) + "/" + to_string(this->p2->max_HP));
-    this->screen.draw(67 - 18 - to_string(this->p2->MP).length() - to_string(this->p2->max_MP).length(), 3, to_string(this->p2->MP) + "/" + to_string(this->p2->max_MP));
+    this->screen.draw(19, 2, to_string((int)this->p1->HP) + "/" + to_string((int)this->p1->max_HP));
+    this->screen.draw(18, 3, to_string((int)this->p1->MP) + "/" + to_string((int)this->p1->max_MP));
+    this->screen.draw(67 - 19 - to_string((int)this->p2->HP).length() - to_string((int)this->p2->max_HP).length(), 2, to_string((int)this->p2->HP) + "/" + to_string((int)this->p2->max_HP));
+    this->screen.draw(67 - 18 - to_string((int)this->p2->MP).length() - to_string((int)this->p2->max_MP).length(), 3, to_string((int)this->p2->MP) + "/" + to_string((int)this->p2->max_MP));
 
 
     // show screen
@@ -131,18 +131,20 @@ void Fight::main_loop()
             selected = (selected + 1) % 4;
         }
         else if (input == 'w'){
-
+            if (this->withdraw()){
+                break;
+            }
         }
         else if (input == 'b'){
-
+            this->bag();
         }
         else if (input == 'c'){
-
+            this->catch_pokemon();
         }
         else if (input == KEY_ENTER){
-            
+            // TODO attack
+            this->update();
         }
-        this->update();
     }
 }
 

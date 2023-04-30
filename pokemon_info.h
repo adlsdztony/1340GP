@@ -8,5 +8,5 @@ using namespace std;
 
 
 
-void get_pokemon_skill(map <string,Skills> &pokemon_skill);
+void get_pokemon_skill(map <string,Skill> &pokemon_skill);
 void get_pokemon_element(map <string,Pokemon> &pokemon_element);

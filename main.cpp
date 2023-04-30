@@ -11,6 +11,7 @@
 // main loop for game
 int main()
 {
+    cout << "test" << endl;
     printf("\033[?25l");
 
     // vector<string> map = {
@@ -37,9 +38,11 @@ int main()
 
     // init_maps();
 
+    map<string, Map> maps_map;
+    init_maps(maps_map);
 
     Game game(maps_map.at("chuntian_town"));
-
+    
 
     
 
@@ -54,8 +57,8 @@ int main()
     // cout << game.player.height << endl;
     // cout << game.player.s[0].length() << endl;
 
-    game.main_loop();
     // game.main_loop();
+    game.main_loop();
 
     // Screen screen(69, 20);
 
@@ -78,10 +81,11 @@ int main()
 }
 
 // int main(){
-//     Skill s1("Tackle", 40, 0);
-//     Skill s2("Growl", 0, 0);
-//     Skill s3("Tail Whip", 0, 0);
-//     Skill s4("Quick Atk", 40, 0);
+//     Skill s1("Thunder", 4.5, 3.5, 10, 10, 30, 0, 0, 0);
+//     Skill s2("Thunder", 4.5, 3.5, 10, 10, 30, 0, 0, 0);
+//     Skill s3("Thunder", 4.5, 3.5, 10, 10, 30, 0, 0, 0);
+//     Skill s4("Thunder", 4.5, 3.5, 10, 10, 30, 0, 0, 0);
+
 
 //     vector<string> npc = {
 //             "<format front=green >@@</format>",

@@ -26,7 +26,7 @@ void Keyboard::scanKeyboard()
 	if (temp_in == 27)
     {
         // Read the next two characters
-        new_settings.c_cc[VMIN] = 1;
+        new_settings.c_cc[VMIN] = 0;
         tcsetattr(0,TCSANOW,&new_settings);
         char second_char = getchar();
 
@@ -99,6 +99,7 @@ int Keyboard::wait_for(vector<int> key)
 		int k = read();
 		if (k != 0)
 		{
+			// return k if k in key
 			for (int i = 0; i < key.size(); i++)
 			{
 				if (k == key[i])

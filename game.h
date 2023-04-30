@@ -6,6 +6,7 @@
 #include "maps.h"
 #include "notice.h"
 #include "player.h"
+#include "chats.h"
 
 
 class Game
@@ -13,15 +14,16 @@ class Game
 public:
     Screen screen;
     Keyboard kb;
-    Map map;
+    Map game_map;
     Player player;
     Notice notice;
     vector<Object*> objects;
     int E = 0;
+    map<string, Map> maps_map;
 
 public:
-    Game(vector<string> map);
-    Game(const Map &map);
+    Game(vector<string> game_map);
+    Game(const Map &game_map);
     void start();
     void end();
     void main_loop();
@@ -30,4 +32,5 @@ public:
     void input();
     void notice_select();
     void add_notice_E();
+    int chat(string title, vector<string> content);
 };

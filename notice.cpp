@@ -2,9 +2,8 @@
 
 
 
-Notice::Notice(int x, int y, int w, int h, string title, vector<string> selections, int space) : Window(x, y, w, h, title, selections, space){
-        this->content = selections;
-        this->selections = selections;
+Notice::Notice(int x, int y, int w, int h, string title, string selections, int space) : Window(x, y, w, h, title, selections, space){
+        this->selections = this->content;
         int title_start = (w - title.length()) / 2;
         this->formats.push_back(Format(title_start, 1, title.length(), BOLD));
         this->space = space;
