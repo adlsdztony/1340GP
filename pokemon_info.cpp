@@ -74,7 +74,7 @@ void get_pokemon_skill(map <string, Skill> &pokemon_skills){
                 
                 pos1 = pos;
                 
-                Skills skill(skill_name,mp_cost,Damage,Healing,Inattack,Indefense,Deattack,Dedefense,self_damage);
+                Skill skill(skill_name,mp_cost,Damage,Healing,Inattack,Indefense,Deattack,Dedefense,self_damage);
                 
                 //insert the skill into map
                 pokemon_skills.insert(pair <string,Skill> (skill_name,skill));         
