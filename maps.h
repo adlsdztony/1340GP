@@ -237,8 +237,8 @@ const vector<string> grassland_vaild = {
 };
 
 const map<char, string> grassland_interact = {
-    {'B', "chat Peter"},
-    {'C', "chat Daniel"},
+    {'B', "chat Peter fight Arcanine"},
+    {'C', "chat Daniel fight Sceptile"},
     {'R', "chuntian_town 1 10"},
     {'c', "fight Weepinbell"},
     {'d', "fight Grovyle"},
@@ -296,7 +296,7 @@ const vector<string> hill_vaild = {
 
 const map<char, string> hill_interact = {
     {'U', "riverside 34 19"},
-    {'D', "chat Tony"},
+    {'D', "chat Tony fight Furret"},
     {'e', "fight Sentret"}
 };
 
@@ -519,7 +519,7 @@ const vector<string> riverside_vaild = {
 const map<char, string> riverside_interact = {
     {'L', "chuntian_path 66 10"},
     {'R', "qiushui_town 1 10"},
-    {'A', "chat Siki"},
+    {'A', "chat Siki fight Gyarados"},
     {'D', "hill 34 1" },
     {'j', "fight Blastoise"},
     {'k', "fight Wartortle"},

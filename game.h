@@ -50,14 +50,9 @@ public:
 
 public:
     Game();
-    // Game();
-    void start();
-    void end();
     void main_loop();
     void draw();
     void update(int e);
-    void input();
-    void notice_select();
     void add_notice_E();
     void save_and_exit();
     void fight(string enemy_name);

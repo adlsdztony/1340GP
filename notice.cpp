@@ -67,7 +67,8 @@ int Notice::select(Keyboard *kb, Screen *screen)
 
 int show_notice(string title, vector<string> selections, Keyboard *kb, Screen *screen)
 {
-    Notice notice = Notice(20, 5, 26, 7, title, selections);
-    int i = notice.select(kb, screen);
+    Notice* notice = new Notice(20, 5, 26, 7, title, selections);
+    int i = notice->select(kb, screen);
+    delete notice;
     return i;
 }
