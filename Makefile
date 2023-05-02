@@ -1,7 +1,7 @@
 cc = g++
 prom = game
 deps = *.h
-obj = main.o format.o screen.o keyboard.o object.o window.o notice.o game.o map.o player.o pokemon.o fight.o maps.o
+obj = main.o format.o screen.o keyboard.o object.o window.o notice.o game.o map.o player.o pokemon.o fight.o maps.o pokemon_info.o
 flag = -pthread
 
 $(prom): $(obj)

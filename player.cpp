@@ -13,16 +13,16 @@ Player::Player(int x, int y, vector<string> s) {
 int Player::move(int dx, int dy, Map &map){
 
     if (this->y + dy < 0 ) {
-        return 1;
+        return 'U';
     }
     if (this->x + dx < 0 ) {
-        return 2;
+        return 'L';
     }
     if (this->y + dy + this->height > map.height) {
-        return 3;
+        return 'D';
     }
     if (this->x + dx + this->width > map.width) {
-        return 4;
+        return 'R';
     }
 
     // chack area to move to are valid
@@ -30,6 +30,10 @@ int Player::move(int dx, int dy, Map &map){
         for (int j = 0; j < this->width; j++) {
             char c = map.valid_map[this->y + dy + i][this->x + dx + j];
             if (c == '0') {
+                c = map.valid_map[this->y + i][this->x + j];
+                if (c != '1'){
+                    return c;
+                }
                 return -1;
             }
             if (c != '1') {
