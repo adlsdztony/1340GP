@@ -146,10 +146,37 @@ int Game::chat(string title, vector<string> content){
 }
 
 void Game::fight(string enemy_name){
+    // select pokemon
+    vector<string> pokemon_names;
+    for (int i = 0; i < this->state.pokemons.size(); i++) {
+        pokemon_names.push_back(this->state.pokemons[i].name);
+    }
+
+    pokemon_names.push_back("cancel");
+
+    int pkm_index;
+
+    while (true) {
+        Notice s_pkm(20, 3, 26, 11, "select pokemon", pokemon_names);
+        pkm_index = s_pkm.select(&this->kb, &this->screen);
+
+        // check cancel
+        if (pkm_index == this->state.pokemons.size()) {
+            return;
+        }
+        // check hp
+        if (this->state.pokemons[pkm_index].HP <= 0) {
+            show_notice("This pokemon is dead", {"OK"}, &this->kb, &this->screen);
+            continue;
+        }
+        else {
+            break;
+        }
+    }
     // get enemy
-    Pokemon p1 = this->state.pokemons[0];
+    Pokemon* p1 = &this->state.pokemons[pkm_index];
     Pokemon p2 = this->state.pokemon_element.at(enemy_name);
-    Fight f(&p1, &p2, &this->kb, &this->screen);
+    Fight f(p1, &p2, &this->kb, &this->screen);
     cout << "Fight start" << endl;
     char r = f.start();
     if (r == 'c') {
@@ -181,7 +208,6 @@ void Game::update(int e) {
 
         for (int i = 0; i < codes.size(); i+=2) {
 
-
             // chat function
             if (codes[i] == "chat"){
 
@@ -195,6 +221,14 @@ void Game::update(int e) {
                 if (codes.size() >= i) {
                     this->fight(codes[i+1]);
                 }
+            }
+
+            // recover function
+            if (codes[i] == "recover") {
+                for (int j = 0; j < this->state.pokemons.size(); j++) {
+                    this->state.pokemons[j].HP = this->state.pokemons[j].max_HP;
+                }
+                return;
             }
 
 
