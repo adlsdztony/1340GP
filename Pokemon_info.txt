@@ -1,18 +1,20 @@
-Charmeleon fire 60 20 15 10 FireBall Volcanal Beat Sleep
-Ninetales fire 100 40 30 20 FireBall Combustion Beat Volcanal
-Rapidash fire 200 60 50 30 Headbang Explosive Beat FireBlast
-Arcanine fire 300 100 80 50 SolidShell Combustion Beat Explosive
-Wartortle water 60 20 15 10 WaterGun GiantWave Beat Sleep
-Blastoise water 100 40 30 20 WaterGun RainSplash Beat WaterFall
-Vaporeon water 200 60 50 30 WaterArrow RainSplash Beat HydrTackle
-Gyarados water 300 100 80 50 WaterFall HydrTackle Beat RainSplash
-Weepinbell grass 60 20 15 10 Synthesis RazorLeaf Beat Absorb
-Grovyle grass 100 40 30 20 Psyshot RazorLeaf Beat Powder
-Venusaur grass 200 60 50 30 Earthquake Absorb Beat RazorLeaf
-Sceptile grass 300 100 80 50 Earthquake Powder Beat ArmorPress
-Sentret normal 60 20 15 10 Headbang Sleep Beat ArmorPress
-Furret normal 120 45 30 15 Headbang SmashKick Beat ArmorPress
+Charmeleon fire 90 40 30 15 FireBall Volcanal Beat Sleep
+Ninetales fire 145 60 50 20 FireBall Combustion Beat Volcanal
+Rapidash fire 210 80 70 30 Headbang Explosive Beat FireBlast
+Arcanine fire 295 100 95 45 SolidShell Combustion Beat Explosive
+Wartortle water 100 40 25 20 WaterGun GiantWave Beat Sleep
+Blastoise water 160 60 40 30 WaterGun RainSplash Beat WaterFall
+Vaporeon water 225 80 55 40 WaterArrow RainSplash Beat HydrTackle
+Gyarados water 310 100 80 60 WaterFall HydrTackle Beat RainSplash
+Weepinbell grass 120 50 25 10 Synthesis RazorLeaf Beat Absorb
+Grovyle grass 175 70 40 25 Psyshot RazorLeaf Beat Powder
+Venusaur grass 240 90 60 35 Earthquake Absorb Beat RazorLeaf
+Sceptile grass 325 110 80 50 Earthquake Powder Beat ArmorPress
+Sentret normal 140 40 40 40 Headbang Sleep Beat ArmorPress
+Furret normal 250 75 75 60 Headbang SmashKick Beat ArmorPress
 -1
+
+
 
 
 
