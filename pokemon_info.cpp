@@ -26,7 +26,6 @@ void get_pokemon_skill(map <string, Skill> &pokemon_skills){
             if (test == "-1"){
                 break;
             }else{
-                Skill skill;
                 //get info by using constructor
                 
                 pos = test.find(" ");
@@ -91,7 +90,9 @@ void get_pokemon_element(map <string,Pokemon> &pokemon_element){
     get_pokemon_skill(pokemon_skills);
 
     ifstream fin;
-    string test,pokemon_name,type;
+    string test,pokemon_name;
+
+    char type;
 
     int pos,pos1;
     double HP,MP,attack,defense;
@@ -109,7 +110,6 @@ void get_pokemon_element(map <string,Pokemon> &pokemon_element){
             if (test =="-1"){
                 break;
             }else{
-                Pokemon pokemon;
                 cout << "test" << endl;
 
                 //get info
@@ -119,7 +119,17 @@ void get_pokemon_element(map <string,Pokemon> &pokemon_element){
                 pos1 = pos;
 
                 pos= test.find(" ",pos1+1);
-                type = test.substr(pos1+1,pos-pos1-1);
+                string temp_type = test.substr(pos1+1,pos-pos1-1);
+                
+                if (temp_type == "fire"){
+                    type = 'F';
+                }else if (temp_type == "water"){
+                    type = 'W';
+                }else if (temp_type == "grass"){
+                    type = 'G';
+                }else if (temp_type == "normal"){
+                    type = 'E';
+                }
                 
                 pos1 = pos;
 
@@ -153,11 +163,11 @@ void get_pokemon_element(map <string,Pokemon> &pokemon_element){
                     pos1 = pos;
                 }
                 
-                //get info by using constructor
-                Pokemon pokemon(pokemon_name,type,HP,MP,attack,defense,skills);
-                
                 vector<string> pkm(9, "<format front=cyan >@@@@@@@@@@@@@@@@@@@@@@@@</format>");
-                pokemon.s = pkm;
+
+                //get info by using constructor
+                Pokemon pokemon(pkm, pokemon_name, type, HP, MP, attack, defense, skills);
+                
                 
                 //insert the pokemon into the map
                 pokemon_element.insert(pair <string,Pokemon> (pokemon_name,pokemon));         
