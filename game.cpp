@@ -239,6 +239,32 @@ void Game::update(int e) {
 
 void Game::main_loop() {
     this->screen.clean();
+    // print start map
+    for (int i = 0; i < start_map.size(); i++) {
+        cout << start_map[i] << endl;
+    }
+    this->kb.wait_for({KEY_ENTER, KEY_SPACE});
+    // check if game_state.txt is exit
+    int c;
+    ifstream f("game_state.txt");
+    if (f.good()) {
+        c = show_notice("Welcome to Pokemon", {"New Game", "Continue"}, &this->kb, &this->screen);
+    } else {
+        c = show_notice("Welcome to Pokemon", {"New Game"}, &this->kb, &this->screen);
+    }
+    if (c == 0) {
+        ofstream fout("game_state.txt");
+        fout << 1 << endl;
+        fout << 1 << endl;
+        fout << "home" << endl;
+        fout << 1 << endl;
+        fout << "Charmeleon" << endl;
+        fout << 60 << endl;
+        fout << 20 << endl;
+        fout.close();
+    }
+
+    
     while (true) {
         this->draw();
         
