@@ -3,8 +3,8 @@
 //
 
 #include "chars.h"
-#include "string"
-#include "vector"
+#include <string>
+#include <vector>
 
 void init_chars(map<string, vector<string>> &chars) {
     chars["Charmeleon"] = Charmeleon_fire;
