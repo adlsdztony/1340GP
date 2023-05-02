@@ -12,7 +12,7 @@ void init_chars(map<string, vector<string>> &chars) {
     chars["Weepinbell"] = Weepinbell_grass;
     chars["Ninetales"] = Ninetales_fire;
     chars["Blastoise"] = Blastoise_water;
-    chars["Grovyle"] = Grovyle_gress;
+    chars["Grovyle"] = Grovyle_grass;
     chars["Rapidash"] = Rapidash_fire;
     chars["Vaporeon"] = Vaporeon_water;
     chars["Venusaur"] = Venusaur_grass;

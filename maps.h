@@ -182,7 +182,7 @@ const vector<string> Fairy_society_center_vaild = {
 
 const map<char, string> Fairy_society_center_interact = {
     {'O', "chat doctor"},
-    {'R', "chat recovery_center"},
+    {'R', "chat recovery_center recover"},
     {'D', "chuntian_town 35 15"}
 };
 
@@ -574,7 +574,7 @@ const vector<string> Fairy_society_center1_vaild = {
 };
 
 const map<char, string> Fairy_society_center1_interact = {
-    {'R', "chat recovery_center"},
+    {'R', "chat recovery_center recover"},
     {'D', "qiushui_town 35 15"}
 };
 
