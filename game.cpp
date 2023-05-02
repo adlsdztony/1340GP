@@ -153,6 +153,13 @@ void Game::fight(string enemy_name){
     cout << "Fight start" << endl;
     char r = f.start();
     if (r == 'c') {
+        // check if pokemon in state.pokemons is exit
+        for (int i = 0; i < this->state.pokemons.size(); i++) {
+            if (this->state.pokemons[i].name == p2.name) {
+                return;
+            }
+        }
+        // add pokemon to state.pokemons
         this->state.pokemons.push_back(p2);
     }
 }
@@ -162,22 +169,6 @@ void Game::update(int e) {
         string code = this->game_map.interact_map.at(e);
         // split code
         vector<string> codes = split(code, ' ');
-
-        // chat function
-        if (codes[0] == "chat"){
-
-            if (chat_map.find(codes[1]) != chat_map.end()) {
-                this->chat(codes[1], chat_map.at(codes[1]));
-            };
-        }
-
-        // fight function
-        if (codes[0] == "fight") {
-            if (codes.size() >= 2) {
-                this->fight(codes[1]);
-            }
-        }
-
         // switch map
         if (this->maps_map.find(codes[0]) != this->maps_map.end()) {
             this->game_map = Map(maps_map.at(codes[0]));
@@ -185,6 +176,29 @@ void Game::update(int e) {
                 this->player.x = stoi(codes[1]);
                 this->player.y = stoi(codes[2]);
             }
+        }
+
+        for (int i = 0; i < codes.size(); i++) {
+
+            if (i/2 != 0) {
+                continue;
+            }
+            // chat function
+            if (codes[i] == "chat"){
+
+                if (chat_map.find(codes[i+1]) != chat_map.end()) {
+                    this->chat(codes[i+1], chat_map.at(codes[i+1]));
+                };
+            }
+
+            // fight function
+            if (codes[i] == "fight") {
+                if (chat_map.find(codes[i+1]) != chat_map.end()) {
+                    this->fight(codes[i+1]);
+                }
+            }
+
+
         }
     }
 }
