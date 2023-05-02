@@ -9,6 +9,7 @@
 #include "chats.h"
 #include "pokemon.h"
 #include "pokemon_info.h"
+#include "fight.h"
 #include <fstream>
 
 
@@ -59,5 +60,6 @@ public:
     void notice_select();
     void add_notice_E();
     void save_and_exit();
+    void fight(string enemy_name);
     int chat(string title, vector<string> content);
 };

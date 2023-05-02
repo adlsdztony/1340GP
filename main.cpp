@@ -11,7 +11,6 @@
 // main loop for game
 int main()
 {
-    cout << "test" << endl;
     printf("\033[?25l");
 
     // vector<string> map = {
@@ -100,11 +99,18 @@ int main()
 //     p1.MP = 30;
 //     p2.MP = 30;
 
+//     map<string, Pokemon> pokemon_element;
+//     get_pokemon_element(pokemon_element);
+//     p1 = pokemon_element.at("Charmeleon");
+//     p2 = pokemon_element.at("Charmeleon");
+
 //     Keyboard k;
 
 //     k.listen();
 
-//     Fight f(&p1, &p2, &k);
+//     Screen screen(69, 20);
+
+//     Fight f(&p1, &p2, &k, &screen);
 //     cout << "Fight start" << endl;
 //     f.start();
 //     k.stop();

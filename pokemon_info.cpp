@@ -13,7 +13,7 @@ void get_pokemon_skill(map <string, Skill> &pokemon_skills){
     fin.open("Pokemon_skill.txt");
     int pos,pos1; 
     
-    double mp_cost,Damage,Healing,Inattack,Indefence,Deattack,Dedefense,self_damage;
+    double mp_cost,Damage,Healing,Inattack,Indefense,Deattack,Dedefense,self_damage;
     //test the file open success or not
     if (fin.fail()){
         cout << "Error in opening the file."<< endl;
@@ -26,54 +26,55 @@ void get_pokemon_skill(map <string, Skill> &pokemon_skills){
             if (test == "-1"){
                 break;
             }else{
-                Skill skill;
-                //get info
+                //get info by using constructor
                 
                 pos = test.find(" ");
                 skill_name = test.substr(0,pos);
-                skill.name = skill_name;
+                
                 pos1 = pos;
 
                 pos= test.find(" ",pos1+1);
                 mp_cost = stod(test.substr(pos1+1,pos-pos1-1));
-                skill.mp_cost = mp_cost;
+                
                 pos1 = pos;
 
                 pos= test.find(" ",pos1+1);
                 Damage = stod(test.substr(pos1+1,pos-pos1-1));
-                skill.damage = Damage;
+                
                 pos1 = pos;
 
                 pos= test.find(" ",pos1+1);
                 Healing = stod(test.substr(pos1+1,pos-pos1-1));
-                skill.healing = Healing;
+                
                 pos1 = pos;
 
                 pos= test.find(" ",pos1+1);
                 Inattack = stod(test.substr(pos1+1,pos-pos1-1));
-                skill.inattack = Inattack;
+                
                 pos1 = pos;
 
                 pos= test.find(" ",pos1+1);
-                Indefence = stod(test.substr(pos1+1,pos-pos1-1));
-                skill.indefence = Indefence;
+                Indefense = stod(test.substr(pos1+1,pos-pos1-1));
+                
                 pos1 = pos;
 
                 pos= test.find(" ",pos1+1);
                 Deattack = stod(test.substr(pos1+1,pos-pos1-1));
-                skill.deattack = Deattack;
+               
                 pos1 = pos;
 
                 pos= test.find(" ",pos1+1);
                 Dedefense = stod(test.substr(pos1+1,pos-pos1-1));
-                skill.dedefense = Dedefense;
+                
                 pos1 = pos;
 
                 pos= test.find(" ",pos1+1);
                 self_damage = stod(test.substr(pos1+1,pos-pos1-1));
-                skill.self_damage = self_damage;
+                
                 pos1 = pos;
-             
+                
+                Skill skill(skill_name,mp_cost,Damage,Healing,Inattack,Indefense,Deattack,Dedefense,self_damage);
+                
                 //insert the skill into map
                 pokemon_skills.insert(pair <string,Skill> (skill_name,skill));         
                    
@@ -89,7 +90,9 @@ void get_pokemon_element(map <string,Pokemon> &pokemon_element){
     get_pokemon_skill(pokemon_skills);
 
     ifstream fin;
-    string test,pokemon_name,type;
+    string test,pokemon_name;
+
+    char type;
 
     int pos,pos1;
     double HP,MP,attack,defense;
@@ -107,38 +110,47 @@ void get_pokemon_element(map <string,Pokemon> &pokemon_element){
             if (test =="-1"){
                 break;
             }else{
-                Pokemon pokemon;
                 cout << "test" << endl;
 
                 //get info
                 pos = test.find(" ");
                 pokemon_name = test.substr(0,pos);
-                pokemon.name = pokemon_name;
+                
                 pos1 = pos;
 
                 pos= test.find(" ",pos1+1);
-                type = test.substr(pos1+1,pos-pos1-1);
-                pokemon.type = type;
+                string temp_type = test.substr(pos1+1,pos-pos1-1);
+                
+                if (temp_type == "fire"){
+                    type = 'F';
+                }else if (temp_type == "water"){
+                    type = 'W';
+                }else if (temp_type == "grass"){
+                    type = 'G';
+                }else if (temp_type == "normal"){
+                    type = 'E';
+                }
+                
                 pos1 = pos;
 
                 pos= test.find(" ",pos1+1);
                 HP = stod(test.substr(pos1+1,pos-pos1-1));
-                pokemon.HP = HP;
+                
                 pos1 = pos;
 
                 pos= test.find(" ",pos1+1);
                 MP = stod(test.substr(pos1+1,pos-pos1-1));
-                pokemon.MP = MP;
+                
                 pos1 = pos;
 
                 pos= test.find(" ",pos1+1);
                 attack = stod(test.substr(pos1+1,pos-pos1-1));
-                pokemon.attack = attack;
+                
                 pos1 = pos;
 
                 pos= test.find(" ",pos1+1);
                 defense = stod(test.substr(pos1+1,pos-pos1-1));
-                pokemon.defense = defense;
+                
                 pos1 = pos;
                 
                 for(int i = 0; i < 4; i++){
@@ -150,7 +162,11 @@ void get_pokemon_element(map <string,Pokemon> &pokemon_element){
                     skills.push_back(pokemon_skills.at(test.substr(pos1+1,pos-pos1-1)));
                     pos1 = pos;
                 }
-                pokemon.skills = skills;
+                
+                vector<string> pkm(9, "<format front=cyan >@@@@@@@@@@@@@@@@@@@@@@@@</format>");
+
+                //get info by using constructor
+                Pokemon pokemon(pkm, pokemon_name, type, HP, MP, attack, defense, skills);
                 
                 
                 //insert the pokemon into the map
