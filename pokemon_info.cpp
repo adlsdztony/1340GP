@@ -156,6 +156,8 @@ void get_pokemon_element(map <string,Pokemon> &pokemon_element){
                 //get info by using constructor
                 Pokemon pokemon(pokemon_name,type,HP,MP,attack,defense,skills);
                 
+                vector<string> pkm(9, "<format front=cyan >@@@@@@@@@@@@@@@@@@@@@@@@</format>");
+                pokemon.s = pkm;
                 
                 //insert the pokemon into the map
                 pokemon_element.insert(pair <string,Pokemon> (pokemon_name,pokemon));         

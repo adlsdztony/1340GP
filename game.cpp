@@ -26,7 +26,10 @@ void State::load(string file_name){
         fout << 1 << endl;
         fout << 1 << endl;
         fout << "home" << endl;
-        fout << 0 << endl;
+        fout << 1 << endl;
+        fout << "Charmeleon" << endl;
+        fout << 60 << endl;
+        fout << 20 << endl;
         fout.close();
     }
     ifstream fin(file_name);
@@ -142,6 +145,15 @@ int Game::chat(string title, vector<string> content){
     return -1;
 }
 
+void Game::fight(string enemy_name){
+    // get enemy
+    Pokemon p1 = this->state.pokemons[0];
+    Pokemon p2 = this->state.pokemon_element.at(enemy_name);
+    Fight f(&p1, &p2, &this->kb, &this->screen);
+    cout << "Fight start" << endl;
+    f.start();
+}
+
 void Game::update(int e) {
     if (this->game_map.interact_map.find(e) != this->game_map.interact_map.end()) {
         string code = this->game_map.interact_map.at(e);
@@ -159,7 +171,7 @@ void Game::update(int e) {
         // fight function
         if (codes[0] == "fight") {
             if (codes.size() >= 2) {
-                
+                this->fight(codes[1]);
             }
         }
 

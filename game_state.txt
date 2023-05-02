@@ -1,4 +1,7 @@
 1
 1
 home
-0
+1
+Charmeleon
+60
+20

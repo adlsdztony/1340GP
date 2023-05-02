@@ -32,16 +32,16 @@ const vector<string> fight_map = {
 class Fight
 {
 public:
-    Pokemon *p1;
-    Pokemon *p2;
-    Screen screen;
+    Pokemon* p1;
+    Pokemon* p2;
+    Screen* screen;
     int turn = 0;
-    Keyboard *kb;
+    Keyboard* kb;
     int selected = 0;
 ;
 
 public:
-    Fight(Pokemon *p1, Pokemon *p2, Keyboard *kb);
+    Fight(Pokemon* p1, Pokemon* p2, Keyboard* kb, Screen* screen);
     void start();
     void main_loop();
     void draw();
