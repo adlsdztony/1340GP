@@ -44,8 +44,8 @@ public:
 
 public:
     Fight(Pokemon* p1, Pokemon* p2, Keyboard* kb, Screen* screen);
-    void start();
-    void main_loop();
+    char start();
+    char main_loop();
     void draw();
     int update(int choice);
     int input();

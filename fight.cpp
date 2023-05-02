@@ -132,7 +132,7 @@ void Fight::bag()
 }
 
 
-void Fight::main_loop()
+char Fight::main_loop()
 {
     int input;
     
@@ -157,6 +157,15 @@ void Fight::main_loop()
         }
         else if (input == 'c'){
             int c = show_notice("Do you want to catch?", {"YES", "NO"}, this->kb, this->screen);
+            if (c == 0){
+                if (this->p2->HP < this->p2->max_HP / 2){
+                    show_notice("Notice!", {"Failed!"}, this->kb, this->screen);
+                }
+                else{
+                    show_notice("Notice!", {"Success!"}, this->kb, this->screen);
+                    return 'c';
+                }
+            }
         }
         else if (input == KEY_ENTER){
             int result = this->update(selected);
@@ -173,10 +182,11 @@ void Fight::main_loop()
             }
         }
     }
+    return 'e';
 }
 
-void Fight::start()
+char Fight::start()
 {
     this->screen->clean();
-    this->main_loop();
+    return this->main_loop();
 }
