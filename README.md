@@ -1,7 +1,7 @@
 [![Logo](https://see.fontimg.com/api/renderfont4/x3ARK/eyJyIjoiZnMiLCJoIjo5OCwidyI6MTUwMCwiZnMiOjY1LCJmZ2MiOiIjMDAwMDAwIiwiYmdjIjoiI0ZGRkZGRiIsInQiOjF9/SG9ua29ubW9uIEdP/there-brat.png)](https://www.fontspace.com/category/art-deco)
 # Menu
 1. [For Player](#for-player) 
-	1. [Team members](#Team-members-🧑‍💻)
+	1. [Team members](#Team-members-)
 	2. [Discription](#description-)
 	3. [Features implemented](#features-implemented-)
 	4. [Non-standard libraries](#non-standard-libraries-%EF%B8%8F)
@@ -84,7 +84,7 @@ make
 That‘s ALL!
 
 
-# For developers
+# For Developer
 ## class Keyboard
 
 ```c++
