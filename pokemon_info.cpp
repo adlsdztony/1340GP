@@ -133,7 +133,7 @@ void get_pokemon_element(map <string,Pokemon> &pokemon_element){
                 }else if (temp_type == "grass"){
                     type = 'G';
                 }else if (temp_type == "normal"){
-                    type = 'E';
+                    type = 'N';
                 }
                 
                 pos1 = pos;

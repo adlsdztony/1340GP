@@ -16,6 +16,9 @@ void State::store(string file_name){
 }
 
 void State::load(string file_name){
+    // clear the state
+    this->pokemons.clear();
+
     if (file_name == "") {
         return;
     }
@@ -28,8 +31,8 @@ void State::load(string file_name){
         fout << "home" << endl;
         fout << 1 << endl;
         fout << "Charmeleon" << endl;
-        fout << 60 << endl;
-        fout << 20 << endl;
+        fout << 90 << endl;
+        fout << 40 << endl;
         fout.close();
     }
     ifstream fin(file_name);
@@ -227,6 +230,7 @@ void Game::update(int e) {
             if (codes[i] == "recover") {
                 for (int j = 0; j < this->state.pokemons.size(); j++) {
                     this->state.pokemons[j].HP = this->state.pokemons[j].max_HP;
+                    this->state.pokemons[j].MP = this->state.pokemons[j].max_MP;
                 }
                 return;
             }
@@ -259,9 +263,10 @@ void Game::main_loop() {
         fout << "home" << endl;
         fout << 1 << endl;
         fout << "Charmeleon" << endl;
-        fout << 60 << endl;
-        fout << 20 << endl;
+        fout << 90 << endl;
+        fout << 40 << endl;
         fout.close();
+        this->state.load("game_state.txt");
     }
 
     

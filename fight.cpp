@@ -101,23 +101,27 @@ int Fight::update(int choice)
 
     if (this->p2->HP <= 0)
     {
+        this->p2->HP = 0;
+        this->screen->clean();
+        this->draw();
+        this->screen->refresh();
         return 1;
     }
-    this->screen->clean();
-    this->draw();
-    this->screen->refresh();
+    
 
     enemy_calculation(*this->p1, *this->p2);
 
     if (this->p1->HP <= 0)
     {
+        this->p1->HP = 0;
+        this->screen->clean();
+        this->draw();
+        this->screen->refresh();
         return 2;
     }
-    return 0;
+    turn++;
 
-    this->screen->clean();
-    this->draw();
-    this->screen->refresh();
+    return 0;
 }
 
 int Fight::input()
