@@ -20,7 +20,7 @@ class Pokemon: public Object
 {
 public:
     string name;
-    string type;
+    char type;
     int HP;
     int MP;
     int max_HP;

@@ -4,6 +4,7 @@
 #include "screen.h"
 #include "keyboard.h"
 #include "format.h"
+#include "fight_system.h"
 
 const vector<string> fight_map = {
 "*------------------------------Round    --------------------------*",
@@ -45,7 +46,7 @@ public:
     void start();
     void main_loop();
     void draw();
-    void update();
+    int update(int choice);
     int input();
     void notice_select();
     bool withdraw();

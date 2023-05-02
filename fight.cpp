@@ -90,9 +90,37 @@ void Fight::draw()
     
 }
 
-void Fight::update()
+int Fight::update(int choice)
 {
-    // TODO Fight::update
+    if (p1->skills[choice].mp_cost > p1->MP)
+    {
+        // TODO not enough MP
+        return -1;
+    }
+    player_calculation(choice, *this->p1, *this->p2);
+
+
+    if (this->p2->HP <= 0)
+    {
+        // TODO p2 dead
+        return 1;
+    }
+    this->screen->clean();
+    this->draw();
+    this->screen->refresh();
+    
+    enemy_calculation(*this->p1, *this->p2);
+
+    if (this->p1->HP <= 0)
+    {
+        // TODO p1 dead
+        return 2;
+    }
+    return 0;
+
+    this->screen->clean();
+    this->draw();
+    this->screen->refresh();
 }
 
 int Fight::input()
@@ -145,7 +173,15 @@ void Fight::main_loop()
         }
         else if (input == KEY_ENTER){
             // TODO attack
-            this->update();
+            int result = this->update(selected);
+            if (result == 1){
+                // TODO p1 win
+                break;
+            }
+            else if (result == 2){
+                // TODO p2 win
+                break;
+            }
         }
     }
 }
