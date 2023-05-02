@@ -151,7 +151,10 @@ void Game::fight(string enemy_name){
     Pokemon p2 = this->state.pokemon_element.at(enemy_name);
     Fight f(&p1, &p2, &this->kb, &this->screen);
     cout << "Fight start" << endl;
-    f.start();
+    char r = f.start();
+    if (r == 'c') {
+        this->state.pokemons.push_back(p2);
+    }
 }
 
 void Game::update(int e) {
