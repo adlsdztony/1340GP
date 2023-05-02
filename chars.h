@@ -141,7 +141,7 @@ const vector<string> Sceptile_grass = {
         "<format front=green >     :::;;;         </format>",
         "<format front=green >     ;;;;;;         </format>"};
 
-const vector<string> Pachirisu_normal = {
+const vector<string> Sentret_normal = {
         "<format front=yellow >           :        </format>"
         "<format front=yellow >          :         </format>"
         "<format front=yellow >          :         </format>"
@@ -152,7 +152,7 @@ const vector<string> Pachirisu_normal = {
         "<format front=yellow >         ##         </format>",
         "<format front=yellow >         fffL       </format>"};
 
-const vector<string> Darkrai_normal = {
+const vector<string> Furret_normal = {
         "<format front=yellow >          ii        </format>"
         "<format front=yellow >        iitti       </format>"
         "<format front=yellow >      iitttttii     </format>"
