@@ -78,6 +78,7 @@ int damage_calculation(int pokemon_attack,char pokemon_type,double skill_damage,
 }
     //defense index
     defense_index = 0.9 - 0.01*x +0.000058*(pow(x,2));
+    skill_damage = skill_damage/100;
     damage = pokemon_attack*skill_damage*damage_index*defense_index;
     return damage;
 }
