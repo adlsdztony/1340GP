@@ -1,11 +1,22 @@
-# For Player
 [![Logo](https://see.fontimg.com/api/renderfont4/x3ARK/eyJyIjoiZnMiLCJoIjo5OCwidyI6MTUwMCwiZnMiOjY1LCJmZ2MiOiIjMDAwMDAwIiwiYmdjIjoiI0ZGRkZGRiIsInQiOjF9/SG9ua29ubW9uIEdP/there-brat.png)](https://www.fontspace.com/category/art-deco)
+# Menu
+1. [Team members](#Team-members-🧑‍💻)
+2. [Discription](#Description-😎)
+3. [Features implemented](#Features-implemented-🚀)
+4. [Non-standard libraries](#Non-standard-libraries-🗂️)
+5. [How to play](#How-to-play-🤗)
+# For Player
 ## Team members 🧑‍💻
 [Chen Binghao](https://github.com/PeterPan246)&ensp;&ensp;(3036098003)
+
 [Chen Borun](https://github.com/cbr-ine)&ensp;&ensp;&ensp;&ensp;(3036052190)
+
 [Chen Tianyu](https://github.com/Uynaity)&ensp;&ensp;&ensp; (3036094605)
+
 [Luo Siqi](https://github.com/rossskkki)&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; (3035979470)
+
 [Zhou Zilong](https://github.com/adlsdztony)&ensp;&ensp;&ensp;&ensp;(3035962427)
+
 
 ## Description 😎
 💎Welcome to our text-based Pokemon game written in C++! We're excited to bring the classic Pokemon experience to life in a unique and engaging way. In this game, you will embark on an adventure to catch, train, and battle your way to become the ultimate Pokemon Master. Don't forget to try to collect all the Pokemon!
