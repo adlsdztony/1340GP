@@ -33,9 +33,9 @@ const vector<string> chuntian_path = {
     "<format front=blue >====</format>                                                            <format front=blue >====</format>",
     "                                                                    ",
     "                                                                    ",
-    "<format front=blue >====</format>                                        OCCCCCCO            <format front=blue >====</format>",
-    "<format front=blue >#</format>                                           O  XZ  O               <format front=blue >#</format>",
-    "<format front=blue >#</format>                                           OOOOOOOO               <format front=blue >#</format>",
+    "<format front=blue >====</format>                                        OCCCCCCCO           <format front=blue >====</format>",
+    "<format front=blue >#</format>                                           O  ASH  O              <format front=blue >#</format>",
+    "<format front=blue >#</format>                                           OOOOOOOOO              <format front=blue >#</format>",
     "<format front=blue >#</format>                                                                  <format front=blue >#</format>",
     "<format front=blue >####################################################################</format>",
     "<format front=blue >#</format>       <format front=cyan >*~~*~~*~~*~~*~~*     *~~*~~*~~*~~*~~*     *~~*~~*~~*~~*~~*</format> <format front=blue >#</format>",
@@ -329,7 +329,7 @@ const vector<string> home_vaild = {
     "011111100000000000M1111111111111111111111111111111111111111111111110",
     "011111100000000000M1111111111111111111111111111111111111111111111110",
     "01111111000000000111111111111111111111111111111111111111111111111110",
-    "01111111111111111111111111111111111111111111111111111111111111111110",
+    "01111111111111CC1111111111111111111111111111111111111111111111111110",
     "01111111111111111111111111111111111111111111111111111111111111111110",
     "01111111111111111111111111111111111111111111111111111111111111111110",
     "01111111111111111111111111111111111111111111111111111111111111111110",
@@ -345,6 +345,7 @@ const vector<string> home_vaild = {
 
 const map<char, string> home_interact = {
     {'M', "chat mom"},
+    {'C', "fight Charmeleon"},
     {'D', "chuntian_town 14 8"}
 };
 
@@ -475,9 +476,9 @@ const vector<string> riverside = {
     "                                                                    ",
     "                                                                    ",
     "<format front=blue >====</format>                                                            <format front=blue >====</format>",
-    "<format front=blue >#</format>                                             OCCCCCO              <format front=blue >#</format>",
-    "<format front=blue >#</format>                                             O  A  O              <format front=blue >#</format>",
-    "<format front=blue >#</format>                       <format front=blue >|                  |</format>  OOOOOOO              <format front=blue >#</format>",
+    "<format front=blue >#</format>                                             OCCCCCCO             <format front=blue >#</format>",
+    "<format front=blue >#</format>                                             O SIKI O             <format front=blue >#</format>",
+    "<format front=blue >#</format>                       <format front=blue >|                  |</format>  OOOOOOOO             <format front=blue >#</format>",
     "<format front=blue >#</format>                       <format front=blue >|                  |</format>                       <format front=blue >#</format>",
     "<format front=blue >########################|                  |########################</format>",
 };
@@ -497,10 +498,10 @@ const vector<string> riverside_vaild = {
     "00001111111111111111111111111111111111111111111111111111111111110000",
     "L111111111111111111111111111111111111111111111111111111111111111111R",
     "L111111111111111111111111111111111111111111111111111111111111111111R",
-    "00001111111111111111111111111111111111111111111AAAAA1111111111110000",
-    "01111111111111111111111111111111111111111111110000000111111111111110",
-    "01111111111111111111111111111111111111111111110000000111111111111110",
-    "01111111111111111111111101111111111111111110110000000111111111111110",
+    "00001111111111111111111111111111111111111111111AAAAAA111111111110000",
+    "01111111111111111111111111111111111111111111110000000011111111111110",
+    "01111111111111111111111111111111111111111111110000000011111111111110",
+    "01111111111111111111111101111111111111111110110000000011111111111110",
     "01111111111111111111111101111111111111111110111111111111111111111110",
     "0000000000000000000000000DDDDDDDDDDDDDDDDDD0000000000000000000000000",
 };

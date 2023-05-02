@@ -407,19 +407,3 @@ void Screen::draw_letters(int x, int y, string &s)
     }
 }
 
-
-// TODO only update the changed part of the line
-void Screen::update()
-{
-    for (int i = 0; i < this->height; i++)
-    {
-        if (this->buffer[i] != this->current[i])
-        {
-            printf("\033[%d;0H", i);
-            printf("%s", this->buffer[i].c_str());
-        }
-    }
-    this->current = this->buffer;
-    
-}
-

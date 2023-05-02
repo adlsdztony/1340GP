@@ -14,7 +14,6 @@ public:
     int height;
     int priority = 0;
     // vector<string> s;
-    // TODO add interact map
     map<char, string> interact_map;
 
 

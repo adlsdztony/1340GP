@@ -23,10 +23,7 @@ int main()
     //     "####```````````````###",
     //     };
     
-    vector<string> player = {
-        "<format front=red >@</format>",
-        // "@",
-    };
+    
 
     // vector<string> npc = {
     //     "<format front=green >@@</format>",
@@ -41,7 +38,7 @@ int main()
     map<string, Map> maps_map;
     init_maps(maps_map);
 
-    Game game(maps_map.at("chuntian_town"));
+    Game game = Game();
     
 
     
@@ -52,7 +49,7 @@ int main()
 
     // game.map.add_interact_object(n, 'n');
 
-    game.player = Player(1, 1, player);
+    // game.player = Player(1, 1, player);
 
     // cout << game.player.height << endl;
     // cout << game.player.s[0].length() << endl;

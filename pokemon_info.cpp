@@ -163,24 +163,24 @@ void get_pokemon_element(map <string,Pokemon> &pokemon_element){
 }
 }
     
-int main(){
-    map <string,Pokemon> pokemon_element;
-    map <string,Skill> pokemon_skills;
-    get_pokemon_element(pokemon_element);
-    // get_pokemon_skill(pokemon_skills);
-    // for (map<string,Skill>::iterator itr = pokemon_skills.begin();itr != pokemon_skills.end();itr++){
-    //     cout << (*itr).first << endl;
-    //     cout << (*itr).second.name << endl;
+// int main(){
+//     map <string,Pokemon> pokemon_element;
+//     map <string,Skill> pokemon_skills;
+//     get_pokemon_element(pokemon_element);
+//     // get_pokemon_skill(pokemon_skills);
+//     // for (map<string,Skill>::iterator itr = pokemon_skills.begin();itr != pokemon_skills.end();itr++){
+//     //     cout << (*itr).first << endl;
+//     //     cout << (*itr).second.name << endl;
     
-    // }
+//     // }
 
-    for (map<string,Pokemon>::iterator itr = pokemon_element.begin();itr != pokemon_element.end();itr++){
-        cout << (*itr).first << endl;
-        cout << (*itr).second.name << endl;
+//     for (map<string,Pokemon>::iterator itr = pokemon_element.begin();itr != pokemon_element.end();itr++){
+//         cout << (*itr).first << endl;
+//         cout << (*itr).second.name << endl;
     
-    }
+//     }
     
-    return 0;
-}
+//     return 0;
+// }
 
 
