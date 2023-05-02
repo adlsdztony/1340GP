@@ -178,11 +178,9 @@ void Game::update(int e) {
             }
         }
 
-        for (int i = 0; i < codes.size(); i++) {
+        for (int i = 0; i < codes.size(); i+=2) {
 
-            if (i/2 != 0) {
-                continue;
-            }
+
             // chat function
             if (codes[i] == "chat"){
 
@@ -193,7 +191,7 @@ void Game::update(int e) {
 
             // fight function
             if (codes[i] == "fight") {
-                if (chat_map.find(codes[i+1]) != chat_map.end()) {
+                if (codes.size() >= i) {
                     this->fight(codes[i+1]);
                 }
             }
