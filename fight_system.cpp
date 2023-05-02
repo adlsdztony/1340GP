@@ -143,7 +143,7 @@ int enemy_skill_calculation(Pokemon &enemy, Pokemon &pokemon, string skill_name)
             // damage calculation
             damage = damage_calculation(enemy.attack ,enemy.type ,enemy.skills[i].damage ,pokemon.defense ,pokemon.type);
             pokemon.HP = pokemon.HP - damage;
-            enemy.HP = enemy.HP + enemy.HP * enemy.skills[i].healing;
+            enemy.HP = enemy.HP + enemy.max_HP * enemy.skills[i].healing;
             enemy.HP = enemy.HP - enemy.attack * enemy.skills[i].self_damage;
             // check if HP is over max_HP
             if (enemy.HP > enemy.max_HP){
@@ -252,14 +252,14 @@ void enemy_calculation(Pokemon &pokemon, Pokemon &enemy){
     }
     
     if (choice == 0){ 
-    
+        cout << "enemy choose skill "<< enemy.skills[choice].name << endl;
         enemy_skill_calculation(enemy,pokemon,enemy.skills[choice].name);
         //print all info
     
         
     }
     else if (choice == 1){
-        cout << "enemy choose skill "<< choice +1 << endl;
+        cout << "enemy choose skill "<< enemy.skills[choice].name << endl;
         enemy_skill_calculation(enemy,pokemon,enemy.skills[choice].name);
         //print all info
     
@@ -267,7 +267,7 @@ void enemy_calculation(Pokemon &pokemon, Pokemon &enemy){
 }
     else if (choice == 2){
     
-        
+        cout << "enemy choose skill "<< enemy.skills[choice].name << endl;
         enemy_skill_calculation(enemy,pokemon,enemy.skills[choice].name);
         //print all info
 
@@ -276,7 +276,7 @@ void enemy_calculation(Pokemon &pokemon, Pokemon &enemy){
     }
     else if (choice == 3){
         
-        
+        cout << "enemy choose skill "<< enemy.skills[choice].name << endl;
         enemy_skill_calculation(enemy,pokemon,enemy.skills[choice].name);
 
         //print all info
