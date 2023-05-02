@@ -175,6 +175,7 @@ void Game::update(int e) {
             if (codes.size() >= 3) {
                 this->player.x = stoi(codes[1]);
                 this->player.y = stoi(codes[2]);
+                return;
             }
         }
 
