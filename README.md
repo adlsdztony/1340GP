@@ -1,14 +1,11 @@
 # For Player
+[![Logo](https://see.fontimg.com/api/renderfont4/x3ARK/eyJyIjoiZnMiLCJoIjo5OCwidyI6MTUwMCwiZnMiOjY1LCJmZ2MiOiIjMDAwMDAwIiwiYmdjIjoiI0ZGRkZGRiIsInQiOjF9/SG9ua29ubW9uIEdP/there-brat.png)](https://www.fontspace.com/category/art-deco)
 ## Team members 🧑‍💻
-Chen Binghao&ensp;&ensp;(3036098003)
-
-Chen Borun&ensp;&ensp;&ensp;&ensp;(3036052190)
-
-Chen Tianyu&ensp;&ensp;&ensp; (3036094605)
-
-Luo Siqi&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; (3035979470)
-
-Zhou Zilong&ensp;&ensp;&ensp;&ensp;(3035962427)
+[Chen Binghao](https://github.com/PeterPan246)&ensp;&ensp;(3036098003)
+[Chen Borun](https://github.com/cbr-ine)&ensp;&ensp;&ensp;&ensp;(3036052190)
+[Chen Tianyu](https://github.com/Uynaity)&ensp;&ensp;&ensp; (3036094605)
+[Luo Siqi](https://github.com/rossskkki)&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; (3035979470)
+[Zhou Zilong](https://github.com/adlsdztony)&ensp;&ensp;&ensp;&ensp;(3035962427)
 
 ## Description 😎
 💎Welcome to our text-based Pokemon game written in C++! We're excited to bring the classic Pokemon experience to life in a unique and engaging way. In this game, you will embark on an adventure to catch, train, and battle your way to become the ultimate Pokemon Master. Don't forget to try to collect all the Pokemon!
@@ -25,24 +22,31 @@ Zhou Zilong&ensp;&ensp;&ensp;&ensp;(3035962427)
 
 ## Features implemented 🚀
 - **Generation of random game sets or events**
+
 -- Our AI combat system uses a random probability to trigger the appropriate skill
 ⁣⁣⁣⁣
 - **Data structures for storing game status**
+
 -- We use the Pokemon_info.txt & Pokemon_skill.txt to store the properties of the NPC
 ⁣⁣⁣⁣
 - **Dynamic memory management**
+
 -- We dynamically manage the memory for pop-up interactions
 ⁣⁣⁣⁣
 - **File input/output**
+
 -- We write individual game progress to the game_state.txt file so that players can quit the game at any time without losing data
 ⁣⁣⁣⁣
 - **Program codes in multiple files**
+
 -- Easy to manage and modify different functions of the game
 ⁣⁣⁣⁣
 - **Proper indentation and naming styles**
+
 -- We can quickly locate the function that needs to be modified
 ⁣⁣⁣⁣
 - **In-code documentation**
+
 -- We won't lose our way with a lot of code
 
 ## Non-standard libraries 🗂️
