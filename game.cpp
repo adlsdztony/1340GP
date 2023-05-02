@@ -146,10 +146,37 @@ int Game::chat(string title, vector<string> content){
 }
 
 void Game::fight(string enemy_name){
+    // select pokemon
+    vector<string> pokemon_names;
+    for (int i = 0; i < this->state.pokemons.size(); i++) {
+        pokemon_names.push_back(this->state.pokemons[i].name);
+    }
+
+    pokemon_names.push_back("cancel");
+
+    int pkm_index;
+
+    while (true) {
+        Notice s_pkm(20, 3, 26, 11, "select pokemon", pokemon_names);
+        pkm_index = s_pkm.select(&this->kb, &this->screen);
+
+        // check cancel
+        if (pkm_index == this->state.pokemons.size()) {
+            return;
+        }
+        // check hp
+        if (this->state.pokemons[pkm_index].HP <= 0) {
+            show_notice("This pokemon is dead", {"OK"}, &this->kb, &this->screen);
+            continue;
+        }
+        else {
+            break;
+        }
+    }
     // get enemy
-    Pokemon p1 = this->state.pokemons[0];
+    Pokemon* p1 = &this->state.pokemons[pkm_index];
     Pokemon p2 = this->state.pokemon_element.at(enemy_name);
-    Fight f(&p1, &p2, &this->kb, &this->screen);
+    Fight f(p1, &p2, &this->kb, &this->screen);
     cout << "Fight start" << endl;
     char r = f.start();
     if (r == 'c') {
@@ -181,7 +208,6 @@ void Game::update(int e) {
 
         for (int i = 0; i < codes.size(); i+=2) {
 
-
             // chat function
             if (codes[i] == "chat"){
 
@@ -197,6 +223,14 @@ void Game::update(int e) {
                 }
             }
 
+            // recover function
+            if (codes[i] == "recover") {
+                for (int j = 0; j < this->state.pokemons.size(); j++) {
+                    this->state.pokemons[j].HP = this->state.pokemons[j].max_HP;
+                }
+                return;
+            }
+
 
         }
     }
@@ -205,6 +239,32 @@ void Game::update(int e) {
 
 void Game::main_loop() {
     this->screen.clean();
+    // print start map
+    for (int i = 0; i < start_map.size(); i++) {
+        cout << start_map[i] << endl;
+    }
+    this->kb.wait_for({KEY_ENTER, KEY_SPACE});
+    // check if game_state.txt is exit
+    int c;
+    ifstream f("game_state.txt");
+    if (f.good()) {
+        c = show_notice("Welcome to Pokemon", {"New Game", "Continue"}, &this->kb, &this->screen);
+    } else {
+        c = show_notice("Welcome to Pokemon", {"New Game"}, &this->kb, &this->screen);
+    }
+    if (c == 0) {
+        ofstream fout("game_state.txt");
+        fout << 1 << endl;
+        fout << 1 << endl;
+        fout << "home" << endl;
+        fout << 1 << endl;
+        fout << "Charmeleon" << endl;
+        fout << 60 << endl;
+        fout << 20 << endl;
+        fout.close();
+    }
+
+    
     while (true) {
         this->draw();
         

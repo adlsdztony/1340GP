@@ -1,11 +1,33 @@
-# For Player
 [![Logo](https://see.fontimg.com/api/renderfont4/x3ARK/eyJyIjoiZnMiLCJoIjo5OCwidyI6MTUwMCwiZnMiOjY1LCJmZ2MiOiIjMDAwMDAwIiwiYmdjIjoiI0ZGRkZGRiIsInQiOjF9/SG9ua29ubW9uIEdP/there-brat.png)](https://www.fontspace.com/category/art-deco)
+# Menu
+1. [For Player](#for-player) 
+	1. [Team members](#Team-members-)
+	2. [Discription](#description-)
+	3. [Features implemented](#features-implemented-)
+	4. [Non-standard libraries](#non-standard-libraries-%EF%B8%8F)
+	5. [How to play](#how-to-play-)
+2. [For Developer](#for-developer)
+	1. [class Keyboard](#class-keyboard)
+	2. [class Format](#class-format)
+	3. [class Object](#class-object)
+	4. [class Window: public Object](#class-window-public-object)
+	5. [class Notice: public Window](#class-notice-public-window)
+	6. [class Screen](#class-screen)
+	7. [class Map](#class-map)
+		1. [To add interactive object to the map](#to-add-interactive-object-to-the-map)
+	8. [Create format with \<format\>](#create-format-with-format)
+# For Player
 ## Team members 🧑‍💻
 [Chen Binghao](https://github.com/PeterPan246)&ensp;&ensp;(3036098003)
+
 [Chen Borun](https://github.com/cbr-ine)&ensp;&ensp;&ensp;&ensp;(3036052190)
+
 [Chen Tianyu](https://github.com/Uynaity)&ensp;&ensp;&ensp; (3036094605)
+
 [Luo Siqi](https://github.com/rossskkki)&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; (3035979470)
+
 [Zhou Zilong](https://github.com/adlsdztony)&ensp;&ensp;&ensp;&ensp;(3035962427)
+
 
 ## Description 😎
 💎Welcome to our text-based Pokemon game written in C++! We're excited to bring the classic Pokemon experience to life in a unique and engaging way. In this game, you will embark on an adventure to catch, train, and battle your way to become the ultimate Pokemon Master. Don't forget to try to collect all the Pokemon!
@@ -62,7 +84,7 @@ make
 That‘s ALL!
 
 
-# For developers
+# For Developer
 ## class Keyboard
 
 ```c++

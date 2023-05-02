@@ -1,6 +1,6 @@
 //
 // Created by KiKi on 2023/5/2.
-//
+// Improved by Daniel on 2023/5/2. 
 
 #ifndef INC_1340GP_CHARS_H
 #define INC_1340GP_CHARS_H
@@ -9,7 +9,7 @@
 #include <vector>
 #endif// INC_1340GP_CHARS_H
 
-const vector<string> Eevee_fire = {
+const vector<string> Charmeleon_fire = {
         "<format front=red >    j     j         </format>",
         "<format front=red >    j     j         </format>",
         "<format front=red >     ;;;;;     :    </format>",
@@ -20,7 +20,7 @@ const vector<string> Eevee_fire = {
         "<format front=red >     :::;;;         </format>",
         "<format front=red >     ;;;;;;         </format>"};
 
-const vector<string> Gengar_water = {
+const vector<string> Wartortle_water = {
         "<format front=blue >      Lj  jj jjL    </format>",
         "<format front=blue >      jjjjjjjjjL    </format>",
         "<format front=blue >     jj;jjjjj;jj    </format>",
@@ -31,7 +31,7 @@ const vector<string> Gengar_water = {
         "<format front=blue >       jjjjjjj      </format>",
         "<format front=blue >                    </format>"};
 
-const vector<string> Luxray_grass = {
+const vector<string> Weepinbell_grass = {
         "<format front=green >        E           </format>",
         "<format front=green >     E EE E         </format>",
         "<format front=green >     iEEEEii    ,   </format>",
@@ -42,7 +42,7 @@ const vector<string> Luxray_grass = {
         "<format front=green >       EiEEiiii     </format>",
         "<format front=green >       EiEEiiii     </format>"};
 
-const vector<string> Jirachi_fire = {
+const vector<string> Ninetales_fire = {
         "<format front=red >          .         </format>",
         "<format front=red >         :t:        </format>",
         "<format front=red >         :t:        </format>",
@@ -53,7 +53,7 @@ const vector<string> Jirachi_fire = {
         "<format front=red >     ::::....:::    </format>",
         "<format front=red >     :::. : ::::    </format>"};
 
-const vector<string> Pikachu_water = {
+const vector<string> Blastoise_water = {
         "<format front=blue >     #     #        </format>",
         "<format front=blue >     ,     ,        </format>",
         "<format front=blue >     ,,,,,,,        </format>",
@@ -64,7 +64,7 @@ const vector<string> Pikachu_water = {
         "<format front=blue >      ,,,,,,,;      </format>",
         "<format front=blue >      ,,,,,,,       </format>"};
 
-const vector<string> Shinx_gress = {
+const vector<string> Grovyle_grass = {
         "<format front=green >   ;;;  ;;   ;;;    </format>",
         "<format front=green >   ;;;;;;;;;;;,;    </format>",
         "<format front=green >   ;,,;,;;;,;,,;    </format>",
@@ -75,7 +75,7 @@ const vector<string> Shinx_gress = {
         "<format front=green >        ;;;;;;EE    </format>",
         "<format front=green >        ;;;;;;EE    </format>"};
 
-const vector<string> Litwick_fire = {
+const vector<string> Rapidash_fire = {
         "<format front=red >          L         </format>",
         "<format front=red >          ,         </format>",
         "<format front=red >         iii        </format>",
@@ -86,7 +86,7 @@ const vector<string> Litwick_fire = {
         "<format front=red >         ;;;        </format>",
         "<format front=red >        ;;;;;       </format>"};
 
-const vector<string> Clefairy_water = {
+const vector<string> Vaporeon_water = {
         "<format front=blue >    ;;      ;;j     </format>",
         "<format front=blue >    ;:::;::::;      </format>",
         "<format front=blue >    ::::;;::::      </format>",
@@ -97,7 +97,7 @@ const vector<string> Clefairy_water = {
         "<format front=blue >     :;;;;;;; ;;    </format>",
         "<format front=blue >      ::   ;: ;     </format>"};
 
-const vector<string> Jigglypuff_grass = {
+const vector<string> Venusaur_grass = {
         "<format front=green >     ;;      ;      </format>",
         "<format front=green >     ;L::::::;      </format>",
         "<format front=green >     ;::::;::;      </format>",
@@ -108,57 +108,57 @@ const vector<string> Jigglypuff_grass = {
         "<format front=green >       :   ;:       </format>",
         "<format front=green >                    </format>"};
 
-const vector<string> Clefable_fire = {
-        "<format front=red ></format>",
-        "<format front=red ></format>",
-        "<format front=red ></format>",
-        "<format front=red ></format>",
-        "<format front=red ></format>",
-        "<format front=red ></format>",
-        "<format front=red ></format>",
-        "<format front=red ></format>",
-        "<format front=red ></format>"};
+const vector<string> Arcanine_fire = {
+        "<format front=red >      ;      ;;     </format>",
+        "<format front=red >      ;;     ;      </format>",
+        "<format front=red >      ;;:;:::;      </format>",
+        "<format front=red >     ; ::;;#:  t    </format>",
+        "<format front=red >      ;:j:::jtt     </format>",
+        "<format front=red >      ;::::::ti:    </format>",
+        "<format front=red >      ;::::::tt;    </format>",
+        "<format front=red >       ::::::t;t    </format>",
+        "<format front=red >        ;;;;; ::    </format>"};
 
-const vector<string> _water = {
-        "<format front=blue ></format>",
-        "<format front=blue ></format>",
-        "<format front=blue ></format>",
-        "<format front=blue ></format>",
-        "<format front=blue ></format>",
-        "<format front=blue ></format>",
-        "<format front=blue ></format>",
-        "<format front=blue ></format>",
-        "<format front=blue ></format>"};
+const vector<string> Gyarados_water = {
+        "<format front=blue >            ;;      </format>",
+        "<format front=blue >           .;       </format>",
+        "<format front=blue >          .;..      </format>",
+        "<format front=blue >       ;  ;;.:      </format>",
+        "<format front=blue >       ....;.       </format>",
+        "<format front=blue >       ,.j,:        </format>",
+        "<format front=blue >        ..;:        </format>",
+        "<format front=blue >        ..:         </format>",
+        "<format front=blue >        : :         </format>"};
 
-const vector<string> _grass = {
-        "<format front=green ></format>",
-        "<format front=green ></format>",
-        "<format front=green ></format>",
-        "<format front=green ></format>",
-        "<format front=green ></format>",
-        "<format front=green ></format>",
-        "<format front=green ></format>",
-        "<format front=green ></format>",
-        "<format front=green ></format>"};
+const vector<string> Sceptile_grass = {
+        "<format front=green >   $ $   $ $        </format>",
+        "<format front=green >    $     $         </format>",
+        "<format front=green >     ;;;;;     ;    </format>",
+        "<format front=green >     ;:;:;    ;     </format>",
+        "<format front=green >     ;;;;; ;;;      </format>",
+        "<format front=green >     ;;;;; jj;      </format>",
+        "<format front=green >    :::::::;j;      </format>",
+        "<format front=green >     :::;;;         </format>",
+        "<format front=green >     ;;;;;;         </format>"};
 
-const vector<string> Pachirisu_normal = {
-        "<format front=yellow >    : </format>"
-        "<format front=yellow >   :  </format>"
-        "<format front=yellow >   :  </format>"
-        "<format front=yellow >  ::  </format>"
-        "<format front=yellow >  :j  </format>"
-        "<format front=yellow >LLLLL </format>"
-        "<format front=yellow > ffff </format>"
-        "<format front=yellow >  ##  </format>",
-        "<format front=yellow >  fffL</format>"};
+const vector<string> Sentret_normal = {
+        "<format front=yellow >           :        </format>"
+        "<format front=yellow >          :         </format>"
+        "<format front=yellow >          :         </format>"
+        "<format front=yellow >         ::         </format>"
+        "<format front=yellow >         :j         </format>"
+        "<format front=yellow >       LLLLL        </format>"
+        "<format front=yellow >        ffff        </format>"
+        "<format front=yellow >         ##         </format>",
+        "<format front=yellow >         fffL       </format>"};
 
-const vector<string> Darkrai_normal = {
-        "<format front=yellow >    ii   </format>"
-        "<format front=yellow >  iitti  </format>"
-        "<format front=yellow >iitttttii</format>"
-        "<format front=yellow >ttjttttt </format>"
-        "<format front=yellow >ttEttjjt </format>"
-        "<format front=yellow > tttttt  </format>"
-        "<format front=yellow > jttttt  </format>"
-        "<format front=yellow >  ttjt   </format>",
-        "<format front=yellow >  tttt   </format>"};
+const vector<string> Furret_normal = {
+        "<format front=yellow >          ii        </format>"
+        "<format front=yellow >        iitti       </format>"
+        "<format front=yellow >      iitttttii     </format>"
+        "<format front=yellow >      ttjttttt      </format>"
+        "<format front=yellow >      ttEttjjt      </format>"
+        "<format front=yellow >       tttttt       </format>"
+        "<format front=yellow >       jttttt       </format>"
+        "<format front=yellow >        ttjt        </format>",
+        "<format front=yellow >        tttt        </format>"};

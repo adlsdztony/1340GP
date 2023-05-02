@@ -1,10 +1,11 @@
 #pragma once
 #include <string>
 #include <map>
+#include <vector>
 
 using namespace std;
 
-const map<string, string> start_map = {
+const vector<string> start_map = {
 	"start_game",
 	"				   \n"
 	"  #               \n"

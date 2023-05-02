@@ -115,7 +115,7 @@ void get_pokemon_element(map <string,Pokemon> &pokemon_element){
             if (test =="-1"){
                 break;
             }else{
-                cout << "test" << endl;
+                skills.clear();
 
                 //get info
                 pos = test.find(" ");

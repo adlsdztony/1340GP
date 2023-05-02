@@ -11,6 +11,7 @@
 #include "pokemon_info.h"
 #include "fight.h"
 #include <fstream>
+#include "startup_map.h"
 
 
 class State
