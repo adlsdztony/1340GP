@@ -4,7 +4,7 @@
 #include <cmath>
 #include <vector>
 #include <map>
-
+#include "pokemon.h"
 using namespace std;
 
 // info

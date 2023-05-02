@@ -4,25 +4,26 @@
 #include <vector>
 #include <map>
 #include "fight_system.h"
+
 #include <random>
 
 using namespace std;
 
 //damage calculation function
-int damage_calculation(int pokemon_attack,string pokemon_type,double skill_damage,int enemy_defense,string enemy_type){
+int damage_calculation(int pokemon_attack,char pokemon_type,double skill_damage,int enemy_defense,char enemy_type){
     int damage;
     double damage_index;
     double defense_index;
     double x = enemy_defense;
     //fire type
-    if (pokemon_type == "fire"){
-        if (enemy_type == "fire"){
+    if (pokemon_type == 'F'){
+        if (enemy_type == 'F'){
             damage_index = 1;
         }
-        else if (enemy_type == "water"){
+        else if (enemy_type == 'W'){
             damage_index = 0.7;
         }
-        else if (enemy_type == "grass"){
+        else if (enemy_type == 'G'){
             damage_index = 1.3;
         }
         else{
@@ -31,14 +32,14 @@ int damage_calculation(int pokemon_attack,string pokemon_type,double skill_damag
             
     }
     //water type
-    else if (pokemon_type == "water"){
-        if (enemy_type == "fire"){
+    else if (pokemon_type == 'W'){
+        if (enemy_type == 'F'){
             damage_index = 1.3;
         }
-        else if (enemy_type == "water"){
+        else if (enemy_type == 'W'){
             damage_index = 1;
         }
-        else if (enemy_type == "grass"){
+        else if (enemy_type == 'G'){
             damage_index = 0.7;
         }
         else{
@@ -46,14 +47,14 @@ int damage_calculation(int pokemon_attack,string pokemon_type,double skill_damag
         }
     }
     //grass type
-    else if (pokemon_type == "grass"){
-        if (enemy_type == "fire"){
+    else if (pokemon_type == 'G'){
+        if (enemy_type == 'F'){
             damage_index = 0.7;
         }
-        else if (enemy_type == "water"){
+        else if (enemy_type == 'W'){
             damage_index = 1.3;
         }
-        else if (enemy_type == "grass"){
+        else if (enemy_type == 'G'){
             damage_index = 1;
         }
         else{
@@ -62,13 +63,13 @@ int damage_calculation(int pokemon_attack,string pokemon_type,double skill_damag
     }
     //normal type
     else{
-        if (enemy_type == "fire"){
+        if (enemy_type == 'F'){
             damage_index = 1.2;
         }
-        else if (enemy_type == "water"){
+        else if (enemy_type == 'W'){
             damage_index = 1.2;
         }
-        else if (enemy_type == "grass"){
+        else if (enemy_type == 'G'){
             damage_index = 1.2;
         }
         else{
@@ -78,9 +79,6 @@ int damage_calculation(int pokemon_attack,string pokemon_type,double skill_damag
     //defense index
     defense_index = 0.9 - 0.01*x +0.000058*(pow(x,2));
     damage = pokemon_attack*skill_damage*damage_index*defense_index;
-    cout << "damage is " << damage << endl;
-    cout << "damage index is " << damage_index << endl;
-    cout << "defense index is " << defense_index << endl;
     return damage;
 }
 
@@ -95,11 +93,12 @@ int player_skill_calculation(Pokemon &pokemon, Pokemon &enemy, string skill_name
     string pokemon_type;
     string enemy_type;
     // find skill
+    
     for (int i = 0; i < pokemon.skills.size(); i++){
         if (pokemon.skills[i].name == skill_name){
             pokemon.MP  =  pokemon.MP -pokemon.skills[i].mp_cost;
             pokemon.attack = pokemon.attack - pokemon.attack * pokemon.skills[i].inattack;
-            pokemon.defense = pokemon.defense - pokemon.defense * pokemon.skills[i].indefense;
+            pokemon.defense = pokemon.defense - pokemon.defense * pokemon.skills[i].indefence;
             enemy.attack = enemy.attack - enemy.attack * pokemon.skills[i].deattack;
             enemy.defense = enemy.defense - enemy.defense * pokemon.skills[i].dedefense;
 
@@ -137,7 +136,7 @@ int enemy_skill_calculation(Pokemon &enemy, Pokemon &pokemon, string skill_name)
         if (enemy.skills[i].name == skill_name){
             enemy.MP  =  enemy.MP -enemy.skills[i].mp_cost;
             enemy.attack = enemy.attack - enemy.attack * enemy.skills[i].inattack;
-            enemy.defense = enemy.defense - enemy.defense * enemy.skills[i].indefense;
+            enemy.defense = enemy.defense - enemy.defense * enemy.skills[i].indefence;
             pokemon.attack = pokemon.attack - pokemon.attack * enemy.skills[i].deattack;
             pokemon.defense = pokemon.defense - pokemon.defense * enemy.skills[i].dedefense;
             enemy.HP = enemy.HP - enemy.HP * enemy.skills[i].self_damage;
@@ -153,7 +152,7 @@ int enemy_skill_calculation(Pokemon &enemy, Pokemon &pokemon, string skill_name)
             return 0;    
         }       
     }
-    cout << "enemy skill not found" << endl;
+    
     return 0;
 }
 
@@ -161,69 +160,36 @@ int enemy_skill_calculation(Pokemon &enemy, Pokemon &pokemon, string skill_name)
 void player_calculation(int choice, Pokemon &pokemon, Pokemon &enemy){
     
     if (choice == 0){ 
-        cout << "choose skill "<< choice +1 << endl; 
-
         
         player_skill_calculation(pokemon,enemy,pokemon.skills[choice].name);
         //print all info
-        cout << "pokemon HP: " << pokemon.HP << endl;
-        cout << "pokemon MP: " << pokemon.MP << endl;
-        cout << "enemy HP: " << enemy.HP << endl;
-        cout << "pokemon attack: " << pokemon.attack << endl;
-        cout << "pokemon defense: " << pokemon.defense << endl;
-        cout << "enemy attack: " << enemy.attack << endl;
-        cout << "enemy defense: " << enemy.defense << endl;           
-        
+       
     }
     else if (choice == 1){
-        cout << "choose skill "<< choice +1 << endl;
         
     
         player_skill_calculation(pokemon,enemy,pokemon.skills[choice].name);    
         //print all info
-        cout << "pokemon HP: " << pokemon.HP << endl;
-        cout << "pokemon MP: " << pokemon.MP << endl;
-        cout << "enemy HP: " << enemy.HP << endl;
-        cout << "pokemon attack: " << pokemon.attack << endl;
-        cout << "pokemon defense: " << pokemon.defense << endl;
-        cout << "enemy attack: " << enemy.attack << endl;
-        cout << "enemy defense: " << enemy.defense << endl;  
+        
         
 
 
     }
     else if (choice == 2){
-        cout << "choose skill "<< choice + 1 << endl;
         
         
         player_skill_calculation(pokemon,enemy,pokemon.skills[choice].name);
         //print all info
-        cout << "pokemon HP: " << pokemon.HP << endl;
-        cout << "pokemon MP: " << pokemon.MP << endl;
-        cout << "enemy HP: " << enemy.HP << endl;
-        cout << "pokemon attack: " << pokemon.attack << endl;
-        cout << "pokemon defense: " << pokemon.defense << endl;
-        cout << "enemy attack: " << enemy.attack << endl;
-        cout << "enemy defense: " << enemy.defense << endl;   
+        
         
     }
     else if (choice == 3){
-        cout << "choose skill " << choice +1 << endl;
+        
         
         
         player_skill_calculation(pokemon,enemy,pokemon.skills[choice].name);
         //print all info
-        cout << "pokemon HP: " << pokemon.HP << endl;
-        cout << "pokemon MP: " << pokemon.MP << endl;
-        cout << "enemy HP: " << enemy.HP << endl;
-        cout << "pokemon attack: " << pokemon.attack << endl;
-        cout << "pokemon defense: " << pokemon.defense << endl;
-        cout << "enemy attack: " << enemy.attack << endl;
-        cout << "enemy defense: " << enemy.defense << endl;   
         
-    }
-    else{
-        cout << "error: invalid input for choice" << endl;
     }
 }
 
@@ -266,7 +232,7 @@ int enemy_fight_system(Pokemon &pokemon, Pokemon &enemy){
     
     //if HP lower than 30%, do not use indefense skill or if defense higher than attack do not use indefense skill or if defense higher than HP*0.5, do not use indefense skill
     if (enemy.HP < enemy.max_HP * 0.3 || enemy.defense > enemy.attack || enemy.defense > enemy.max_HP * 0.5){
-        if (enemy.skills[choice].indefense > 0){
+        if (enemy.skills[choice].indefence > 0){
             //delete the skill from test_choice
             test_choice[choice] = -1;
             choice = enemy_choose_skill(test_choice);
@@ -286,63 +252,39 @@ void enemy_calculation(Pokemon &pokemon, Pokemon &enemy){
     }
     
     if (choice == 0){ 
-        cout << "enemy choose skill "<< choice +1 << endl; 
+    
         enemy_skill_calculation(enemy,pokemon,enemy.skills[choice].name);
         //print all info
-        cout << "pokemon HP: " << pokemon.HP << endl;
-        cout << "pokemon MP: " << pokemon.MP << endl;
-        cout << "enemy HP: " << enemy.HP << endl;
-        cout << "pokemon attack: " << pokemon.attack << endl;
-        cout << "pokemon defense: " << pokemon.defense << endl;
-        cout << "enemy attack: " << enemy.attack << endl;
-        cout << "enemy defense: " << enemy.defense << endl;     
+    
         
     }
     else if (choice == 1){
         cout << "enemy choose skill "<< choice +1 << endl;
         enemy_skill_calculation(enemy,pokemon,enemy.skills[choice].name);
         //print all info
-        cout << "pokemon HP: " << pokemon.HP << endl;
-        cout << "pokemon MP: " << pokemon.MP << endl;
-        cout << "enemy HP: " << enemy.HP << endl;
-        cout << "pokemon attack: " << pokemon.attack << endl;
-        cout << "pokemon defense: " << pokemon.defense << endl;
-        cout << "enemy attack: " << enemy.attack << endl;
-        cout << "enemy defense: " << enemy.defense << endl;
+    
         
 }
     else if (choice == 2){
-        cout << "enemy choose skill "<< choice + 1 << endl;
+    
         
         enemy_skill_calculation(enemy,pokemon,enemy.skills[choice].name);
         //print all info
-        cout << "pokemon HP: " << pokemon.HP << endl;
-        cout << "pokemon MP: " << pokemon.MP << endl;
-        cout << "enemy HP: " << enemy.HP << endl;
-        cout << "pokemon attack: " << pokemon.attack << endl;
-        cout << "pokemon defense: " << pokemon.defense << endl;
-        cout << "enemy attack: " << enemy.attack << endl;
-        cout << "enemy defense: " << enemy.defense << endl;
+
             
         
     }
     else if (choice == 3){
-        cout << "enemy choose skill " << choice +1 << endl;
+        
         
         enemy_skill_calculation(enemy,pokemon,enemy.skills[choice].name);
 
         //print all info
-        cout << "pokemon HP: " << pokemon.HP << endl;
-        cout << "pokemon MP: " << pokemon.MP << endl;
-        cout << "enemy HP: " << enemy.HP << endl;
-        cout << "pokemon attack: " << pokemon.attack << endl;
-        cout << "pokemon defense: " << pokemon.defense << endl;
-        cout << "enemy attack: " << enemy.attack << endl;
-        cout << "enemy defense: " << enemy.defense << endl;       
+         
         }
     
     else{
-        cout << "error: invalid input for choice" << endl;
+        
 
     }
 }
