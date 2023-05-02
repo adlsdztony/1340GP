@@ -4,6 +4,7 @@
 #include <map>
 #include <vector>
 #include "pokemon.h"
+#include "chars.cpp"
 using namespace std;
 
 
@@ -88,6 +89,10 @@ void get_pokemon_skill(map <string, Skill> &pokemon_skills){
 void get_pokemon_element(map <string,Pokemon> &pokemon_element){
     map<string, Skill> pokemon_skills;
     get_pokemon_skill(pokemon_skills);
+    
+    
+    map <string,vector<string>>  pokemon_picture;
+    init_chars(pokemon_picture);
 
     ifstream fin;
     string test,pokemon_name;
@@ -163,7 +168,9 @@ void get_pokemon_element(map <string,Pokemon> &pokemon_element){
                     pos1 = pos;
                 }
                 
-                vector<string> pkm(9, "<format front=cyan >@@@@@@@@@@@@@@@@@@@@@@@@</format>");
+                //vector<string> pkm(9, "<format front=cyan >@@@@@@@@@@@@@@@@@@@@@@@@</format>");
+
+                vector<string> pkm = pokemon_picture.at(pokemon_name);
 
                 //get info by using constructor
                 Pokemon pokemon(pkm, pokemon_name, type, HP, MP, attack, defense, skills);
