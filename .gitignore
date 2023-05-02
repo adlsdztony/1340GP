@@ -4,3 +4,4 @@
 game
 test.*
 .nfs*
+game_state.txt
