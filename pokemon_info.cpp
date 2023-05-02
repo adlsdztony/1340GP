@@ -152,6 +152,8 @@ void get_pokemon_element(map <string,Pokemon> &pokemon_element){
                 }
                 pokemon.skills = skills;
                 
+                vector<string> pkm(9, "<format front=cyan >@@@@@@@@@@@@@@@@@@@@@@@@</format>");
+                pokemon.s = pkm;
                 
                 //insert the pokemon into the map
                 pokemon_element.insert(pair <string,Pokemon> (pokemon_name,pokemon));         
