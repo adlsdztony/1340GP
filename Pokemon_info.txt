@@ -1,20 +1,17 @@
 Charmeleon fire 60 20 15 10 FireBall Volcanal Beat Sleep
-Pidgeot fire 50 25 15 10 FireArrow FireBlast Beat SmashKick
 Ninetales fire 100 40 30 20 FireBall Combustion Beat Volcanal
 Rapidash fire 200 60 50 30 Headbang Explosive Beat FireBlast
 Arcanine fire 300 100 80 50 SolidShell Combustion Beat Explosive
 Wartortle water 60 20 15 10 WaterGun GiantWave Beat Sleep
-Poliwrath water 50 25 15 10 WaterGun Headbang Beat GiantWave
 Blastoise water 100 40 30 20 WaterGun RainSplash Beat WaterFall
 Vaporeon water 200 60 50 30 WaterArrow RainSplash Beat HydrTackle
 Gyarados water 300 100 80 50 WaterFall HydrTackle Beat RainSplash
 Weepinbell grass 60 20 15 10 Synthesis RazorLeaf Beat Absorb
-Gloom grass 50 25 15 10 Synthesis Powder Beat SmashKick
 Grovyle grass 100 40 30 20 Psyshot RazorLeaf Beat Powder
 Venusaur grass 200 60 50 30 Earthquake Absorb Beat RazorLeaf
 Sceptile grass 300 100 80 50 Earthquake Powder Beat ArmorPress
-Sentret normal 60 20 15 10 Headbang Beat Sleep ArmorPress
-Furret normal 120 45 30 15 Headbang Beat SmashKick ArmorPress
+Sentret normal 60 20 15 10 Headbang Sleep Beat ArmorPress
+Furret normal 120 45 30 15 Headbang SmashKick Beat ArmorPress
 -1
 
 
