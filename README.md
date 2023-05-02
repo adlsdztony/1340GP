@@ -1,3 +1,63 @@
+# For Player
+## Team members 🧑‍💻
+Chen Binghao&ensp;&ensp;(3036098003)
+
+Chen Borun&ensp;&ensp;&ensp;&ensp;(3036052190)
+
+Chen Tianyu&ensp;&ensp;&ensp; (3036094605)
+
+Luo Siqi&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; (3035979470)
+
+Zhou Zilong&ensp;&ensp;&ensp;&ensp;(3035962427)
+
+## Description 😎
+💎Welcome to our text-based Pokemon game written in C++! We're excited to bring the classic Pokemon experience to life in a unique and engaging way. In this game, you will embark on an adventure to catch, train, and battle your way to become the ultimate Pokemon Master. Don't forget to try to collect all the Pokemon!
+
+🎢At the start of your journey, you'll get to choose your starting Pokemon and set out into the world. You'll explore various locations such as grassland, river, and hill, where you'll encounter wild Pokemon along the way.
+
+👾When you come across a wild Pokemon, you'll have the option to battle it. Battles are turn-based and consist of four main options: attack, defend, use an item, or flee. You'll choose your options and watch as your Pokemon battles against the wild Pokemon.
+
+🕹️As you progress through the game, you'll collect new Pokemon, each with their own unique abilities and attributes.
+
+🏆Your ultimate goal is to become the Pokemon Champion by defeating the Elite Four trainers. Only the most skilled and dedicated players will be able to rise to the top and claim the title of Pokemon Master.
+
+😜Our game is fun and challenging and will keep you engaged for hours on end. With its simple yet addictive gameplay and nostalgic feel, we're sure it will appeal to fans of the original Pokemon games. So go ahead and enjoy it!
+
+## Features implemented 🚀
+- **Generation of random game sets or events**
+-- Our AI combat system uses a random probability to trigger the appropriate skill
+⁣⁣⁣⁣
+- **Data structures for storing game status**
+-- We use the Pokemon_info.txt & Pokemon_skill.txt to store the properties of the NPC
+⁣⁣⁣⁣
+- **Dynamic memory management**
+-- We dynamically manage the memory for pop-up interactions
+⁣⁣⁣⁣
+- **File input/output**
+-- We write individual game progress to the game_state.txt file so that players can quit the game at any time without losing data
+⁣⁣⁣⁣
+- **Program codes in multiple files**
+-- Easy to manage and modify different functions of the game
+⁣⁣⁣⁣
+- **Proper indentation and naming styles**
+-- We can quickly locate the function that needs to be modified
+⁣⁣⁣⁣
+- **In-code documentation**
+-- We won't lose our way with a lot of code
+
+## Non-standard libraries 🗂️
+Not used
+
+## How to play 🤗
+```bash
+make
+```
+```bash
+./game
+```
+That‘s ALL!
+
+
 # For developers
 ## class Keyboard
 
