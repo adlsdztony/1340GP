@@ -5,6 +5,7 @@
 #include "keyboard.h"
 #include "format.h"
 #include "fight_system.h"
+#include "notice.h"
 
 const vector<string> fight_map = {
 "*------------------------------Round    --------------------------*",

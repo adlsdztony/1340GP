@@ -94,7 +94,6 @@ int Fight::update(int choice)
 {
     if (p1->skills[choice].mp_cost > p1->MP)
     {
-        // TODO not enough MP
         return -1;
     }
     player_calculation(choice, *this->p1, *this->p2);
@@ -102,18 +101,16 @@ int Fight::update(int choice)
 
     if (this->p2->HP <= 0)
     {
-        // TODO p2 dead
         return 1;
     }
     this->screen->clean();
     this->draw();
     this->screen->refresh();
-    
+
     enemy_calculation(*this->p1, *this->p2);
 
     if (this->p1->HP <= 0)
     {
-        // TODO p1 dead
         return 2;
     }
     return 0;
@@ -128,40 +125,30 @@ int Fight::input()
     return this->kb->wait_for({KEY_LEFT, KEY_RIGHT, KEY_ENTER, 'c', 'w', 'b', 'a', 'd'});
 }
 
-bool Fight::withdraw()
-{
-    // TODO withdraw
-    return false;
-}
 
 void Fight::bag()
 {
     // TODO bag
 }
 
-void Fight::catch_pokemon()
-{
-    // TODO catch pokemon
-}
 
 void Fight::main_loop()
 {
     int input;
+    
     while (true)
     {
         this->draw();
         input = this->input();
-        if (input == 'c'){
-            break;
-        }
-        else if (input == KEY_LEFT || input == 'a'){
+        if (input == KEY_LEFT || input == 'a'){
             selected = (selected + 3) % 4;
         }
         else if (input == KEY_RIGHT || input == 'd'){
             selected = (selected + 1) % 4;
         }
         else if (input == 'w'){
-            if (this->withdraw()){
+            int c = show_notice("Do you want to withdraw?", {"YES", "NO"}, this->kb, this->screen);
+            if (c == 0){
                 break;
             }
         }
@@ -169,18 +156,20 @@ void Fight::main_loop()
             this->bag();
         }
         else if (input == 'c'){
-            this->catch_pokemon();
+            int c = show_notice("Do you want to catch?", {"YES", "NO"}, this->kb, this->screen);
         }
         else if (input == KEY_ENTER){
-            // TODO attack
             int result = this->update(selected);
             if (result == 1){
-                // TODO p1 win
+                show_notice("Notice!", {"You win!"}, this->kb, this->screen);
                 break;
             }
             else if (result == 2){
-                // TODO p2 win
+                show_notice("Notice!", {"Failed!"}, this->kb, this->screen);
                 break;
+            }
+            else if (result == -1){
+                show_notice("Notice!", {"Not enough MP!"}, this->kb, this->screen);
             }
         }
     }
