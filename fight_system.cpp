@@ -78,6 +78,7 @@ int damage_calculation(int pokemon_attack,char pokemon_type,double skill_damage,
 }
     //defense index
     defense_index = 0.9 - 0.01*x +0.000058*(pow(x,2));
+    skill_damage = skill_damage/100;
     damage = pokemon_attack*skill_damage*damage_index*defense_index;
     return damage;
 }
@@ -97,8 +98,8 @@ int player_skill_calculation(Pokemon &pokemon, Pokemon &enemy, string skill_name
     for (int i = 0; i < pokemon.skills.size(); i++){
         if (pokemon.skills[i].name == skill_name){
             pokemon.MP  =  pokemon.MP -pokemon.skills[i].mp_cost;
-            pokemon.attack = pokemon.attack - pokemon.attack * pokemon.skills[i].inattack;
-            pokemon.defense = pokemon.defense - pokemon.defense * pokemon.skills[i].indefence;
+            pokemon.attack = pokemon.attack + pokemon.attack * pokemon.skills[i].inattack + pokemon.attack*0.1;
+            pokemon.defense = pokemon.defense + pokemon.defense * pokemon.skills[i].indefence +pokemon.defense*0.1;
             enemy.attack = enemy.attack - enemy.attack * pokemon.skills[i].deattack;
             enemy.defense = enemy.defense - enemy.defense * pokemon.skills[i].dedefense;
 
@@ -135,8 +136,8 @@ int enemy_skill_calculation(Pokemon &enemy, Pokemon &pokemon, string skill_name)
     for (int i = 0; i < enemy.skills.size(); i++){
         if (enemy.skills[i].name == skill_name){
             enemy.MP  =  enemy.MP -enemy.skills[i].mp_cost;
-            enemy.attack = enemy.attack - enemy.attack * enemy.skills[i].inattack;
-            enemy.defense = enemy.defense - enemy.defense * enemy.skills[i].indefence;
+            enemy.attack = enemy.attack + enemy.attack * enemy.skills[i].inattack;
+            enemy.defense = enemy.defense + enemy.defense * enemy.skills[i].indefence;
             pokemon.attack = pokemon.attack - pokemon.attack * enemy.skills[i].deattack;
             pokemon.defense = pokemon.defense - pokemon.defense * enemy.skills[i].dedefense;
             enemy.HP = enemy.HP - enemy.HP * enemy.skills[i].self_damage;
