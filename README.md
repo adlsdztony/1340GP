@@ -1,9 +1,13 @@
 # For Player
 ## Team members 🧑‍💻
 Chen Binghao&ensp;&ensp;(3036098003)
+
 Chen Borun&ensp;&ensp;&ensp;&ensp;(3036052190)
+
 Chen Tianyu&ensp;&ensp;&ensp; (3036094605)
+
 Luo Siqi&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; (3035979470)
+
 Zhou Zilong&ensp;&ensp;&ensp;&ensp;(3035962427)
 
 ## Description 😎
