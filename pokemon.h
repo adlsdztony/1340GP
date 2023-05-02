@@ -31,4 +31,5 @@ public:
 public:
     Pokemon(){}; // default constructor
     Pokemon(vector<string> &s, string name, char type, int HP, int MP, int attack, int defense, vector<Skill> skills);
+    Pokemon(string name, int HP, int MP, map<string, Pokemon> &pokemon_element);
 };

@@ -29,3 +29,18 @@ Pokemon::Pokemon(vector<string> &s, string name, char type, int HP, int MP, int 
     this->y = 0;
 }
 
+Pokemon::Pokemon(string name, int HP, int MP, map<string, Pokemon> &pokemon_element){
+    this->name = name;
+    this->HP = HP;
+    this->MP = MP;
+    this->max_HP = pokemon_element[name].max_HP;
+    this->max_MP = pokemon_element[name].max_MP;
+    this->attack = pokemon_element[name].attack;
+    this->defense = pokemon_element[name].defense;
+    this->skills = pokemon_element[name].skills;
+    this->type = pokemon_element[name].type;
+    this->s = pokemon_element[name].s;
+    this->formats = pokemon_element[name].formats;
+    this->x = 0;
+    this->y = 0;
+}

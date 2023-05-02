@@ -1,21 +1,81 @@
 #include "game.h"
 
 
-Game::Game(vector<string> game_map) {
+void State::store(string file_name){
+    ofstream fout(file_name);
+    fout << this->x << endl;
+    fout << this->y << endl;
+    fout << this->map_name << endl;
+    fout << this->pokemons.size() << endl;
+    for (int i = 0; i < this->pokemons.size(); i++) {
+        fout << this->pokemons[i].name << endl;
+        fout << this->pokemons[i].HP << endl;
+        fout << this->pokemons[i].MP << endl;
+    }
+    fout.close();
+}
+
+void State::load(string file_name){
+    if (file_name == "") {
+        return;
+    }
+    // if no file exists
+    if (!ifstream(file_name)) {
+        // create a new file
+        ofstream fout(file_name);
+        fout << 1 << endl;
+        fout << 1 << endl;
+        fout << "home" << endl;
+        fout << 0 << endl;
+        fout.close();
+    }
+    ifstream fin(file_name);
+    fin >> this->x;
+    fin >> this->y;
+    fin >> this->map_name;
+    int n;
+    fin >> n;
+    for (int i = 0; i < n; i++) {
+        string name;
+        int HP;
+        int MP;
+        fin >> name;
+        fin >> HP;
+        fin >> MP;
+        this->pokemons.push_back(Pokemon(name, HP, MP, this->pokemon_element));
+    }
+    fin.close();
+}
+
+
+Game::Game() {
     init_maps(this->maps_map);
     this->kb = Keyboard();
     this->kb.listen();
-    this->game_map = Map(game_map);
+    cout << "test main" << endl;
+    this->state = State();
+    this->state.load("game_state.txt");
+    vector<string> playe = {
+        "<format front=red >@</format>",
+        // "@",
+    };
+    this->player = Player(this->state.x, this->state.y, playe);
+    this->game_map = this->maps_map.at(this->state.map_name);
     this->screen = Screen(this->game_map.width, this->game_map.height);
 }
 
-Game::Game(const Map &game_map) {
-    init_maps(this->maps_map);
-    this->kb = Keyboard();
-    this->kb.listen();
-    this->game_map = game_map;
-    this->screen = Screen(this->game_map.width, this->game_map.height);
-}
+// Game::Game() {
+//     init_maps(this->maps_map);
+//     this->kb = Keyboard();
+//     this->kb.listen();
+//     this->game_map = game_map;
+//     this->screen = Screen(this->game_map.width, this->game_map.height);
+//     this->state = State();
+//     this->state.load("game_state.txt");
+//     this->player.x = this->state.x;
+//     this->player.y = this->state.y;
+//     this->game_map = this->maps_map[this->state.map_name];
+// }
 
 
 void Game::add_notice_E() {
@@ -96,6 +156,13 @@ void Game::update(int e) {
             };
         }
 
+        // fight function
+        if (codes[0] == "fight") {
+            if (codes.size() >= 2) {
+                
+            }
+        }
+
         // switch map
         if (this->maps_map.find(codes[0]) != this->maps_map.end()) {
             this->game_map = Map(maps_map.at(codes[0]));
@@ -145,11 +212,17 @@ void Game::main_loop() {
         
     }
 
+    this->save_and_exit();
+}
+
+void Game::save_and_exit(){
+    this->state.store("game_state.txt");
+
     this->kb.stop();
     this->screen.clean();
     cout << "Bye!" << endl;
     
     this->kb.stored_settings.c_lflag |= ECHO;
-	tcsetattr(0,TCSANOW,&this->kb.stored_settings);
+    tcsetattr(0,TCSANOW,&this->kb.stored_settings);
     printf("\033[?25h");
 }
