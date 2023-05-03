@@ -107,7 +107,13 @@ int player_skill_calculation(Pokemon &pokemon, Pokemon &enemy, string skill_name
             damage = damage_calculation(pokemon.attack ,pokemon.type ,pokemon.skills[i].damage ,enemy.defense ,enemy.type);
             enemy.HP = enemy.HP - damage;
             pokemon.HP = pokemon.HP + pokemon.max_HP * pokemon.skills[i].healing;
-            pokemon.HP = pokemon.HP - pokemon.attack * pokemon.skills[i].self_damage;
+            //self_damage can not make itself die
+            if (pokemon.HP - pokemon.attack * pokemon.skills[i].self_damage <= 0){
+                pokemon.HP = 1;
+            }
+            else{
+                pokemon.HP = pokemon.HP - pokemon.attack * pokemon.skills[i].self_damage;
+            }
             // check if HP is over max_HP
             if (pokemon.HP > pokemon.max_HP){
                 pokemon.HP = pokemon.max_HP;
@@ -145,7 +151,15 @@ int enemy_skill_calculation(Pokemon &enemy, Pokemon &pokemon, string skill_name)
             damage = damage_calculation(enemy.attack ,enemy.type ,enemy.skills[i].damage ,pokemon.defense ,pokemon.type);
             pokemon.HP = pokemon.HP - damage;
             enemy.HP = enemy.HP + enemy.max_HP * enemy.skills[i].healing;
-            enemy.HP = enemy.HP - enemy.attack * enemy.skills[i].self_damage;
+            // self_damage can not make itself die
+            if (enemy.HP - enemy.attack * enemy.skills[i].self_damage <= 0){
+                enemy.HP = 1;
+            }
+            else{
+                enemy.HP = enemy.HP - enemy.attack * enemy.skills[i].self_damage;
+            }
+            
+
             // check if HP is over max_HP
             if (enemy.HP > enemy.max_HP){
                 enemy.HP = enemy.max_HP;
