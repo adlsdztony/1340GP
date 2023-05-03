@@ -146,7 +146,7 @@ int enemy_skill_calculation(Pokemon &enemy, Pokemon &pokemon, string skill_name)
             enemy.defense = enemy.defense + enemy.defense * enemy.skills[i].indefence;
             pokemon.attack = pokemon.attack - pokemon.attack * enemy.skills[i].deattack;
             pokemon.defense = pokemon.defense - pokemon.defense * enemy.skills[i].dedefense;
-            enemy.HP = enemy.HP - enemy.HP * enemy.skills[i].self_damage;
+            
             // damage calculation
             damage = damage_calculation(enemy.attack ,enemy.type ,enemy.skills[i].damage ,pokemon.defense ,pokemon.type);
             pokemon.HP = pokemon.HP - damage;
