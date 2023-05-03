@@ -1,6 +1,6 @@
 #include "game.h"
 
-
+// store the state of the game to the file
 void State::store(string file_name){
     ofstream fout(file_name);
     fout << this->x << endl;
@@ -15,6 +15,7 @@ void State::store(string file_name){
     fout.close();
 }
 
+// load the state of the game from the file
 void State::load(string file_name){
     // clear the state
     this->pokemons.clear();
@@ -54,6 +55,7 @@ void State::load(string file_name){
 }
 
 
+// constructor of Game
 Game::Game() {
     init_maps(this->maps_map);
     this->kb = Keyboard();
@@ -70,28 +72,16 @@ Game::Game() {
     this->screen = Screen(this->game_map.width, this->game_map.height);
 }
 
-// Game::Game() {
-//     init_maps(this->maps_map);
-//     this->kb = Keyboard();
-//     this->kb.listen();
-//     this->game_map = game_map;
-//     this->screen = Screen(this->game_map.width, this->game_map.height);
-//     this->state = State();
-//     this->state.load("game_state.txt");
-//     this->player.x = this->state.x;
-//     this->player.y = this->state.y;
-//     this->game_map = this->maps_map[this->state.map_name];
-// }
 
-
+// draw the notice of pressing E
 void Game::add_notice_E() {
     // Object E = Object(0, 0, vector<string>(1, "E"));
     Window E(47, 1, 19, 1, "Press <format front=blue >E</format>", "", 0);
-
     this->screen.draw(&E);
 }
 
 
+// draw all the objects in the game
 void Game::draw() {
     
     this->screen.clear();
@@ -124,7 +114,7 @@ std::vector<std::string> split(const std::string& str, char delim) {
     return elems;
 }
 
-
+// chat with the npc
 int Game::chat(string title, vector<string> content){
     int key_pressed;
     for (int i = 0; i < content.size(); i++) {
@@ -148,6 +138,7 @@ int Game::chat(string title, vector<string> content){
     return -1;
 }
 
+// fight with the enemy
 void Game::fight(string enemy_name){
     // select pokemon
     vector<string> pokemon_names;
@@ -194,6 +185,7 @@ void Game::fight(string enemy_name){
     }
 }
 
+// interact with the object
 void Game::update(int e) {
     if (this->game_map.interact_map.find(e) != this->game_map.interact_map.end()) {
         string code = this->game_map.interact_map.at(e);
@@ -240,6 +232,18 @@ void Game::update(int e) {
     }
 }
 
+// save game state and exit
+void Game::save_and_exit(){
+    this->state.store("game_state.txt");
+
+    this->kb.stop();
+    this->screen.clean();
+    cout << "Bye!" << endl;
+    
+    this->kb.stored_settings.c_lflag |= ECHO;
+    tcsetattr(0,TCSANOW,&this->kb.stored_settings);
+    printf("\033[?25h");
+}
 
 void Game::main_loop() {
     this->screen.clean();
@@ -306,16 +310,4 @@ void Game::main_loop() {
     }
 
     this->save_and_exit();
-}
-
-void Game::save_and_exit(){
-    this->state.store("game_state.txt");
-
-    this->kb.stop();
-    this->screen.clean();
-    cout << "Bye!" << endl;
-    
-    this->kb.stored_settings.c_lflag |= ECHO;
-    tcsetattr(0,TCSANOW,&this->kb.stored_settings);
-    printf("\033[?25h");
 }

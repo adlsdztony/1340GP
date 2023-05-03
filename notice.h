@@ -20,4 +20,4 @@ public:
 
 };
 
-int show_notice(string title, vector<string> selections, Keyboard *kb, Screen *screen);
+int show_notice(string &title, vector<string> &selections, Keyboard *kb, Screen *screen);

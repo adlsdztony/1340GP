@@ -25,7 +25,7 @@ const vector<string> fight_map = {
 "* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *", 
 "*            *            *            *            * Catch(C)    *", 
 "* Damage:    * Damage:    * Damage:    * Damage:    * Withdraw(W) *",
-"* MPcost:    * MPcost:    * MPcost:    * MPcost:    * Bag(B)      *", 
+"* MPcost:    * MPcost:    * MPcost:    * MPcost:    *             *", 
 "*******************************************************************"
 };
 
