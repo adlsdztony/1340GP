@@ -13,7 +13,8 @@
 #include <fstream>
 #include "startup_map.h"
 
-
+// a class to store the state of the game
+// also provide functions to store and load the state
 class State
 {
 public:
@@ -36,6 +37,7 @@ public:
 };
 
 
+// main process of the game
 class Game
 {
 public:

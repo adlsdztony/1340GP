@@ -1,11 +1,11 @@
 [![Logo](https://see.fontimg.com/api/renderfont4/x3ARK/eyJyIjoiZnMiLCJoIjo5OCwidyI6MTUwMCwiZnMiOjY1LCJmZ2MiOiIjMDAwMDAwIiwiYmdjIjoiI0ZGRkZGRiIsInQiOjF9/SG9ua29ubW9uIEdP/there-brat.png)](https://www.fontspace.com/category/art-deco)
 # Menu
 1. [For Player](#for-player) 
-	1. [Team members](#Team-members-)
-	2. [Discription](#description-)
-	3. [Features implemented](#features-implemented-)
-	4. [Non-standard libraries](#non-standard-libraries-%EF%B8%8F)
-	5. [How to play](#how-to-play-)
+	1. How to play
+	2. Team members
+	3. Features implemented
+	4. Discription
+	5. Non-standard libraries
 2. [For Developer](#for-developer)
 	1. [class Keyboard](#class-keyboard)
 	2. [class Format](#class-format)
@@ -28,11 +28,56 @@
 
 [Zhou Zilong](https://github.com/adlsdztony)&ensp;&ensp;&ensp;&ensp;(3035962427)
 
+## How to play 🤗
+**Remember to zoom in the terminal window to get a better experience.**
+```bash
+make
+```
+```bash
+./game
+```
+That‘s ALL! 
+- Press *Enter/Space* to start.
+- Press *Up/Down/Left/Right* (or *w/s/a/d* ) to move or change the selection.
+- Press *E* to interact.
+- Press *Enter* to select.
+- Press *Esc* **Twice** to exit.
+
+
+## Features implemented 🚀
+- **Generation of random game sets or events**
+
+    - Our AI combat system uses a random probability to trigger the appropriate skill (see [fight_system.cpp](fight_system.cpp))
+⁣⁣⁣⁣
+- **Data structures for storing game status**
+
+    - We define a class to store the game status (see *class State* in [game.h](game.h))
+⁣⁣⁣⁣
+- **Dynamic memory management**
+
+    - We dynamically manage the memory for pop-up interactions (see *int show_notice* in [notice.cpp](notice.cpp))
+⁣⁣⁣⁣
+- **File input/output**
+
+    - We write individual game progress to the game_state.txt file so that players can quit the game at any time without losing data (see *State::store()* and *State::load()* in [game.cpp](game.cpp))
+⁣⁣⁣⁣
+- **Program codes in multiple files**
+
+    - Easy to manage and modify different functions of the game
+⁣⁣⁣⁣
+- **Proper indentation and naming styles**
+
+    - We can quickly locate the function that needs to be modified
+⁣⁣⁣⁣
+- **In-code documentation**
+
+    - We won't lose our way with a lot of code
+
 
 ## Description 😎
 💎Welcome to our text-based Pokemon game written in C++! We're excited to bring the classic Pokemon experience to life in a unique and engaging way. In this game, you will embark on an adventure to catch, train, and battle your way to become the ultimate Pokemon Master. Don't forget to try to collect all the Pokemon!
 
-🎢At the start of your journey, you'll get to choose your starting Pokemon and set out into the world. You'll explore various locations such as grassland, river, and hill, where you'll encounter wild Pokemon along the way.
+🎢At the start of your journey, you'll get your starting Pokemon and set out into the world. You'll explore various locations such as grassland, river, and hill, where you'll encounter wild Pokemon along the way.
 
 👾When you come across a wild Pokemon, you'll have the option to battle it. Battles are turn-based and consist of four main options: attack, defend, use an item, or flee. You'll choose your options and watch as your Pokemon battles against the wild Pokemon.
 
@@ -42,46 +87,9 @@
 
 😜Our game is fun and challenging and will keep you engaged for hours on end. With its simple yet addictive gameplay and nostalgic feel, we're sure it will appeal to fans of the original Pokemon games. So go ahead and enjoy it!
 
-## Features implemented 🚀
-- **Generation of random game sets or events**
-
--- Our AI combat system uses a random probability to trigger the appropriate skill
-⁣⁣⁣⁣
-- **Data structures for storing game status**
-
--- We use the Pokemon_info.txt & Pokemon_skill.txt to store the properties of the NPC
-⁣⁣⁣⁣
-- **Dynamic memory management**
-
--- We dynamically manage the memory for pop-up interactions
-⁣⁣⁣⁣
-- **File input/output**
-
--- We write individual game progress to the game_state.txt file so that players can quit the game at any time without losing data
-⁣⁣⁣⁣
-- **Program codes in multiple files**
-
--- Easy to manage and modify different functions of the game
-⁣⁣⁣⁣
-- **Proper indentation and naming styles**
-
--- We can quickly locate the function that needs to be modified
-⁣⁣⁣⁣
-- **In-code documentation**
-
--- We won't lose our way with a lot of code
 
 ## Non-standard libraries 🗂️
-Not used
-
-## How to play 🤗
-```bash
-make
-```
-```bash
-./game
-```
-That‘s ALL!
+Not used, standard libraries only.
 
 
 # For Developer
@@ -215,6 +223,10 @@ The output will be like this:
 +----------------+
 ```
 If user select the first line, the output will be "hello".
+```c++
+// you can also use int show_notice to show the notice with pre-defined width and height
+int choice = show_notice(title, selections, Keyboard *kb, Screen *screen)
+```
 
 ## class Screen
 ```c++
@@ -262,14 +274,14 @@ Map map(map, valid_map);
 ```c++
 // map can be created with a vector of string
 vector<string> map = {
-    "``````````````````````",
-    "``````````````````````",
-    "``````````````````````",
-    "``````````````````````",
-    "###````#####`#########",
-    "####```````````````###",
+    "                      ",
+    "                      ",
+    "                      ",
+    "                      ",
+    "###    ##### #########",
+    "####               ###",
     };
-// simbol "`" represents a valid position, and store into valid_map then be replaced by " "
+// empty space represents a valid position, and store into valid_map
 
 // create map
 Map map(map);

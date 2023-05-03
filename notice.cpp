@@ -65,10 +65,16 @@ int Notice::select(Keyboard *kb, Screen *screen)
     }
 }
 
+// input a title and a vector of selections
+// take control of the screen and keyboard
+// show a notice and return the index of the selection
 int show_notice(string title, vector<string> selections, Keyboard *kb, Screen *screen)
 {
+    // dynamic allocation
     Notice* notice = new Notice(20, 5, 26, 7, title, selections);
     int i = notice->select(kb, screen);
+
+    // delete notice;
     delete notice;
     return i;
 }
