@@ -25,16 +25,10 @@ void State::load(string file_name){
     }
     // if no file exists
     if (!ifstream(file_name)) {
-        // create a new file
-        ofstream fout(file_name);
-        fout << 1 << endl;
-        fout << 1 << endl;
-        fout << "home" << endl;
-        fout << 1 << endl;
-        fout << "Charmeleon" << endl;
-        fout << 90 << endl;
-        fout << 40 << endl;
-        fout.close();
+        this->x = 1;
+        this->y = 1;
+        this->map_name = "home";
+        return;
     }
     ifstream fin(file_name);
     fin >> this->x;
@@ -194,6 +188,7 @@ void Game::update(int e) {
         // switch map
         if (this->maps_map.find(codes[0]) != this->maps_map.end()) {
             this->game_map = Map(maps_map.at(codes[0]));
+            this->state.map_name = codes[0];
             if (codes.size() >= 3) {
                 this->player.x = stoi(codes[1]);
                 this->player.y = stoi(codes[2]);
@@ -234,6 +229,8 @@ void Game::update(int e) {
 
 // save game state and exit
 void Game::save_and_exit(){
+    this->state.x = this->player.x;
+    this->state.y = this->player.y;
     this->state.store("game_state.txt");
 
     this->kb.stop();
