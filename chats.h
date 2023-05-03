@@ -22,8 +22,7 @@ const map<string, vector<string>> chat_map = {
     },
     {"doctor", {
 	"Hello there, young trainer! I am a Pokemon doctor, and I specialize in the health and well-being of all Pokemon.",
-	"I see that you don't have a Pokemon yet, so I would like to offer you one to start your journey.",
-	"Choose one from these three Pokemon: grass,fire or water. Take care of your new partner and make sure to come back to me if you need any medical attention for your Pokemon.",
+	"Take care of your new partner and make sure to come back to me if you need any medical attention for your Pokemon.",
 	"Good luck on your journey!",	    
         "If you're interested in learning more about Pokemon battles, you should check out Ash. He's a skilled Pokemon trainer who hangs out at the along the Chuntian Path.", 
 	"Maybe He can teach you about battle strategies and help you improve your skills. Just head east from here and you'll see him. Good luck!"
@@ -67,7 +66,7 @@ const map<string, vector<string>> chat_map = {
 	    }
 	},
     {"supermarket", {
-	    "What do you wanna buy?"
+	    "(players are provided with infinite Pokeballs, so you don't need to buy anything)"
 	    }
 	}
 };
