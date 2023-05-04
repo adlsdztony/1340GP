@@ -1,11 +1,11 @@
 [![Logo](https://see.fontimg.com/api/renderfont4/x3ARK/eyJyIjoiZnMiLCJoIjo5OCwidyI6MTUwMCwiZnMiOjY1LCJmZ2MiOiIjMDAwMDAwIiwiYmdjIjoiI0ZGRkZGRiIsInQiOjF9/SG9ua29ubW9uIEdP/there-brat.png)](https://www.fontspace.com/category/art-deco)
 # Menu
 1. [For Player](#for-player) 
-	1. How to play
-	2. Team members
-	3. Features implemented
-	4. Discription
-	5. Non-standard libraries
+	1. [Team members](#Team-members-)
+	2. [How to play](#how-to-play-)
+	3. [Features implemented](#features-implemented-)
+	4. [Discription](#description-)
+	5. [Non-standard libraries](#non-standard-libraries-%EF%B8%8F)
 2. [For Developer](#for-developer)
 	1. [class Keyboard](#class-keyboard)
 	2. [class Format](#class-format)
