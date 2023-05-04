@@ -1,4 +1,4 @@
-[Logo](https://see.fontimg.com/api/renderfont4/x3ARK/eyJyIjoiZnMiLCJoIjo5OCwidyI6MTUwMCwiZnMiOjY1LCJmZ2MiOiIjMDAwMDAwIiwiYmdjIjoiI0ZGRkZGRiIsInQiOjF9/SG9ua29ubW9uIEdP/there-brat.png)
+![Logo](https://see.fontimg.com/api/renderfont4/x3ARK/eyJyIjoiZnMiLCJoIjo5OCwidyI6MTUwMCwiZnMiOjY1LCJmZ2MiOiIjMDAwMDAwIiwiYmdjIjoiI0ZGRkZGRiIsInQiOjF9/SG9ua29ubW9uIEdP/there-brat.png)
 # Menu
 1. [For Player](#for-player) 
 	1. [Team members](#Team-members-)
