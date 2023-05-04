@@ -31,9 +31,15 @@ void State::load(string file_name){
         return;
     }
     ifstream fin(file_name);
-    fin >> this->x;
-    fin >> this->y;
-    fin >> this->map_name;
+    int x;
+    int y;
+    string map_name;
+    fin >> x;
+    fin >> y;
+    fin >> map_name;
+    this->x = x;
+    this->y = y;
+    this->map_name = map_name;
     int n;
     fin >> n;
     for (int i = 0; i < n; i++) {
@@ -268,6 +274,9 @@ void Game::main_loop() {
         fout << 40 << endl;
         fout.close();
         this->state.load("game_state.txt");
+        this->game_map = Map(maps_map.at("home"));
+        this->player.x = 1;
+        this->player.y = 1;
     }
 
     
