@@ -9,6 +9,8 @@ $(prom): $(obj)
  
 %.o: %.cpp %.h
 	$(cc) -c $< -o $@
- 
+
 clean:
 	rm -rf $(obj) $(prom)
+
+.PHONY: clean
