@@ -46,7 +46,8 @@ That‘s ALL!
 - Press *E* to interact.
 - Press *Enter* to select.
 - Press *Esc* **Twice** to exit.
-
+- Tips:
+    - You can press *E* **multiple times** to teleport to the next map with same direction.
 
 ## Features implemented 🚀
 - **Generation of random game sets or events**
