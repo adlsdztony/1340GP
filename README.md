@@ -3,6 +3,7 @@
 1. [For Player](#for-player) 
 	1. [Team members](#Team-members-)
 	2. [How to play](#how-to-play-)
+		1. [Quick DEMO](#quick-demo)
 	3. [Features implemented](#features-implemented-)
 	4. [Discription](#description-)
 	5. [Non-standard libraries](#non-standard-libraries-%EF%B8%8F)
@@ -29,10 +30,8 @@
 [Zhou Zilong](https://github.com/adlsdztony)&ensp;&ensp;&ensp;&ensp;(3035962427)
 
 ## How to play 🤗
-### Compile
-<script src="https://asciinema.org/a/582661.js" id="asciicast-582661" async data-autoplay="true" data-size="big"></script>
-
-[![asciicast](https://asciinema.org/a/582661.svg)](https://asciinema.org/a/582661)
+### Quick DEMO
+[![asciicast](https://asciinema.org/a/582678.svg)](https://asciinema.org/a/582678?autoplay=1)
 
 **Remember to zoom in the terminal window to get a better experience.**
 ```bash
