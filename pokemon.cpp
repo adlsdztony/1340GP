@@ -1,6 +1,6 @@
 #include "pokemon.h"
 
-Skill::Skill(string name, double mp_cost,double damage,double healing,double inattack,double indefence,double deattack,double dedefense,double self_damage){
+Skill::Skill(string name, double mp_cost, double damage, double healing, double inattack, double indefence, double deattack, double dedefense, double self_damage) {
     this->name = name;
     this->damage = damage;
     this->mp_cost = mp_cost;
@@ -10,10 +10,9 @@ Skill::Skill(string name, double mp_cost,double damage,double healing,double ina
     this->deattack = deattack;
     this->dedefense = dedefense;
     this->self_damage = self_damage;
-    
 }
 
-Pokemon::Pokemon(vector<string> &s, string name, char type, int HP, int MP, int attack, int defense, vector<Skill> skills){
+Pokemon::Pokemon(vector<string> &s, string name, char type, int HP, int MP, int attack, int defense, vector<Skill> skills) {
     this->name = name;
     this->type = type;
     this->HP = HP;
@@ -29,7 +28,7 @@ Pokemon::Pokemon(vector<string> &s, string name, char type, int HP, int MP, int 
     this->y = 0;
 }
 
-Pokemon::Pokemon(string name, int HP, int MP, map<string, Pokemon> &pokemon_element){
+Pokemon::Pokemon(string name, int HP, int MP, map<string, Pokemon> &pokemon_element) {
     this->name = name;
     this->HP = HP;
     this->MP = MP;

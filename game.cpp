@@ -1,7 +1,7 @@
 #include "game.h"
 
 // store the state of the game to the file
-void State::store(string file_name){
+void State::store(string file_name) {
     ofstream fout(file_name);
     fout << this->x << endl;
     fout << this->y << endl;
@@ -16,7 +16,7 @@ void State::store(string file_name){
 }
 
 // load the state of the game from the file
-void State::load(string file_name){
+void State::load(string file_name) {
     // clear the state
     this->pokemons.clear();
 
@@ -64,8 +64,8 @@ Game::Game() {
     this->state = State();
     this->state.load("game_state.txt");
     vector<string> playe = {
-        "<format front=red >@</format>",
-        // "@",
+            "<format front=red >@</format>",
+            // "@",
     };
     this->player = Player(this->state.x, this->state.y, playe);
     this->game_map = this->maps_map.at(this->state.map_name);
@@ -83,7 +83,7 @@ void Game::add_notice_E() {
 
 // draw all the objects in the game
 void Game::draw() {
-    
+
     this->screen.clear();
 
     this->screen.draw(&this->game_map);
@@ -93,11 +93,10 @@ void Game::draw() {
         add_notice_E();
     }
     this->screen.refresh();
-    
 }
 
 
-std::vector<std::string> split(const std::string& str, char delim) {
+std::vector<std::string> split(const std::string &str, char delim) {
     std::size_t previous = 0;
     std::size_t current = str.find(delim);
     std::vector<std::string> elems;
@@ -115,13 +114,13 @@ std::vector<std::string> split(const std::string& str, char delim) {
 }
 
 // chat with the npc
-int Game::chat(string title, vector<string> content){
+int Game::chat(string title, vector<string> content) {
     int key_pressed;
     for (int i = 0; i < content.size(); i++) {
         // draw chat
         Window chat(1, 13, 66, 5, title, content[i], 1);
         this->screen.draw(&chat);
-        
+
         // draw tips
         Object tips = Object(3, 14, vector<string>(1, "Press <format front=blue >E</format>"));
         this->screen.draw(&tips);
@@ -130,16 +129,15 @@ int Game::chat(string title, vector<string> content){
         key_pressed = this->kb.wait_for({KEY_ENTER, 'e', 'E', 'q', 'Q'});
     }
     if (key_pressed == 'q' || key_pressed == 'Q') {
-            return 0;
-        }
-        else {
-            return 1;
+        return 0;
+    } else {
+        return 1;
     }
     return -1;
 }
 
 // fight with the enemy
-void Game::fight(string enemy_name){
+void Game::fight(string enemy_name) {
     // select pokemon
     vector<string> pokemon_names;
     for (int i = 0; i < this->state.pokemons.size(); i++) {
@@ -162,13 +160,12 @@ void Game::fight(string enemy_name){
         if (this->state.pokemons[pkm_index].HP <= 0) {
             show_notice("This pokemon is dead", {"OK"}, &this->kb, &this->screen);
             continue;
-        }
-        else {
+        } else {
             break;
         }
     }
     // get enemy
-    Pokemon* p1 = &this->state.pokemons[pkm_index];
+    Pokemon *p1 = &this->state.pokemons[pkm_index];
     Pokemon p2 = this->state.pokemon_element.at(enemy_name);
     Fight f(p1, &p2, &this->kb, &this->screen);
     cout << "Fight start" << endl;
@@ -202,20 +199,20 @@ void Game::update(int e) {
             }
         }
 
-        for (int i = 0; i < codes.size(); i+=2) {
+        for (int i = 0; i < codes.size(); i += 2) {
 
             // chat function
-            if (codes[i] == "chat"){
+            if (codes[i] == "chat") {
 
-                if (chat_map.find(codes[i+1]) != chat_map.end()) {
-                    this->chat(codes[i+1], chat_map.at(codes[i+1]));
+                if (chat_map.find(codes[i + 1]) != chat_map.end()) {
+                    this->chat(codes[i + 1], chat_map.at(codes[i + 1]));
                 };
             }
 
             // fight function
             if (codes[i] == "fight") {
                 if (codes.size() >= i) {
-                    this->fight(codes[i+1]);
+                    this->fight(codes[i + 1]);
                 }
             }
 
@@ -227,14 +224,12 @@ void Game::update(int e) {
                 }
                 return;
             }
-
-
         }
     }
 }
 
 // save game state and exit
-void Game::save_and_exit(){
+void Game::save_and_exit() {
     this->state.x = this->player.x;
     this->state.y = this->player.y;
     this->state.store("game_state.txt");
@@ -242,9 +237,9 @@ void Game::save_and_exit(){
     this->kb.stop();
     this->screen.clean();
     cout << "Bye!" << endl;
-    
+
     this->kb.stored_settings.c_lflag |= ECHO;
-    tcsetattr(0,TCSANOW,&this->kb.stored_settings);
+    tcsetattr(0, TCSANOW, &this->kb.stored_settings);
     printf("\033[?25h");
 }
 
@@ -279,10 +274,10 @@ void Game::main_loop() {
         this->player.y = 1;
     }
 
-    
+
     while (true) {
         this->draw();
-        
+
         vector<int> keys = {KEY_UP, KEY_DOWN, KEY_LEFT, KEY_RIGHT, KEY_ENTER, KEY_ESC, 'w', 'W', 's', 'S', 'a', 'A', 'd', 'D', 'e', 'E'};
         int k = this->kb.wait_for(keys);
         int result;
@@ -312,7 +307,6 @@ void Game::main_loop() {
         } else {
             this->E = 0;
         }
-        
     }
 
     this->save_and_exit();
