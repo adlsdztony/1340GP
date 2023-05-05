@@ -29,6 +29,7 @@
 [Zhou Zilong](https://github.com/adlsdztony)&ensp;&ensp;&ensp;&ensp;(3035962427)
 
 ## How to play 🤗
+[![asciicast](https://asciinema.org/a/582661.svg)](https://asciinema.org/a/582661)
 **Remember to zoom in the terminal window to get a better experience.**
 ```bash
 make
