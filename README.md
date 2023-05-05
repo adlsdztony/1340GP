@@ -30,8 +30,7 @@
 
 ## How to play 🤗
 ### Compile
-
-<a href="https://asciinema.org/a/582661?autoplay=1"><img src="https://asciinema.org/a/582661.svg" width="836"/></a>
+<script src="https://asciinema.org/a/582661.js" id="asciicast-582661" async data-autoplay="true" data-size="big"></script>
 
 [![asciicast](https://asciinema.org/a/582661.svg)](https://asciinema.org/a/582661)
 
