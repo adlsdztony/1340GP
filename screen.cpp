@@ -246,10 +246,27 @@ void get_terminal_size(int &width, int &height) {
     height = (int) (w.ws_row);
 }
 
+void Screen::set_pos() {
+    int w;
+    int h;
+    get_terminal_size(w, h); 
+
+    this->x_posi = (w - this->width)/2;
+    
+    this->y_posi = (h - this->height)/2;
+}
+
+void Screen::rearrange() {
+    Screen::set_pos();
+    Screen::clean();
+    Screen::refresh();
+}
+
 
 Screen::Screen(int width, int height) {
     this->width = width;
     this->height = height;
+    this->set_pos();
     this->buffer.resize(height);
     for (int i = 0; i < height; i++) {
         this->buffer[i].resize(width, ' ');
@@ -262,6 +279,12 @@ Screen::Screen(int width, int height) {
             this->format_map[i][j] = -1;
         }
     }
+    //auto sigwchandler = [=](int s) -> void { 
+    //    this->set_pos();
+    //    this->clean() ;
+    //    this->refresh();
+    //} ;
+    //signal(SIGWINCH, sigwchandler);
 }
 
 void Screen::clear() {
@@ -318,7 +341,7 @@ void Screen::refresh() {
 
     // update line by line
     for (int i = 0; i < this->height; i++) {
-        printf("\033[%d;1H", i + 1);
+        printf("\033[%d;%dH", i + 1 + this->y_posi, this->x_posi+1);
         printf("%s", temp[i].c_str());
     }
     cout << endl;

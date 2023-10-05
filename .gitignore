@@ -2,6 +2,7 @@
 *.gch
 *.o
 game
-test.*
+test*
 .nfs*
 game_state.txt
+tt

@@ -12,7 +12,7 @@
 #include "fight.h"
 #include <fstream>
 #include "startup_map.h"
-
+#include <sys/signal.h>
 // a class to store the state of the game
 // also provide functions to store and load the state
 class State
@@ -60,4 +60,5 @@ public:
     void save_and_exit();
     void fight(string enemy_name);
     int chat(string title, vector<string> content);
+    void init();
 };

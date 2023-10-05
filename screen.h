@@ -7,6 +7,9 @@
 #include <algorithm>
 #include <cstdio>
 #include <sys/ioctl.h>
+#include <termios.h>
+#include <unistd.h>
+#include <sys/types.h>
 
 // #include <map>
 using namespace std;
@@ -23,10 +26,13 @@ public:
     vector<Format> formats;
     vector<vector<int>> format_map;
     vector<string> current;
+    int x_posi;
+    int y_posi;
 
 public:
     Screen(){}; // default constructor
     Screen(int width, int height);
+    void set_pos();
     void clear();
     void refresh();
     void draw(int x, int y, char c);
@@ -40,4 +46,5 @@ public:
     void update();
     void insert_format(vector<string> &temp);
     void clean();
+    void rearrange(); 
 };

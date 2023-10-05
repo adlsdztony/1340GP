@@ -57,10 +57,13 @@ void State::load(string file_name) {
 
 // constructor of Game
 Game::Game() {
+}
+
+void Game::init() {
+    
     init_maps(this->maps_map);
     this->kb = Keyboard();
     this->kb.listen();
-    cout << "test main" << endl;
     this->state = State();
     this->state.load("game_state.txt");
     vector<string> playe = {
@@ -253,6 +256,7 @@ void Game::main_loop() {
     // check if game_state.txt is exit
     int c;
     ifstream f("game_state.txt");
+    this->screen.clean();
     if (f.good()) {
         c = show_notice("Welcome to Pokemon", {"New Game", "Continue"}, &this->kb, &this->screen);
     } else {
